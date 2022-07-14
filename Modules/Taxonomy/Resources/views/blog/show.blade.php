@@ -35,13 +35,15 @@
                         <div class="form-group">
 
                             <label for="exampleInputPassword1">Content AR</label>
-                            <textarea class="summernote" name="content-ar">{!!old('content-ar',$blog->translate('ar')->content )!!}</textarea>
+                            <textarea class="summernote"
+                                      name="content-ar">{!!old('content-ar',$blog->translate('ar')->content )!!}</textarea>
 
                         </div>
                         <div class="form-group">
 
                             <label for="exampleInputPassword2">Content EN</label>
-                            <textarea class="summernote" name="content-en">{!!old('content-en',$blog->translate('en')->content )!!}</textarea>
+                            <textarea class="summernote"
+                                      name="content-en">{!!old('content-en',$blog->translate('en')->content )!!}</textarea>
 
                         </div>
                         <div class="form-group mb-0">
@@ -61,7 +63,7 @@
                             <label class="">Primary Image</label>
                             <br>
                             <img id="image-filemanager" class="mb-1 mt-1"
-                                 src="{{old('primary-image',!is_null($blog->primary_image)?$blog->primary_image:'http://127.0.0.1:8000/storage/images/sales-for-last-7-days.png')}}"
+                                 src="{{old('primary-image',!is_null($blog->primary_image)?$blog->primary_image:asset('images/boxed-bg.jpg'))}}"
                                  width="100"
                                  data-toggle="modal"
                                  data-target=".bd-example-modal-lg">
@@ -136,8 +138,8 @@
             //         $(element).removeClass('is-invalid');
             //     }
             // });
-            $('#exampleCheck1').on('change',function (e) {
-                if( $('#exampleCheck1').is('checked',true))
+            $('#exampleCheck1').on('change', function (e) {
+                if ($('#exampleCheck1').is('checked', true))
                     $('#checked-box').html('<input type="hidden" name="status" value="1">')
                 else
                     $('#checked-box').html('<input type="hidden" name="status" value="0">')
