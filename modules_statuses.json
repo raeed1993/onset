@@ -1,0 +1,8 @@
+{
+    "Taxonomy": true,
+    "Auth": true,
+    "Media": true,
+    "Guest": true,
+    "Contact": true,
+    "Order": true
+}

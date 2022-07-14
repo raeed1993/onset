@@ -1,0 +1,113 @@
+.form-visual,.photography-form {
+    margin-top: 30px;
+    .btn {
+        font-weight: bold;
+        clip-path: polygon(
+                14% 0%,
+                100% 0,
+                100% 20%,
+                100% 84%,
+                88% 100%,
+                0 100%,
+                0% 80%,
+                0% 22%
+        );
+    }
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control, .form-select {
+    border-color: $dark;
+    &:focus {
+        border-color: $dark;
+        box-shadow: none;
+    }
+}
+
+.form-img {
+    position: relative;
+    cursor: pointer;
+    label {
+        height: 200px;
+        width: 100%;
+        cursor: pointer;
+        border: 2px solid #cecece;
+        background-color: #cecece;
+        clip-path: polygon(
+                14% 0%,
+                100% 0,
+                100% 20%,
+                100% 84%,
+                88% 100%,
+                0 100%,
+                0% 80%,
+                0% 22%
+        );
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .form-check-input {
+        width: 1em;
+        height: 1em;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        border: 2px solid #cecece;
+        z-index: 20;
+    }
+
+}
+
+.btn-radio-group {
+    display: flex;
+    .form-label {
+        display: block;
+    }
+    .btn-radio {
+        margin-left: 1.5rem;
+    }
+    .btn {
+        clip-path: none;
+        background-color: transparent;
+        width: 150px;
+        border: 2px solid #cecece;
+    }
+}
+
+.contact-us {
+    &::before {
+        background-image: url('/images/bgServices.jpg');
+        background-size: cover;
+    }
+    .page-title {
+        h4 {
+            background-color: transparent;
+            font-size: 3rem;
+            color: #000;
+        }
+    }
+}
+
+.contact-us-form {
+    background-color: #000;
+    input,textarea {
+        border-radius: 20px;
+        padding: 0.6rem 1rem;
+    }
+    .btn {
+        font-size: 1rem;
+        color: $white;
+        font-weight: bold;
+        padding: 0.5rem 3rem;
+        border-radius: 20px;
+    }
+    .captcha div {
+        margin: auto;
+    }
+}
