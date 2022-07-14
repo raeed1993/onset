@@ -28,6 +28,23 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
         );
     }
 
+    public function findSetting($id, array $with = [])
+    {
+        $data = $this->make($with)
+            ->settings()
+            ->where('id', $id);
+
+        $result = $this->applyBeforeExecuteQuery($data, true)->first();
+
+        if (!empty($result)) {
+            return $result;
+        }
+
+        throw (new ModelNotFoundException)->setModel(
+            get_class($this->originalModel), $id
+        );
+    }
+
     public function findBySlug($slug, array $with = [])
     {
         $data = $this->make($with)
@@ -56,6 +73,13 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
         return $this->applyBeforeExecuteQuery($data)->get();
     }
 
+    public function links(array $with = [])
+    {
+        $data = $this->make($with)->settings();
+
+        return $this->applyBeforeExecuteQuery($data)->get();
+    }
+
     public function store($data)
     {
         return null;
@@ -78,6 +102,19 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
                 $page->translateOrNew($key)->content = $data[$page->translate('en')->slug . '-content-' . $key];
             }
             $page->save();
+        }
+
+    }
+
+    public function update_social($data)
+    {
+        if (Cache::has('meta_social'))
+            Cache::forget('meta_social');
+        foreach ($data['ids'] as $id) {
+            $link = $this->findSetting($id);
+            $link->links = $data[$link->translate('en')->slug . '-links'];
+
+            $link->save();
         }
 
     }

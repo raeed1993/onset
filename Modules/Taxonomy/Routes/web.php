@@ -56,7 +56,9 @@ Route::group(
             Route::get('/meta/edit/{id}', [MetaController::class, 'edit'])->name('admin.meta.edit');
 
             Route::get('/website/pages', [PagesController::class, 'edit'])->name('admin.website.edit');
+            Route::get('/website/links', [PagesController::class, 'edit_links'])->name('admin.website.links-edit');
             Route::post('/website/pages/update', [PagesController::class, 'update'])->name('admin.website.update');
+            Route::post('/website/links/update', [PagesController::class, 'updateSocial'])->name('admin.website.links-update');
 
 
         });

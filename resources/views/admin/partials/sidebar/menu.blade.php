@@ -5,7 +5,7 @@
              height="100"
              width="100"
              style="opacity: .8">
-{{--        <span class="brand-text font-weight-light">{{ config('app.name', 'ONSET') }} </span>--}}
+        {{--        <span class="brand-text font-weight-light">{{ config('app.name', 'ONSET') }} </span>--}}
     </a>
 
 
@@ -22,14 +22,11 @@
                      with font-awesome or any other icon font library -->
 
 
-
-
-
                 <li class="nav-item">
                     <a href="{{route('home')}}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                           Dashboard
+                            Dashboard
                         </p>
                     </a>
                 </li>
@@ -56,31 +53,35 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.slider.index')}}" class="nav-link {{$url == route('admin.slider.index')?'active':''}}">
+                    <a href="{{route('admin.slider.index')}}"
+                       class="nav-link {{$url == route('admin.slider.index')?'active':''}}">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>
-                           Sliders
+                            Sliders
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.blog.index')}}" class="nav-link {{$url == route('admin.blog.index')||$url == route('admin.blog.create')||$url == route('admin.blog.edit',['id'=>$param])?'active':''}}">
+                    <a href="{{route('admin.blog.index')}}"
+                       class="nav-link {{$url == route('admin.blog.index')||$url == route('admin.blog.create')||$url == route('admin.blog.edit',['id'=>$param])?'active':''}}">
                         <i class="nav-icon fas fa-file"></i>
                         <p>
-                           Blogs
+                            Blogs
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.service.index')}}" class="nav-link {{$url == route('admin.service.index')||$url == route('admin.service.create')||$url == route('admin.service.edit',['id'=>$param])?'active':''}}">
+                    <a href="{{route('admin.service.index')}}"
+                       class="nav-link {{$url == route('admin.service.index')||$url == route('admin.service.create')||$url == route('admin.service.edit',['id'=>$param])?'active':''}}">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                           Services
+                            Services
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.project.index')}}" class="nav-link {{$url == route('admin.project.index')||$url == route('admin.project.create')||$url == route('admin.project.edit',['id'=>$param])?'active':''}}">
+                    <a href="{{route('admin.project.index')}}"
+                       class="nav-link {{$url == route('admin.project.index')||$url == route('admin.project.create')||$url == route('admin.project.edit',['id'=>$param])?'active':''}}">
                         <i class="nav-icon fa fa-project-diagram"></i>
                         <p>
                             Projects
@@ -88,26 +89,28 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.client.index')}}" class="nav-link {{$url == route('admin.client.index')||$url == route('admin.client.create')||$url == route('admin.client.edit',['id'=>$param])?'active':''}}">
+                    <a href="{{route('admin.client.index')}}"
+                       class="nav-link {{$url == route('admin.client.index')||$url == route('admin.client.create')||$url == route('admin.client.edit',['id'=>$param])?'active':''}}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                           Clients
+                            Clients
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item ">--}}
-{{--                    <a href="{{route('admin.meta.index')}}" class="nav-link {{$url == route('admin.meta.index')||$url == route('admin.meta.edit',0)?'active':''}}">--}}
-{{--                        <i class="nav-icon fas fa-location-arrow"></i>--}}
-{{--                        <p>--}}
-{{--                           Meta--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                {{--                <li class="nav-item ">--}}
+                {{--                    <a href="{{route('admin.meta.index')}}" class="nav-link {{$url == route('admin.meta.index')||$url == route('admin.meta.edit',0)?'active':''}}">--}}
+                {{--                        <i class="nav-icon fas fa-location-arrow"></i>--}}
+                {{--                        <p>--}}
+                {{--                           Meta--}}
+                {{--                        </p>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
                 <li class="mt-1 mb-1 p-0 w-100" style="border-bottom: 1px solid #4b545c;">
 
                 </li>
                 <li class="nav-item {{$url == route('admin.website.edit')?'menu-open':''}} ">
-                    <a href="#" class="nav-link {{$url == route('admin.website.edit')?'active':''}}">
+                    <a href="#"
+                       class="nav-link {{$url == route('admin.website.edit')||$url==route('admin.website.links-edit')?'active':''}}">
                         <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Website
@@ -117,13 +120,14 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="{{route('admin.website.edit')}}" class="nav-link  {{$url == route('admin.website.edit')?'active':''}}">
+                            <a href="{{route('admin.website.edit')}}"
+                               class="nav-link  {{$url == route('admin.website.edit')?'active':''}}">
 
                                 <p class="ml-3">- Pages</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link ">
+                            <a href="{{route('admin.website.links-edit')}}" class="nav-link {{$url == route('admin.website.links-edit')?'active':''}}">
 
                                 <p class="ml-3">- Social Links</p>
                             </a>

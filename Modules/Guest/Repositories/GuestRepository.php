@@ -54,6 +54,9 @@ class GuestRepository implements GuestInterface
         $pages = Cache::remember('meta_pages', 60 * 60, function () {
             return Taxonomy::meta()->active()->get();
         });
+        $links = Cache::remember('meta_social', 60 * 60, function () {
+            return Taxonomy::settings()->active()->get();
+        });
         return $pages;
     }
 

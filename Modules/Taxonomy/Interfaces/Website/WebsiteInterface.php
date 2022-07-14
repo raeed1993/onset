@@ -7,4 +7,5 @@ use Modules\Taxonomy\Interfaces\RepositoryInterface;
 interface WebsiteInterface extends RepositoryInterface
 {
     public function update_pages($data);
+    public function update_social($data);
 }

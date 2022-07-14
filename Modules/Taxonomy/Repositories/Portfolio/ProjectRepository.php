@@ -57,10 +57,9 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
         if (isset($data['images']))
             $project->images = $data['images'];
 
-        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
+        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key)
             $project->translateOrNew($key)->title = $data['title-' . $key];
 
-        }
 
         $project->save();
 

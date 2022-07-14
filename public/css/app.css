@@ -10517,7 +10517,7 @@ img, svg {
 }
 
 .active {
-  color: #F8310E;
+  color: #F8310E !important;
 }
 
 #header {
