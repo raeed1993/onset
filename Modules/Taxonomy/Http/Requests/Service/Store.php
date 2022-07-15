@@ -24,6 +24,7 @@ class Store extends FormRequest
             'title-ar' => ['required', 'string'],
             'title-en' => ['required', 'string'],
             'primary-image' => ['string'],
+            'background-image' => ['array'],
             'status' => ['nullable'],
             'services' => ['array', 'nullable'],
             'services.*.content-ar' => ['required', 'string'],

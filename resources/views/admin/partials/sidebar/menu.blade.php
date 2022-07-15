@@ -108,6 +108,18 @@
                 <li class="mt-1 mb-1 p-0 w-100" style="border-bottom: 1px solid #4b545c;">
 
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.media.index')}}"
+                       class="nav-link {{$url == route('admin.media.index')?'active':''}}">
+                        <i class="nav-icon fas fa-camera"></i>
+                        <p>
+                            Media
+                        </p>
+                    </a>
+                </li>
+                <li class="mt-1 mb-1 p-0 w-100" style="border-bottom: 1px solid #4b545c;">
+
+                </li>
                 <li class="nav-item {{$url == route('admin.website.edit')?'menu-open':''}} ">
                     <a href="#"
                        class="nav-link {{$url == route('admin.website.edit')||$url==route('admin.website.links-edit')?'active':''}}">
@@ -149,7 +161,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
+                    <a href="{{route('logout')}}" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             Logout

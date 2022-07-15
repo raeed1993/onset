@@ -9,7 +9,7 @@ class LayoutComposer
     public function compose($view)
     {
         $view->with([
-            'pages'=>GuestRepository::layout()
+            'links' => GuestRepository::layout()
         ]);
     }
 }

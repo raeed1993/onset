@@ -48,29 +48,9 @@
 
         </div>
         <div class="contact">
-            <ul>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-instagram"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-facebook-f"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-youtube"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="uil uil-linkedin-alt"></i>
-                    </a>
-                </li>
-            </ul>
+          @include('partials.social')
         </div>
+
         <div class="swiper-pagination"></div>
     </div>
 </section>

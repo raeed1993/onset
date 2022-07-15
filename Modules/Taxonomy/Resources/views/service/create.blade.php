@@ -15,7 +15,7 @@
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form id="quickForm" novalidate="novalidate" action="{{route('admin.service.store')}}" method="POST">
-                  @csrf
+                    @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title AR</label>
@@ -40,6 +40,18 @@
                                  src="{{old('primary-image',asset('images/boxed-bg.jpg'))}}"
                                  width="100">
                             <div class="image-show0"></div>
+
+                        </div>
+                        <div class="form-group  mb-1 mt-1">
+                            <label class="">Background Image</label>
+                            <br>
+                            <img id="background-image" onclick="togglemodalfilemanager(-1)"
+                                 data-value="0"
+                                 class="mb-1 mt-1"
+                                 src="{{old('background-image',asset('images/boxed-bg.jpg'))}}"
+                                 width="200"
+                                 height="100">
+                            <div class="background-image"></div>
 
                         </div>
 
@@ -104,49 +116,49 @@
 
 
         $(function () {
-        //     $.validator.setDefaults({
-        //         submitHandler: function () {
-        //             alert("Form successful submitted!");
-        //         }
-        //     });
-        //     $('#quickForm').validate({
-        //         rules: {
-        //             title: {
-        //                 required: true,
-        //             },
-        //             content: {
-        //                 required: true,
-        //                 minlength: 5
-        //             },
-        //             status: {
-        //                 required: true
-        //             },
-        //         },
-        //         messages: {
-        //             title: {
-        //                 required: "Please enter a title address",
-        //             },
-        //             content: {
-        //                 required: "Please provide a content",
-        //                 minlength: "Your password must be at least 5 characters long"
-        //             },
-        //             terms: "Please accept our terms"
-        //         },
-        //         errorElement: 'span',
-        //         errorPlacement: function (error, element) {
-        //             error.addClass('invalid-feedback');
-        //             element.closest('.form-group').append(error);
-        //         },
-        //         highlight: function (element, errorClass, validClass) {
-        //             $(element).addClass('is-invalid');
-        //         },
-        //         unhighlight: function (element, errorClass, validClass) {
-        //             $(element).removeClass('is-invalid');
-        //         }
-        //     });
-        //
-            $('#exampleCheck1').on('change',function (e) {
-                if( $('#exampleCheck1').is('checked',true))
+            //     $.validator.setDefaults({
+            //         submitHandler: function () {
+            //             alert("Form successful submitted!");
+            //         }
+            //     });
+            //     $('#quickForm').validate({
+            //         rules: {
+            //             title: {
+            //                 required: true,
+            //             },
+            //             content: {
+            //                 required: true,
+            //                 minlength: 5
+            //             },
+            //             status: {
+            //                 required: true
+            //             },
+            //         },
+            //         messages: {
+            //             title: {
+            //                 required: "Please enter a title address",
+            //             },
+            //             content: {
+            //                 required: "Please provide a content",
+            //                 minlength: "Your password must be at least 5 characters long"
+            //             },
+            //             terms: "Please accept our terms"
+            //         },
+            //         errorElement: 'span',
+            //         errorPlacement: function (error, element) {
+            //             error.addClass('invalid-feedback');
+            //             element.closest('.form-group').append(error);
+            //         },
+            //         highlight: function (element, errorClass, validClass) {
+            //             $(element).addClass('is-invalid');
+            //         },
+            //         unhighlight: function (element, errorClass, validClass) {
+            //             $(element).removeClass('is-invalid');
+            //         }
+            //     });
+            //
+            $('#exampleCheck1').on('change', function (e) {
+                if ($('#exampleCheck1').is('checked', true))
                     $('#checked-box').html('<input type="hidden" name="status" value="1">')
                 else
                     $('#checked-box').html('<input type="hidden" name="status" value="0">')
@@ -189,7 +201,7 @@
                         '   <div class="form-group  mb-1 mt-1">' +
                         ' <label class="">Primary Image</label>' +
                         '  <br>' +
-                        '<img id="image-filemanager' + i + '"data-value="' + i + '" onclick="togglemodalfilemanager(' + i + ')" class="mb-1 mt-1"src="{{old('primary-image','http://127.0.0.1:8000/storage/images/sales-for-last-7-days.png')}}"width="200" >' +
+                        '<img id="image-filemanager' + i + '"data-value="' + i + '" onclick="togglemodalfilemanager(' + i + ')" class="mb-1 mt-1"src="{{old('primary-image',asset('images/boxed-bg.jpg'))}}"width="200" height="100">' +
                         '  <div class="image-show' + i + '">' +
                         '</div>' +
                         '</div>' +
@@ -222,11 +234,18 @@
 
             fm.$store.commit('fm/setFileCallBack', function (fileUrl) {
 
-                $('#image-filemanager' + i).attr('src', fileUrl)
-                if (i == 0)
+
+                if (i == 0) {
+                    $('#image-filemanager' + i).attr('src', fileUrl)
                     $('.image-show' + i).html('<input type="hidden" name="primary-image" value="' + fileUrl + '">')
-                else
+                } else if (i == -1) {
+                    $('#background-image').attr('src', fileUrl)
+                    $('.background-image').append('<input type="hidden" name="background-image[]" value="' + fileUrl + '">')
+                } else {
+                    $('#image-filemanager' + i).attr('src', fileUrl)
                     $('.image-show' + i).append('<input type="hidden" name="services[' + i + '][primary-image]" value="' + fileUrl + '">')
+                }
+
                 $('.bd-example-modal-lg').modal('toggle')
                 window.opener.fmSetLink(fileUrl);
                 window.close();

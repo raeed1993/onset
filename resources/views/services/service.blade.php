@@ -4,7 +4,7 @@
 
     <section class="page-banner contact-us">
         <div class="img-banner">
-            <img src="{{$obj->primary_image}}" alt="">
+            <img src="{{$obj->images[0]}}" alt="">
         </div>
         <div class="container">
             <div class="content-service">

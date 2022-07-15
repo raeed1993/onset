@@ -45,7 +45,8 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
         $service = $this->findOrFail($data['taxonomy_id']);
         if (isset($data['primary-image']))
             $service->primary_image = $data['primary-image'];
-
+        if (isset($data['background-image']))
+            $service->images = $data['background-image'];
 
         $service->status = $data['status'];
 
@@ -81,6 +82,8 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
         $service = new Taxonomy();
         if (isset($data['primary-image']))
             $service->primary_image = $data['primary-image'];
+        if (isset($data['background-image']))
+            $service->images = $data['background-image'];
         $service->status = $data['status'];
         $service->type = Taxonomy::TYPE_SERVICE['no'];
 
@@ -92,6 +95,7 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
             foreach ($data['services'] as $item) {
                 $sub_service = new Taxonomy();
                 $sub_service->primary_image = $item['primary-image'];
+
                 $sub_service->status = 1;
                 $sub_service->parent_id = $service->id;
                 $sub_service->type = Taxonomy::TYPE_SERVICE['no'];

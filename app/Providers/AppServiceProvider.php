@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('admin.layout.master', AdminLayoutComposer::class);
         View::composer('layouts.app', LayoutComposer::class);
+        View::composer('pages.home', LayoutComposer::class);
         if (env('APP_ENV') === 'production') {
             URL::forceScheme('https');
         }

@@ -10,7 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+        Route::prefix('admin')->middleware(['auth'])->group(function () {
 
-Route::prefix('media')->group(function() {
-    Route::get('/', 'MediaController@index');
-});
+
+            Route::get('/media', [\Modules\Media\Http\Controllers\MediaController::class,'index'])->name('admin.media.index');
+        });
+    }
+);
