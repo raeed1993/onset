@@ -51,10 +51,15 @@
                         </a>
                         <ul
                             class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                        >
-                            <li><a class="dropdown-item" href="#">ar</a></li>
-                            <li><a class="dropdown-item" href="#">en</a></li>
+                            aria-labelledby="navbarDropdownMenuLink">
+                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li>   <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a></li>
+                            @endforeach
+{{--                            <li><a class="dropdown-item" href="#">ar</a></li>--}}
+{{--                            <li><a class="dropdown-item" href="#">en</a></li>--}}
                         </ul>
                     </li>
                 </ul>
@@ -76,13 +81,12 @@
             <i class="uil uil-multiply"></i>
         </div>
         <div class="mobile-nav-content">
-            <a href="#" class="nav-link">الرئيسية</a>
-            <a href="#" class="nav-link">خدماتنا</a>
-            <a href="#" class="nav-link">معرض الأعمال</a>
-            <a href="#" class="nav-link">المدونة</a>
-            <a href="#" class="nav-link">من نحن</a>
-            <a href="#" class="nav-link">المدونة</a>
-            <a href="#" class="nav-link">تواصل معنا</a>
+            <a href="{{route('home.page')}}" class="nav-link">الرئيسية</a>
+            <a href="{{route('services.page')}}" class="nav-link">خدماتنا</a>
+            <a href="{{route('projects.page')}}" class="nav-link">معرض الأعمال</a>
+            <a href="{{route('blogs.page')}}" class="nav-link">المدونة</a>
+            <a href="{{route('about.page')}}" class="nav-link">من نحن</a>
+            <a href="{{route('contact.page')}}" class="nav-link">تواصل معنا</a>
             <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -94,8 +98,14 @@
                 <i class="uil uil-globe"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">ar</a></li>
-                <li><a class="dropdown-item" href="#">en</a></li>
+                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li>   <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                              href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                        </a></li>
+                @endforeach
+{{--                <li><a class="dropdown-item" href="#">ar</a></li>--}}
+{{--                <li><a class="dropdown-item" href="#">en</a></li>--}}
             </ul>
         </div>
     </div>
