@@ -104,7 +104,9 @@ interface RepositoryInterface
      * @return mixed
      */
     public function create(array $data);
+
     public function store($data);
+
     /**
      * Create a new model.
      *

@@ -10,6 +10,7 @@ class AdminLayoutComposer
     {
         $view->with([
             'contactCount' => AdminContactRepository::adminComposerContactUnreadCount(),
+            'orderCount' => AdminContactRepository::adminComposerOrderUnreadCount(),
         ]);
     }
 }

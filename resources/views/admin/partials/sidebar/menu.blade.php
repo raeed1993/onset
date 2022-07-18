@@ -34,7 +34,8 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('home')}}" class="nav-link">
+                    <a href="{{route('admin.order.index')}}"
+                       class="nav-link  {{$url == route('admin.order.index')?'active':''}}">
                         <i class="nav-icon fas fa-shopping-basket"></i>
                         <p>
                             Orders
@@ -42,7 +43,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.contact.index')}}" class="nav-link">
+                    <a href="{{route('admin.contact.index')}}"
+                       class="nav-link  {{$url == route('admin.contact.index')?'active':''}}">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p>
                             Contact Us
@@ -139,7 +141,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.website.links-edit')}}" class="nav-link {{$url == route('admin.website.links-edit')?'active':''}}">
+                            <a href="{{route('admin.website.links-edit')}}"
+                               class="nav-link {{$url == route('admin.website.links-edit')?'active':''}}">
 
                                 <p class="ml-3">- Social Links</p>
                             </a>

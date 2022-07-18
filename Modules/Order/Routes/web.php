@@ -11,6 +11,24 @@
 |
 */
 
-Route::prefix('order')->group(function() {
-    Route::get('/', 'OrderController@index');
-});
+
+use Modules\Order\Http\Controllers\Admin\AdminOrderController;
+
+Route::post('/orders', [\Modules\Order\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+        Route::prefix('admin')->middleware(['auth'])->group(function () {
+            Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.order.index');
+
+            Route::get('/orders/show/{id}', [AdminOrderController::class, 'show'])->name('admin.order.show');
+            Route::post('/orders/delete', [AdminOrderController::class, 'delete'])->name('admin.order.delete');
+
+
+        });
+    }
+);
+

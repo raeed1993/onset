@@ -27,4 +27,7 @@ Route::group(
         Route::get('/about', [PagesController::class, 'aboutus'])->name('about.page');
         Route::get('/contact', [PagesController::class, 'contact'])->name('contact.page');
         Route::get('/{slug}', [PagesController::class, 'show'])->name('taxonomy.show');
+        Route::get('/order/visual-identity', [\Modules\Order\Http\Controllers\OrderController::class, 'visual_identity'])->name('order.id');
+        Route::get('/order/photography', [\Modules\Order\Http\Controllers\OrderController::class, 'photography'])->name('order.photography');
+
     });

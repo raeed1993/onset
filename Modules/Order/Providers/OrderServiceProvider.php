@@ -4,6 +4,11 @@ namespace Modules\Order\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Order\Entities\Order;
+use Modules\Order\Interfaces\Admin\AdminOrderInterface;
+use Modules\Order\Interfaces\OrderInterface;
+use Modules\Order\Repositories\Admin\AdminOrderRepository;
+use Modules\Order\Repositories\OrderRepository;
 
 class OrderServiceProvider extends ServiceProvider
 {
@@ -38,6 +43,14 @@ class OrderServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app->singleton(AdminOrderInterface::class, function ($app) {
+            return new AdminOrderRepository(new Order);
+        });
+        $this->app->singleton(OrderInterface::class, function ($app) {
+            return new OrderRepository(new Order);
+        });
+
     }
 
     /**
