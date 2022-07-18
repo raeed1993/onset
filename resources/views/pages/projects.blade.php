@@ -4,7 +4,7 @@
     <section class="page-banner contact-us">
         <div class="container">
             <div class="page-title">
-                <h1 >
+                <h1>
                     معرض الأعمال
                 </h1>
             </div>
@@ -17,16 +17,20 @@
             <div class="row">
                 @foreach($projects as $project)
                     <div class="col-sm-6 mb-3">
-                        <div class="content-business">
-                            <div class="content-business_img">
-                                <img src="{{$project->primary_image}}" alt=""/>
+                        <a href="{{route('taxonomy.show',$project->translate('en')->slug)}}"
+                           class="text-decoration-none">
+                            <div class="content-business">
+                                <div class="content-business_img">
+                                    <img src="{{$project->primary_image}}" alt="{{$project->translate('en')->title}}"/>
+                                </div>
+                                <h2>{{$project->title}}</h2>
                             </div>
-                            <h2>{{$project->title}}</h2>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
                 <div class="swiper-pagination"></div>
             </div>
+            @include('partials.request-order')
         </div>
     </section>
 
@@ -37,17 +41,21 @@
                 <div class="swiper-wrapper">
                     @foreach($projects as $project)
                         <div class="swiper-slide">
-                            <div class="content-business">
-                                <div class="content-business_img">
-                                    <img src="{{$project->primary_image}}" alt=""/>
+                            <a href="{{route('taxonomy.show',$project->translate('en')->slug)}}"
+                               class="text-decoration-none">
+                                <div class="content-business">
+                                    <div class="content-business_img">
+                                        <img src="{{$project->primary_image}}" alt=""/>
+                                    </div>
+                                    <h2>{{$project->title}}</h2>
                                 </div>
-                                <h2>{{$project->title}}</h2>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+            @include('partials.request-order')
         </div>
     </section>
 @endsection

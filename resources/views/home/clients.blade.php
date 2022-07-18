@@ -10,7 +10,7 @@
                         <div class="customer-content">
                             <h4>{{$client->content}}</h4>
                             <div class="customer-information">
-                                <img src="{{$client->primary_image}}" alt=""/>
+                                <img src="{{$client->primary_image}}" alt="{{$client->translate('en')->title}}"/>
                                 <div class="customer-information_content">
                                     <p>اسم العميل</p>
                                     <p>{{$client->title}}</p>

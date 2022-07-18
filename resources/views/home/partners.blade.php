@@ -8,7 +8,7 @@
                 @foreach($data['clients'] as $client)
                     <div class="swiper-slide">
                         <div class="partners-content">
-                            <img src="{{$client->primary_image}}" alt=""/>
+                            <img src="{{$client->primary_image}}" alt="{{$client->translate('en')->title}}"/>
                         </div>
                     </div>
                 @endforeach

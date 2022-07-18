@@ -18,6 +18,7 @@
                 @foreach($blogs as $blog)
 
                     <div class="col-md-6 col-lg-4 mb-4">
+                        <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
                         <div class="article-content">
                             <div class="article-content_img">
                                 <img src="{{$blog->primary_image}}" alt=""/>
@@ -26,10 +27,9 @@
                             <div class="text-white">
                                 {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
                             </div>
-                            <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}">
-                                تابع القراءة>>
-                            </a>
+                            @include('partials.continue-read')
                         </div>
+                        </a>
                     </div>
                 @endforeach
 

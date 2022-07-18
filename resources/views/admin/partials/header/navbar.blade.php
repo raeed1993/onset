@@ -10,6 +10,12 @@
     <!-- Right navbar links -->
 
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+            <a class="nav-link" href="{{route('home.page')}}" target="_blank" title="website">
+                <i class="fas fa-globe text-lg"></i>  Website
+            </a>
+
+        </li>
         @if ($orderCount->count()>0)
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">

@@ -19,7 +19,7 @@
                 {!! $obj->content !!}
             </h4>
             <div class="text-center">
-                <a href="" class="btn btn-primary btn-view">
+                <a href="#" class="btn btn-primary btn-view">
                     قراءة المزيد
                 </a>
             </div>
@@ -33,14 +33,16 @@
             <div class="row">
                 @foreach($blogs as $blog)
                     <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="article-content">
-                            <div class="article-content_img">
-                                <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}">
-                                    <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
-                                </a>
+                        <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
+                            <div class="article-content">
+                                <div class="article-content_img">
+                                    <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}">
+                                        <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
+                                    </a>
+                                </div>
+                                <h4>{{$blog->title}}</h4>
                             </div>
-                            <h4>{{$blog->title}}</h4>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
 

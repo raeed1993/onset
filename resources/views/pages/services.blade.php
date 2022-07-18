@@ -15,22 +15,23 @@
         <div class="container">
             <div class="row">
                 @foreach($services as $service)
-                    <div class="col-sm-6 mb-3 col-md-6">
-                        <div class="content-services" >
-                            {{--                            <i class="uil uil-video"></i>--}}
-                            <img src="{{$service->primary_image}}">
-                            <h3 class="text-lg">{{$service->title}}</h3>
+                    <a href="{{route('taxonomy.show',$service->translate('en')->slug)}}"
+                       class="text-black text-decoration-none">
+                        <div class="col-sm-6 mb-3 col-md-6">
+                            <div class="content-services">
+                                {{--                            <i class="uil uil-video"></i>--}}
+                                <img src="{{$service->primary_image}}">
+                                <h3 class="text-lg">{{$service->title}}</h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
                 @endforeach
 
 
             </div>
         </div>
-        <div class="text-center">
-            <a href="" class="btn btn-primary btn-view">طلب عرض</a>
-        </div>
+        @include('partials.request-order')
 
     </section>
     <section class="services-pages services-pages-mobile-section d-block d-sm-none  section-padding" id="services">
