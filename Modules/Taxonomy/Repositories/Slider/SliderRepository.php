@@ -76,6 +76,8 @@ class SliderRepository extends RepositoriesAbstract implements SliderInterface
                 foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
                     if (isset($item['title-' . $key]))
                         $slider->translateOrNew($key)->title = $item['title-' . $key];
+                    if (isset($item['label-' . $key]))
+                        $slider->translateOrNew($key)->content = $item['label-' . $key];
                 }
 
                 $slider->save();

@@ -23,7 +23,9 @@ class Update extends FormRequest
             'sliders' => ['array', 'required'],
             'sliders.*.link' => ['nullable', 'array'],
             'sliders.*.title-ar' => ['nullable', 'string'],
+            'sliders.*.label-ar' => ['nullable', 'string'],
             'sliders.*.title-en' => ['nullable', 'string'],
+            'sliders.*.label-en' => ['nullable', 'string'],
             'sliders.*.primary_image' => ['required', 'string'],
         ];
     }

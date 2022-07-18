@@ -35,6 +35,7 @@
                         <div class="row" id="contents-row">
 
                             @foreach($list as $index=>$sub)
+
                                 <div class="container" id="content-{{$index+1}}">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -55,7 +56,7 @@
                                                              data-value="{{$index+1}}"
                                                              onclick="togglemodalfilemanager({{$index+1}})"
                                                              class="mb-1 mt-1"
-                                                             src="{{old($sub['primary_image'],isset($sub['primary_image'])?$sub['primary_image']:'http://127.0.0.1:8000/storage/images/sales-for-last-7-days.png')}}"
+                                                             src="{{old($sub['primary_image'],isset($sub['primary_image'])?$sub['primary_image']:asset('images/boxed-bg.jpg'))}}"
                                                              width="200">
                                                         <div class="image-show{{$index+1}}">
                                                             <input type="hidden" value="{{$sub['primary_image']}}"
@@ -69,7 +70,7 @@
                                                         <label for="exampleInputPassword1">Title AR</label>
                                                         <input class="form-control"
                                                                name="sliders[{{$index+1}}][title-ar]"
-                                                               value="{{ isset($sub->title)?'': $sub->translate('ar')->title}}"/>
+                                                               value="{{ isset($sub->translate('ar')->title)? $sub->translate('ar')->title:''}}"/>
 
                                                     </div>
                                                 </div>
@@ -79,7 +80,7 @@
                                                         <label for="exampleInputPassword2">Title EN</label>
                                                         <input class="form-control"
                                                                name="sliders[{{$index+1}}][title-en]"
-                                                               value="{{  isset($sub->title)?'':$sub->translate('en')->title }}"/>
+                                                               value="{{  isset($sub->translate('en')->title)?$sub->translate('en')->title:'' }}"/>
 
                                                     </div>
                                                 </div>
@@ -90,6 +91,26 @@
                                                         <input class="form-control"
                                                                name="sliders[{{$index+1}}][link][]"
                                                                value="{{  is_null($sub->links)?'':$sub->links[0]}}"/>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+
+                                                        <label for="exampleInputPassword2">Label Link Ar</label>
+                                                        <input class="form-control"
+                                                               name="sliders[{{$index+1}}][label-ar]"
+                                                               value="{{   isset($sub->translate('ar')->content)?$sub->translate('ar')->content:'' }}"/>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+
+                                                        <label for="exampleInputPassword2">Label Link En</label>
+                                                        <input class="form-control"
+                                                               name="sliders[{{$index+1}}][label-en]"
+                                                               value="{{   isset($sub->translate('en')->content)?$sub->translate('en')->content:'' }}"/>
 
                                                     </div>
                                                 </div>
@@ -167,7 +188,7 @@
                 id: count
             });
             for (i = count; i < param + 1; i++)
-                $('#contents-row').append(
+                $('#contents-row').prepend(
                     ' <div class="container" id="content-' + i + '">' +
 
                     ' <div class="modal-content">' +
@@ -188,7 +209,7 @@
                     '<div class="form-group  mb-1 mt-1">' +
 
 
-                    '<img id="image-filemanager' + i + '"data-value="' + i + '" onclick="togglemodalfilemanager(' + i + ')" class="mb-1 mt-1"src="{{old('primary_image','http://127.0.0.1:8000/storage/images/sales-for-last-7-days.png')}}"width="200" >' +
+                    '<img id="image-filemanager' + i + '"data-value="' + i + '" onclick="togglemodalfilemanager(' + i + ')" class="mb-1 mt-1"src="{{old('primary_image',asset('images/boxed-bg.jpg'))}}"width="200" >' +
                     '<div class="image-show' + i + '">' +
                     '</div>' +
                     '</div>' +
@@ -215,6 +236,20 @@
                     '<div class="form-group">' +
                     '<label  for="exampleInputPassword1">Link</label>' +
                     '<input class="form-control" placeholder="#" name="sliders[' + i + '][link][]"/>' +
+                    '</div>' +
+                    '</div>' +
+
+                    '<div class="col-md-4">' +
+                    '<div class="form-group">' +
+                    '<label  for="exampleInputPassword1">Label Link Ar</label>' +
+                    '<input class="form-control" placeholder="..." name="sliders[' + i + '][label-ar]"/>' +
+                    '</div>' +
+                    '</div>' +
+
+                    '<div class="col-md-4">' +
+                    '<div class="form-group">' +
+                    '<label  for="exampleInputPassword1">Label Link En</label>' +
+                    '<input class="form-control" placeholder="..." name="sliders[' + i + '][label-en]"/>' +
                     '</div>' +
                     '</div>' +
 
