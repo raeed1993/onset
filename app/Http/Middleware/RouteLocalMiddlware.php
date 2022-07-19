@@ -20,7 +20,7 @@ class RouteLocalMiddlware
     {
 
         $segments = $request->segments();
-        session()->put('defaultCurrencyType', 'ar');
+        session()->put('defaultCurrencyType', 'en');
         session()->save();
         if (session()->has('locale')) {
             app()->setLocale(session('locale'));
