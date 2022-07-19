@@ -4,5 +4,6 @@
     "Media": true,
     "Guest": true,
     "Contact": true,
-    "Order": true
+    "Order": true,
+    "User": true
 }

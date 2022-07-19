@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+
 /**
  * @property int $id
  * @property string $name
@@ -46,4 +47,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addBlockGlobalScope();
+    }
+
+    public static function addBlockGlobalScope()
+    {
+        static::addGlobalScope('block', function ($query) {
+            $query->whereNull('email_verified_at');
+        });
+    }
+
+
+
 }

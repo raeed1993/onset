@@ -152,7 +152,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
+                    <a href="{{route('users.index')}}" class="nav-link {{$url == route('users.index')||$url == route('users.create')||$url == route('users.edit',['users'=>$param])?'active':''}}" >
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                             Users
