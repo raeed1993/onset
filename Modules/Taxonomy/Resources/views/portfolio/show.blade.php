@@ -81,7 +81,7 @@
                                     <br>
                                     <div id="images-filemanager-show">
                                         <img id="images-filemanager" class="m-1 "
-                                             src="http://127.0.0.1:8000/storage/images/sales-for-last-7-days.png"
+                                             src="{{asset('images/boxed-bg.jpg')}}"
                                              width="100">
                                         <br>
                                         <br>
