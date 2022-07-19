@@ -61,6 +61,10 @@ Route::group(
             Route::post('/website/links/update', [PagesController::class, 'updateSocial'])->name('admin.website.links-update');
 
 
+
+            Route::post('/taxonomy/toggle-status', [\Modules\Taxonomy\Http\Controllers\TaxonomyController::class, 'toggle_status'])->name('admin.taxonomy-toggle-status');
+
+
         });
     }
 );

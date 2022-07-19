@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
+use Modules\Taxonomy\Entities\Taxonomy;
 use Modules\Taxonomy\Interfaces\RepositoryInterface;
 
 abstract class RepositoriesAbstract implements RepositoryInterface
@@ -371,14 +373,14 @@ abstract class RepositoriesAbstract implements RepositoryInterface
     {
         $params = array_merge([
             'condition' => [],
-            'order_by'  => [],
-            'take'      => null,
-            'paginate'  => [
-                'per_page'      => null,
+            'order_by' => [],
+            'take' => null,
+            'paginate' => [
+                'per_page' => null,
                 'current_paged' => 1,
             ],
-            'select'    => ['*'],
-            'with'      => [],
+            'select' => ['*'],
+            'with' => [],
             'withCount' => [],
             'withAvg' => [],
         ], $params);
@@ -500,5 +502,24 @@ abstract class RepositoriesAbstract implements RepositoryInterface
         $this->resetModel();
 
         return $result;
+    }
+
+    public function toggleStatus($data)
+    {
+//        $this->clearCache();
+        $model = Taxonomy::find($data['taxonomy_id']);
+        $model->status = !$model->status;
+        $model->save();
+
+        return $model;
+    }
+
+    private function clearCache()
+    {
+        if (Cache::has('meta_pages'))
+            Cache::forget('meta_pages');
+        if (Cache::has('meta_social'))
+            Cache::forget('meta_social');
+
     }
 }

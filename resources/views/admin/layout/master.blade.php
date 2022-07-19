@@ -57,6 +57,11 @@
     <!-- Main Footer -->
     @include('admin.partials.footer.footer')
 </div>
+<div id="loading-show" >
+    <div id="text-overlay" style="display:none;">
+        ... جاري التحميل
+    </div>
+</div>
 <!-- ./wrapper -->
 @include('admin.partials.footer.js')
 </body>

@@ -20,7 +20,9 @@
             <td>{{  $item->translate('ar')->title}}</td>
             <td>{{  $item->translate('en')->title}}</td>
             <td><input type="checkbox" name="my-checkbox"
-                       {{  $item->status?'checked':''}}  data-bootstrap-switch
+                       {{  $item->status?'checked':''}}
+                       onchange="toggle_status({{ $item->id }})"
+                       data-bootstrap-switch
                        data-off-color="danger" data-on-color="success"></td>
             <td>
                 <div class="row">

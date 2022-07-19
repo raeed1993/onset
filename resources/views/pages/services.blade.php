@@ -33,7 +33,13 @@
 
             </div>
         </div>
-        @include('partials.request-order')
+        <div class="text-center">
+            <a href="{{route('contact.page')}}" class="btn btn-primary btn-view">
+                <b>
+                    تواصل معنا
+                </b>
+            </a>
+        </div>
 
     </section>
     <section class="services-pages services-pages-mobile-section d-block d-sm-none  section-padding" id="services">
@@ -55,8 +61,13 @@
                 <div class="swiper-pagination"></div>
             </div>
             <div class="text-center">
-                <a href="" class="btn btn-primary btn-view">طلب عرض</a>
+                <a href="{{route('contact.page')}}" class="btn btn-primary btn-view">
+                    <b>
+                        تواصل معنا
+                    </b>
+                </a>
             </div>
+
         </div>
     </section>
 @endsection

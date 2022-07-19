@@ -7,6 +7,9 @@ use App\Composer\LayoutComposer;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Modules\Taxonomy\Entities\Taxonomy;
+use Modules\Taxonomy\Interfaces\RepositoryInterface;
+use Modules\Taxonomy\Repositories\Client\ClientRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +36,10 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') === 'production') {
             URL::forceScheme('https');
         }
+
+        $this->app->singleton(RepositoryInterface::class, function ($app) {
+            return new ClientRepository(new Taxonomy);
+        });
+
     }
 }

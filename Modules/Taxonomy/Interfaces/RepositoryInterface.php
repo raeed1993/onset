@@ -208,5 +208,5 @@ interface RepositoryInterface
      */
     public function firstOrNew(array $condition);
 
-
+    public function toggleStatus($data);
 }

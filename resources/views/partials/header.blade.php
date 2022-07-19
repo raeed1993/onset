@@ -1,11 +1,11 @@
-<div id="page_overlay" class="overlay-body" style="display: none;"></div>
+<div id="page_overlay" class="overlay-body d-none" ></div>
 
 
 <header id="header" class="d-none d-lg-block header-contact" >
     <div class="container">
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="#">
-                <img src="{{asset('images/logo.png')}}" alt="" />
+            <a class="navbar-brand" href="{{route('home.page')}}">
+                <img src="{{asset('images/logo.png')}}" alt="onset logo" />
             </a>
             <button
                 class="navbar-toggler"
@@ -14,8 +14,7 @@
                 data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown"
                 aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -58,8 +57,7 @@
                                     {{ $properties['native'] }}
                                 </a></li>
                             @endforeach
-{{--                            <li><a class="dropdown-item" href="#">ar</a></li>--}}
-{{--                            <li><a class="dropdown-item" href="#">en</a></li>--}}
+
                         </ul>
                     </li>
                 </ul>
@@ -69,8 +67,8 @@
 </header>
 <header id="header" class="header-contact d-lg-none">
     <nav class="navbar mobile-header">
-        <a class="navbar-brand" href="#">
-            <img src="{{asset('/images/logo.png')}}" alt="logo" />
+        <a class="navbar-brand" href="{{route('home.page')}}">
+            <img src="{{asset('/images/logo.png')}}" alt="onset logo" />
         </a>
         <a id="mobile_nav_toggler" class="btn">
             <i class="uil uil-bars"></i>
@@ -81,12 +79,12 @@
             <i class="uil uil-multiply"></i>
         </div>
         <div class="mobile-nav-content">
-            <a href="{{route('home.page')}}" class="nav-link">الرئيسية</a>
-            <a href="{{route('services.page')}}" class="nav-link">خدماتنا</a>
-            <a href="{{route('projects.page')}}" class="nav-link">معرض الأعمال</a>
-            <a href="{{route('blogs.page')}}" class="nav-link">المدونة</a>
-            <a href="{{route('about.page')}}" class="nav-link">من نحن</a>
-            <a href="{{route('contact.page')}}" class="nav-link">تواصل معنا</a>
+            <a href="{{route('home.page')}}" class="nav-link {{$url==route('home.page')?'active':''}}">الرئيسية</a>
+            <a href="{{route('services.page')}}" class="nav-link {{$url==route('services.page')?'active':''}}">خدماتنا</a>
+            <a href="{{route('projects.page')}}" class="nav-link {{$url==route('projects.page')?'active':''}}">معرض الأعمال</a>
+            <a href="{{route('blogs.page')}}" class="nav-link {{$url==route('blogs.page')?'active':''}}">المدونة</a>
+            <a href="{{route('about.page')}}" class="nav-link {{$url==route('about.page')?'active':''}}">من نحن</a>
+            <a href="{{route('contact.page')}}" class="nav-link {{$url==route('contact.page')?'active':''}}">تواصل معنا</a>
             <a
                 class="nav-link dropdown-toggle"
                 href="#"

@@ -4,6 +4,7 @@ namespace Modules\Taxonomy\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Modules\Taxonomy\Http\Requests\Service\Id;
 use Modules\Taxonomy\Http\Requests\Website\Pages\Update;
 use Modules\Taxonomy\Interfaces\Website\WebsiteInterface;
 
@@ -14,7 +15,8 @@ class PagesController extends Controller
         $data = $interface->all();
         return view('taxonomy::setting.pages', compact('data'));
     }
-   public function edit_links(WebsiteInterface $interface)
+
+    public function edit_links(WebsiteInterface $interface)
     {
         $data = $interface->links();
         return view('taxonomy::setting.links', compact('data'));
@@ -36,6 +38,7 @@ class PagesController extends Controller
 
 
     }
+
     public function updateSocial(\Modules\Taxonomy\Http\Requests\Website\Links\Update $request, WebsiteInterface $interface)
     {
         try {
@@ -52,4 +55,6 @@ class PagesController extends Controller
 
 
     }
+
+
 }

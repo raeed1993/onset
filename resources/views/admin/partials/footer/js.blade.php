@@ -23,9 +23,64 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/dist/js/pages/dashboard2.js')}}"></script>
 <script src="{{asset('admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}"></script>
+<script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"></script>
 <script>
     $("input[data-bootstrap-switch]").each(function(){
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     })
+</script>
+<script>
+    function toggle_status(id) {
+        $.ajax({
+            method: "POST",
+            url: "{{ route('admin.taxonomy-toggle-status') }}",
+            data: {
+                taxonomy_id: id
+            },
+            success: function (one, two, three) {
+                toastr.success('تم التعديل بنجاح')
+            }
+        });
+    }
+
+    {{--function toggle_status_customer(id) {--}}
+    {{--    $.ajax({--}}
+    {{--        method: "POST",--}}
+    {{--        url: "{{ route('toggle-status-customer') }}",--}}
+    {{--        data: {--}}
+    {{--            customer_id: id--}}
+    {{--        },--}}
+    {{--        success: function (one, two, three) {--}}
+
+    {{--            toastr.success('تم التعديل بنجاح')--}}
+    {{--        }--}}
+    {{--    });--}}
+    {{--}--}}
+
+    $.ajaxSetup({
+        headers:
+            {'X-CSRF-TOKEN': '{{csrf_token()}}'},
+        beforeSend: function () {
+            $("#loading-show").addClass('modal-backdrop show');
+            $("#text-overlay").fadeIn()
+            $("#text-overlay").css({
+                'position': 'absolute',
+                'top': '50%',
+                'left': '50%',
+                'font-size': '50px',
+                'color': 'white',
+                'transform': ' translate(-50%, -50%)',
+                '-ms-transform': 'translate(-50%, -50%)'
+            });
+        },
+        complete: function (xhr, stat) {
+
+            $("#loading-show").removeClass('modal-backdrop show');
+            $("#text-overlay").fadeOut()
+            $("#loading-show").addClass('fade');
+        }
+    });
+
+
 </script>
 @stack('js')
