@@ -35,7 +35,7 @@ var swiper = new Swiper(".swiper-services", {
   },
   breakpoints: {
     640: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 20
     },
     768: {
