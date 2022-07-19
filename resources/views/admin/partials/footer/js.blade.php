@@ -28,20 +28,22 @@
     $("input[data-bootstrap-switch]").each(function(){
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     })
-</script>
-<script>
-    function toggle_status(id) {
+    $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state)
+    {
         $.ajax({
             method: "POST",
             url: "{{ route('admin.taxonomy-toggle-status') }}",
             data: {
-                taxonomy_id: id
+                taxonomy_id: event.target.value
             },
             success: function (one, two, three) {
                 toastr.success('تم التعديل بنجاح')
             }
         });
-    }
+    });
+</script>
+<script>
+
 
     {{--function toggle_status_customer(id) {--}}
     {{--    $.ajax({--}}

@@ -1,4 +1,3 @@
-
 <table class="table table-hover">
     <thead>
     <tr>
@@ -19,23 +18,28 @@
             <td><img src="{{  $item->primary_image}}" width="50"></td>
             <td>{{  $item->translate('ar')->title}}</td>
             <td>{{  $item->translate('en')->title}}</td>
-            <td><input type="checkbox" name="my-checkbox"
-                       {{  $item->status?'checked':''}}
-                       onchange="toggle_status({{ $item->id }})"
+            <td>
+                <input type="checkbox"
+                       name="my-checkbox"
                        data-bootstrap-switch
-                       data-off-color="danger" data-on-color="success"></td>
+                       {{  $item->status?'checked':''}}
+                       value="{{$item->id}}"
+                       data-off-color="danger"
+                       data-on-color="success">
+            </td>
             <td>
                 <div class="row">
 
-                        <div class="col-6">
-                            <a href="{{route('admin.'.$route_name.'.edit',$item->id)}}"class="btn btn-outline-primary" >
-                                Edit
-                            </a>
-                        </div>
+                    <div class="col-6">
+                        <a href="{{route('admin.'.$route_name.'.edit',$item->id)}}" class="btn btn-outline-primary">
+                            Edit
+                        </a>
+                    </div>
 
                     <div class="col-6">
-                        <button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal{{$item->id}}">
-                          Delete
+                        <button class="btn btn-outline-danger" data-toggle="modal"
+                                data-target="#exampleModal{{$item->id}}">
+                            Delete
                         </button>
                     </div>
 
