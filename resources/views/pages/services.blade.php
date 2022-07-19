@@ -15,16 +15,18 @@
         <div class="container">
             <div class="row">
                 @foreach($services as $service)
-                    <a href="{{route('taxonomy.show',$service->translate('en')->slug)}}"
-                       class="text-black text-decoration-none">
-                        <div class="col-sm-6 mb-3 col-md-6">
+
+                    <div class="col-sm-6 mb-3 col-md-6">
+                        <a href="{{route('taxonomy.show',$service->translate('en')->slug)}}"
+                           class="text-black text-decoration-none">
                             <div class="content-services">
                                 {{--                            <i class="uil uil-video"></i>--}}
-                                <img src="{{$service->primary_image}}">
+                                <img src="{{$service->primary_image}}" alt="{{$service->translate('en')->title}}">
                                 <h3 class="text-lg">{{$service->title}}</h3>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+
 
                 @endforeach
 
@@ -43,7 +45,8 @@
                         <div class="swiper-slide">
                             <div class="services-pages-mobile-section">
                                 {{--                            <i class="uil uil-video"></i>--}}
-                                <img src="{{$service->primary_image}}" height="100" width="100">
+                                <img src="{{$service->primary_image}}" alt="{{$service->translate('en')->title}}"
+                                     height="100" width="100">
                                 <p>{{$service->title}}</p>
                             </div>
                         </div>
