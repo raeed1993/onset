@@ -45,7 +45,7 @@
                                class="text-decoration-none">
                                 <div class="content-business">
                                     <div class="content-business_img">
-                                        <img src="{{$project->primary_image}}" alt=""/>
+                                        <img src="{{$project->primary_image}}" alt="{{$project->translate('en')->title}}"/>
                                     </div>
                                     <h2>{{$project->title}}</h2>
                                 </div>
