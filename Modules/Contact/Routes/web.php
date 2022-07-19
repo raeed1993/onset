@@ -27,6 +27,7 @@ Route::group(
             Route::get('/contacts/show/{id}', [AdminContactController::class, 'edit'])->name('admin.contact.show');
             Route::post('/contacts/delete', [AdminContactController::class, 'delete'])->name('admin.contact.delete');
 
+            Route::post('/contact/toggle-status', [AdminContactController::class, 'toggle_status'])->name('admin.contact-toggle-status');
 
         });
     }

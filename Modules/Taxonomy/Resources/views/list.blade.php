@@ -13,13 +13,13 @@
                 </div>
 
                 <!-- ./card-header -->
-                    <div class="card-body">
-                        @if (isset($list)&&count($list)>0)
+                <div class="card-body">
+                    @if (isset($list)&&count($list)>0)
                         @include('admin.partials.table.table',['list'=>$list,'route_name'=>$route_name])
-                        @else
-                            <div>There Is No {{$table_name}} Yet.</div>
-                        @endif
-                    </div>
+                    @else
+                        <div>There Is No {{$table_name}} Yet.</div>
+                    @endif
+                </div>
 
                 <!-- /.card-body -->
 
@@ -31,3 +31,21 @@
 
 
 @endsection
+@push('js')
+
+    <script>
+        $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+            $.ajax({
+                method: "POST",
+                url: "{{ route('admin.taxonomy-toggle-status') }}",
+                data: {
+                    taxonomy_id: event.target.value
+                },
+                success: function (one, two, three) {
+                    toastr.success('تم التعديل بنجاح')
+                }
+            });
+        });
+
+    </script>
+@endpush

@@ -27,6 +27,7 @@ Route::group(
             Route::get('/orders/show/{id}', [AdminOrderController::class, 'show'])->name('admin.order.show');
             Route::post('/orders/delete', [AdminOrderController::class, 'delete'])->name('admin.order.delete');
 
+            Route::post('/order/toggle-status', [AdminOrderController::class, 'toggle_status'])->name('admin.order-toggle-status');
 
         });
     }

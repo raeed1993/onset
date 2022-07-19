@@ -42,8 +42,11 @@
                                     <td>{{  $item->type =='visual_identity'?'هوية بصرية':'عرض تصوير'}}</td>
                                     <td>
                                         <input type="checkbox" name="my-checkbox"
-                                               {{  !is_null($item->read_at)?'checked':''}}  data-bootstrap-switch
-                                               data-off-color="danger" data-on-color="success">
+                                               {{  !is_null($item->read_at)?'checked':''}}
+                                               data-bootstrap-switch
+                                               value="{{$item->id}}"
+                                               data-off-color="danger"
+                                               data-on-color="success">
                                     </td>
                                     <td>
                                         <div class="row">
@@ -123,3 +126,21 @@
 
 
 @endsection
+@push('js')
+
+    <script>
+        $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+            $.ajax({
+                method: "POST",
+                url: "{{ route('admin.order-toggle-status') }}",
+                data: {
+                    taxonomy_id: event.target.value
+                },
+                success: function (one, two, three) {
+                    toastr.success('تم التعديل بنجاح')
+                }
+            });
+        });
+
+    </script>
+@endpush

@@ -2,6 +2,7 @@
 
 namespace Modules\Contact\Repositories\Admin;
 
+use Carbon\Carbon;
 use Modules\Contact\Entities\Contact;
 use Modules\Contact\Interfaces\Admin\AdminContactInterface;
 use Modules\Order\Entities\Order;
@@ -13,6 +14,7 @@ class AdminContactRepository extends RepositoriesAbstract implements AdminContac
     {
         return Contact::where('read_at', null)->get();
     }
+
     public static function adminComposerOrderUnreadCount()
     {
         return Order::where('read_at', null)->get();
@@ -26,5 +28,14 @@ class AdminContactRepository extends RepositoriesAbstract implements AdminContac
     public function updateModel(array $data)
     {
         return null;
+    }
+
+    public function toggleStatus($data)
+    {
+        $model = Contact::find($data['taxonomy_id']);
+        $model->read_at = Carbon::now();
+        $model->save();
+
+        return $model;
     }
 }

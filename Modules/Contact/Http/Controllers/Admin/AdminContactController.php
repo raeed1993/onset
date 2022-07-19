@@ -39,4 +39,11 @@ class AdminContactController extends Controller
         }
 
     }
+
+    public function toggle_status(Id $request, AdminContactInterface $interface)
+    {
+        return response()->json([
+            'data' => $interface->toggleStatus($request->validated())
+        ]);
+    }
 }

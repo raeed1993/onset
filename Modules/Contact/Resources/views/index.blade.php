@@ -41,34 +41,41 @@
                                     <td>{{  $item->phone_number}}</td>
                                     <td>
                                         <input type="checkbox" name="my-checkbox"
-                                               {{  !is_null($item->read_at)?'checked':''}}  data-bootstrap-switch
-                                               data-off-color="danger" data-on-color="success" >
+                                               {{  !is_null($item->read_at)?'checked':''}}
+                                               value="{{$item->id}}"
+                                               data-bootstrap-switch
+                                               data-off-color="danger"
+                                               data-on-color="success">
                                     </td>
                                     <td>
                                         <div class="row">
 
                                             <div class="col-6">
                                                 <a href="{{route('admin.'.$route_name.'.show',$item->id)}}"
-                                                   class="btn btn-outline-primary" >
+                                                   class="btn btn-outline-primary">
                                                     Show
                                                 </a>
                                             </div>
 
                                             <div class="col-6">
-                                                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal{{$item->id}}">
+                                                <button class="btn btn-outline-danger" data-toggle="modal"
+                                                        data-target="#exampleModal{{$item->id}}">
                                                     Delete
                                                 </button>
                                             </div>
 
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog"
+                                            <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1"
+                                                 role="dialog"
                                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Delete
+                                                                Confirmation</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
@@ -77,11 +84,16 @@
                                                             Are You Sure You Wont Delete {{$item->name}}?
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <form action="{{route('admin.'.$route_name.'.delete')}}" method="POST">
-                                                                <input type="hidden" value="{{$item->id}}" name="taxonomy_id">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <form action="{{route('admin.'.$route_name.'.delete')}}"
+                                                                  method="POST">
+                                                                <input type="hidden" value="{{$item->id}}"
+                                                                       name="taxonomy_id">
                                                                 @csrf
-                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                                <button type="submit" class="btn btn-danger">Delete
+                                                                </button>
                                                             </form>
 
                                                         </div>
@@ -113,3 +125,21 @@
 
 
 @endsection
+@push('js')
+
+    <script>
+        $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+            $.ajax({
+                method: "POST",
+                url: "{{ route('admin.contact-toggle-status') }}",
+                data: {
+                    taxonomy_id: event.target.value
+                },
+                success: function (one, two, three) {
+                    toastr.success('تم التعديل بنجاح')
+                }
+            });
+        });
+
+    </script>
+@endpush

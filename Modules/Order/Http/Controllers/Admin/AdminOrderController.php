@@ -39,4 +39,11 @@ class AdminOrderController extends Controller
         }
 
     }
+
+    public function toggle_status(Id $request, AdminOrderInterface $interface)
+    {
+        return response()->json([
+            'data' => $interface->toggleStatus($request->validated())
+        ]);
+    }
 }
