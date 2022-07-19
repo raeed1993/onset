@@ -17,7 +17,8 @@ use Modules\Guest\Http\Controllers\PagesController;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+//        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+        'middleware' => ['removeLang']
     ],
     function () {
         Route::get('/', [PagesController::class, 'homePage'])->name('home.page');

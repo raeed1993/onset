@@ -17,14 +17,14 @@
                         @foreach($links as $link)
                             @if ($link->translate('en')->slug == 'phone')
                                 <li>
-                                    <a href="{{$link->links[0]}}">
+                                    <a href="tel:{{$link->links[0]}}">
                                         <p>{{$link->links[0]}}</p>
                                         <i class="uil uil-phone"></i>
                                     </a>
                                 </li>
                             @elseif($link->translate('en')->slug == 'email')
                                 <li>
-                                    <a href="{{$link->links[0]}}">
+                                    <a href="mailto:{{$link->links[0]}}">
                                         {{$link->links[0]}}
                                         <i class="uil uil-envelope-alt"></i>
                                     </a>
