@@ -48,16 +48,18 @@
             <div class="swiper swiper-services">
                 <div class="swiper-wrapper">
                     @foreach($services as $service)
-                        <a href="{{route('taxonomy.show',$service->translate('en')->slug)}}"
-                           class="text-black text-decoration-none">
+
                             <div class="swiper-slide">
+                                <a href="{{route('taxonomy.show',$service->translate('en')->slug)}}"
+                                   class="text-black text-decoration-none">
                                 <div class="services-pages-mobile-section">
                                     {{--                            <i class="uil uil-video"></i>--}}
                                     <img src="{{$service->primary_image}}" alt="{{$service->translate('en')->title}}">
                                     <p>{{$service->title}}</p>
                                 </div>
+                                </a>
                             </div>
-                        </a>
+
                     @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
