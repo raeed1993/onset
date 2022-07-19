@@ -10322,6 +10322,10 @@ body {
   display: none;
 }
 
+.line-height-initial {
+  line-height: initial !important;
+}
+
 .overlay {
   height: 100%;
 }

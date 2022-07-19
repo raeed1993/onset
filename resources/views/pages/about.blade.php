@@ -19,7 +19,7 @@
 
             <div class="row">
                 <div class="col-md-6 col-lg-6 mt-auto mb-auto">
-                    <h2 class="text-lg text-white ">
+                    <h2 class=" text-white line-height-initial">
                         {{$about->title}}
                     </h2>
                 </div>
@@ -37,7 +37,7 @@
                          alt="{{$about->translate('en')->slug}}">
                 </div>
                 <div class="col-md-6 col-lg-6 mt-auto mb-auto">
-                    <h2 class="text-lg text-white ">
+                    <h2 class=" text-white line-height-initial">
                         {{$about->content}}
                     </h2>
                 </div>
