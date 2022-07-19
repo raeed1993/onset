@@ -51,8 +51,7 @@
                         <div class="swiper-slide">
                             <div class="services-pages-mobile-section">
                                 {{--                            <i class="uil uil-video"></i>--}}
-                                <img src="{{$service->primary_image}}" alt="{{$service->translate('en')->title}}"
-                                     height="100" width="100">
+                                <img src="{{$service->primary_image}}" alt="{{$service->translate('en')->title}}">
                                 <p>{{$service->title}}</p>
                             </div>
                         </div>
