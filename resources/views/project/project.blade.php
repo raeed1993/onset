@@ -3,7 +3,7 @@
 @section('content')
     <section class="page-banner contact-us">
         <div class="img-banner">
-            <img src="{{$obj->primary_image}}" alt="">
+            <img src="{{$obj->primary_image}}" alt="  {{$obj->title}}">
         </div>
         <div class="container">
             <div class="page-title">
