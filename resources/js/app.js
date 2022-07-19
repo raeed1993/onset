@@ -18,7 +18,7 @@ var swiper = new Swiper(".swiper-header", {
 
 var swiper = new Swiper(".swiper-services", {
     slidesPerView: 1,
-    spaceBetween: 30,
+    spaceBetween: 50,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -26,7 +26,7 @@ var swiper = new Swiper(".swiper-services", {
     breakpoints: {
         576: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 50,
         },
         640: {
             slidesPerView: 2,

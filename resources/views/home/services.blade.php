@@ -10,7 +10,7 @@
                         <a href="{{route('taxonomy.show',$service->translate('en')->slug)}}" class="text-black text-decoration-none">
                             <div class="content-services">
                                 {{--                            <i class="uil uil-video"></i>--}}
-                                <img src="{{$service->primary_image}}" height="100" width="100">
+                                <img src="{{$service->primary_image}}" alt="{{$service->title}}">
                                 <p>{{$service->title}}</p>
                             </div>
                         </a>
