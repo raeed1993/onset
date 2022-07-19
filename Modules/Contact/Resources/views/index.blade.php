@@ -40,12 +40,23 @@
                                     <td>{{  $item->name}}</td>
                                     <td>{{  $item->phone_number}}</td>
                                     <td>
-                                        <input type="checkbox" name="my-checkbox"
-                                               {{  !is_null($item->read_at)?'checked':''}}
-                                               value="{{$item->id}}"
-                                               data-bootstrap-switch
-                                               data-off-color="danger"
-                                               data-on-color="success">
+                                        @if (is_null($item->read_at))
+                                            <input type="checkbox" name="my-checkbox"
+                                                   {{  !is_null($item->read_at)?'checked':''}}
+                                                   data-bootstrap-switch
+                                                   value="{{$item->id}}"
+                                                   data-off-color="danger"
+                                                   data-on-color="success">
+                                        @else
+                                            <input type="checkbox" name="my-checkbox"
+                                                   disabled
+                                                   {{  !is_null($item->read_at)?'checked':''}}
+                                                   data-bootstrap-switch
+                                                   value="{{$item->id}}"
+                                                   data-off-color="danger"
+                                                   data-on-color="success">
+                                        @endif
+
                                     </td>
                                     <td>
                                         <div class="row">
