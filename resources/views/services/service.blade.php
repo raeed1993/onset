@@ -75,7 +75,7 @@
                 @foreach($projects as $child)
 
 
-                    @if (isset($child->links))
+                    @if (isset($child->links)&&count($child->links)>0)
                         <div class="col-sm-6 col-md-3 col-lg-3 ">
                             <div class="content-business">
                                 <div class=" video-normal-show ">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
 
-                    @elseif(isset($child->images))
+                    @elseif(isset($child->images)&&count($child->images)>0)
 
                         <div class="col-sm-6 col-md-3 col-lg-3 ">
                             <div class="content-business">
@@ -104,7 +104,7 @@
                 @endforeach
             </div>
             <div class="text-center">
-                <a href="" class="btn btn-primary btn-view">
+                <a href="{{route('taxonomy.show',$projects[0]->translate('en')->slug)}}" class="btn btn-primary btn-view">
                     مشاهدة جيمع الأعمال
                 </a>
             </div>
