@@ -40,7 +40,7 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
     public function services()
     {
         $data = $this->make([])->services()->active();
-        return $this->applyBeforeExecuteQuery($data)->get()->pluck('title','id');
+        return $this->applyBeforeExecuteQuery($data)->get()->pluck('title', 'id');
     }
 
     public function store($data)
@@ -75,9 +75,11 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
             $project->primary_image = $data['primary-image'];
         if (isset($data['links']))
             $project->links = $data['links'];
+        else $project->links = [];
 
         if (isset($data['images']))
             $project->images = $data['images'];
+        else $project->images = [];
 
 
         $project->parent_id = $data['service_id'];

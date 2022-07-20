@@ -4,6 +4,7 @@ namespace Modules\Guest\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Modules\Guest\Interfaces\GuestInterface;
+use Modules\Guest\Repositories\GuestRepository;
 use function Symfony\Component\String\s;
 
 class PagesController extends Controller
@@ -36,10 +37,11 @@ class PagesController extends Controller
     {
         return view('pages.contact');
     }
-  public function aboutus(GuestInterface $interface)
+
+    public function aboutus(GuestInterface $interface)
     {
-       $about =  $interface->findBySlug('about-us');
-        return view('pages.about',compact('about'));
+        $about = $interface->findBySlug('about-us');
+        return view('pages.about', compact('about'));
     }
 
     public function show(GuestInterface $interface, $slug)
@@ -48,17 +50,18 @@ class PagesController extends Controller
         switch ($obj->type) {
 
             case 2:
-                return view('services.service',compact('obj'));
+                return view('services.service', compact('obj'));
                 break;
             case 3:
                 return view('pages.contact');
                 break;
             case 4:
-                $blogs =$interface->latestBlogs();
-                return view('blog.blog',compact('obj','blogs'));
+                $blogs = $interface->latestBlogs();
+                return view('blog.blog', compact('obj', 'blogs'));
                 break;
             case 6:
-                return view('project.project',compact('obj'));
+                $links = GuestRepository::layout();
+                return view('project.project', compact('obj', 'links'));
                 break;
 
         }

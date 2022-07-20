@@ -38,7 +38,8 @@
                         <div class="col-sm-6 col-md-3 mb-3">
                             <div class="video-normal-show">
                                 <iframe
-
+                                    width="293"
+                                    height="148"
                                     src="{{$link}}"
                                     title="{{$obj->title}}"
                                     frameborder="0"
@@ -58,15 +59,26 @@
             </h3>
 
             <div class="text-center icon-show-more">
+                @foreach($links as $link)
 
-                        <a href="#">
-                            @if (isset($obj->images)&&$obj->images>0)
+
+                    @if (isset($obj->images)&&count($obj->images)>0)
+                        @if ($link->translate('en')->slug == 'behance')
+                            <a href="{{isset($obj->images)&&$obj->images>0?$link->links[0]:''}}">
                                 <i class="text-white text-lg uil uil-behance"></i>
-                            @elseif(isset($obj->links)&&$obj->links>0)
-                                <i class="text-white text-lg uil uil-youtube"></i>
-                            @endif
+                            </a>
 
-                        </a>
+                        @endif
+                    @elseif(isset($obj->links)&&count($obj->links)>0)
+                        @if ($link->translate('en')->slug == 'youtube')
+                            <a href="{{isset($obj->images)&&$obj->images>0?$link->links[0]:''}}">
+                                <i class="text-white text-lg uil uil-youtube"></i>
+                            </a>
+                        @endif
+                    @endif
+
+                @endforeach
+
 
             </div>
         </div>

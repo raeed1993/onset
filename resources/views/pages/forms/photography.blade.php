@@ -94,9 +94,7 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="purpose_photography_video" class="form-label"
-                        >الغرض من التصوير والفيديو</label
-                        >
+                        <label for="purpose_photography_video" class="form-label">الغرض من التصوير والفيديو</label>
                         <input
                             type="text"
                             name="purpose_photography_video"
