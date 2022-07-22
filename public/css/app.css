@@ -10307,7 +10307,7 @@ body {
 .page-banner .page-title {
   text-align: center;
 }
-.page-banner .page-title h4, .page-banner .page-title .h4 {
+.page-banner .page-title .secondary {
   background-color: #F79810;
   padding: 20px 10px;
   width: -webkit-fit-content;

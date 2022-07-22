@@ -4,7 +4,9 @@
     <section class="page-banner">
         <div class="container">
             <div class="page-title">
-                <h4>طلب الهوية البصرية</h4>
+                <h1 class="secondary">
+                    @lang('form.visual_identity_request')
+                </h1>
             </div>
         </div>
     </section>
@@ -17,7 +19,7 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="full_name" class="form-label">
-                            الاسم الكامل
+                            @lang('form.full_name')
                         </label>
                         <input
                             type="text"
@@ -30,7 +32,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="phone_number" class="form-label">رقم الهاتف</label>
+                        <label for="phone_number" class="form-label">
+                            @lang('form.phone_number')
+                        </label>
                         <input
                             type="text"
                             name="phone_number"
@@ -42,7 +46,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="email" class="form-label">البريد الالكتروني</label>
+                        <label for="email" class="form-label">
+                            @lang('form.email')
+                        </label>
                         <input
                             type="email"
                             name="email"
@@ -54,7 +60,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="project_name" class="form-label">اسم المشروع</label>
+                        <label for="project_name" class="form-label">
+                            @lang('form.project_name')
+                        </label>
                         <input
                             type="text"
                             name="project_name"
@@ -66,23 +74,25 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">نوع نشاط المشروع</label>
+                        <label for="exampleFormControlInput1" class="form-label">
+                            @lang('form.project_type_active')
+                        </label>
 
                         <select class="form-select" name="type_project">
                             <option value="company">
-                                شركة / مؤسسة
+                                @lang('form.company')
                             </option>
                             <option value="activity">
-                                فعالية / حملة
+                                @lang('form.activity')
                             </option>
                             <option value="product">
-                                منتج
+                                @lang('form.product')
                             </option>
                             <option value="personal">
-                                شخصي
+                                @lang('form.personal')
                             </option>
                             <option value="other">
-                                غير ذلك
+                                @lang('form.other')
                             </option>
                         </select>
                     </div>
@@ -91,23 +101,23 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">
-                            الشريحة المستهدفة
+                           @lang('from.target_segment')
                         </label>
                         <select class="form-select" aria-label="Default select example" name="target_segment">
                             <option value="childs">
-                                أطفال
+                                @lang('form.childes')
                             </option>
                             <option value="women">
-                                نساء
+                                @lang('form.women')
                             </option>
                             <option value="men">
-                                رجال
+                                @lang('form.men')
                             </option>
                             <option value="young">
-                                شباب
+                                @lang('form.young')
                             </option>
                             <option value="all">
-                                كل ماسبق
+                                @lang('form.all_prev')
                             </option>
                         </select>
                     </div>
@@ -115,9 +125,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="feature_project" class="form-label"
-                        >الميزة التنافسية للمشروع</label
-                        >
+                        <label for="feature_project" class="form-label">
+                            @lang('form.competitive_advantage_the_project')
+                        </label>
                         <input
                             type="text"
                             name="feature_project"
@@ -129,9 +139,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="services_products_project" class="form-label"
-                        >أهم الخدمات أو المنتجات التي يقدمها المشروع</label
-                        >
+                        <label for="services_products_project" class="form-label">
+                            @lang('form.most_important_services_products_provided_project')
+                        </label>
                         <input
                             type="text"
                             name="services_products_project"
@@ -141,7 +151,9 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <label class="form-label mb-3">نوع الشعار</label>
+                    <label class="form-label mb-3">
+                        @lang('form.logo_type')
+                    </label>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="form-img">
@@ -154,7 +166,7 @@
                                 id="calligraphy"
                             />
                             <label class="form-check-label" for="calligraphy">
-                                <img src="{{asset('images/logos-arabic-text.jpg')}}" alt=""/>
+                                <img src="{{asset('images/logos-arabic-text.jpg')}}" alt="logos-arabic-text"/>
                             </label>
                         </div>
                     </div>
@@ -170,7 +182,7 @@
                                 id="character"
                             />
                             <label class="form-check-label" for="character">
-                                <img src="{{asset('images/logos-character.jpg')}}" alt=""/>
+                                <img src="{{asset('images/logos-character.jpg')}}" alt="logos-character"/>
                             </label>
                         </div>
                     </div>
@@ -186,7 +198,7 @@
                                 id="combination"
                             />
                             <label class="form-check-label" for="combination">
-                                <img src="{{asset('images/logos-combination.jpg')}}" alt=""/>
+                                <img src="{{asset('images/logos-combination.jpg')}}" alt="logos-combination"/>
                             </label>
                         </div>
                     </div>
@@ -202,7 +214,7 @@
                                 id="letter"
                             />
                             <label class="form-check-label" for="letter">
-                                <img src="{{asset('images/logos-latter.jpg')}}" alt=""/>
+                                <img src="{{asset('images/logos-latter.jpg')}}" alt="logos-latter"/>
                             </label>
                         </div>
                     </div>
@@ -218,7 +230,7 @@
                                 id="symbol"
                             />
                             <label class="form-check-label" for="symbol">
-                                <img src="{{asset('images/logos-symbol.jpg')}}" alt=""/>
+                                <img src="{{asset('images/logos-symbol.jpg')}}" alt="logos-symbol"/>
                             </label>
                         </div>
                     </div>
@@ -234,7 +246,7 @@
                                 id="typeface"
                             />
                             <label class="form-check-label" for="typeface">
-                                <img src="{{asset('images/logos-text.jpg')}}" alt=""/>
+                                <img src="{{asset('images/logos-text.jpg')}}" alt="logos-text"/>
                             </label>
                         </div>
                     </div>
@@ -242,9 +254,9 @@
 
                 <div class="col-12 mt-5">
                     <div class="mb-3">
-                        <label for="logo_prefer" class="form-label"
-                        >بالنظر إلى شعارات اخرى, أي الشعارات أفضل</label
-                        >
+                        <label for="logo_prefer" class="form-label">
+                            @lang('form.looking_at_other_logos_which_logos_are_better')
+                        </label>
                         <input
                             type="text"
                             name="logo_prefer"
@@ -256,9 +268,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="about_project" class="form-label"
-                        >نبذة عن المشروع</label
-                        >
+                        <label for="about_project" class="form-label">
+                            @lang('form.about_project')
+                        </label>
                         <textarea
                             class="form-control"
                             id="about_project"
@@ -270,9 +282,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="note" class="form-label"
-                        >ملاحظات اضافية</label
-                        >
+                        <label for="note" class="form-label">
+                            @lang('form.additional_note')
+                        </label>
                         <textarea
                             name="note"
                             class="form-control"
@@ -284,7 +296,7 @@
 
                 <div class="col-12 text-center mt-5">
                     <button type="submit" class="btn btn-secondary">
-                        ارسال النموذج
+                        @lang('form.submit')
                     </button>
                 </div>
             </form>

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="page-title">
                 <h1 class="text-lg">
-                    من نحن
+                   @lang('pages.about_us')
                 </h1>
             </div>
         </div>

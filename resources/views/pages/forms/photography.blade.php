@@ -4,7 +4,9 @@
     <section class="page-banner photography">
         <div class="container">
             <div class="page-title">
-                <h4>طلب عرض التصوير</h4>
+                <h1 class="secondary">
+                    @lang('form.request_photoshoot')
+                </h1>
             </div>
         </div>
     </section>
@@ -17,7 +19,7 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="full_name" class="form-label">
-                            الاسم الكامل
+                            @lang('form.full_name')
                         </label>
                         <input
                             type="text"
@@ -30,7 +32,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="phone_number" class="form-label">رقم الهاتف</label>
+                        <label for="phone_number" class="form-label">
+                            @lang('form.phone_number')
+                        </label>
                         <input
                             type="text"
                             name="phone_number"
@@ -42,7 +46,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="email" class="form-label">البريد الالكتروني</label>
+                        <label for="email" class="form-label">
+                            @lang('form.email')
+                        </label>
                         <input
                             type="email"
                             name="email"
@@ -55,7 +61,7 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="project_name" class="form-label">
-                            اسم المشروع - الشركة
+                            @lang('form.project_name_company')
                         </label>
                         <input
                             type="text"
@@ -69,24 +75,24 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">
-                            نوع نشاط المشروع - الشركة
+                            @lang('form.project_type_active_company')
                         </label>
 
                         <select class="form-select" name="type_project">
                             <option value="company">
-                                شركة / مؤسسة
+                                @lang('form.company')
                             </option>
                             <option value="activity">
-                                فعالية / حملة
+                                @lang('form.activity')
                             </option>
                             <option value="product">
-                                منتج
+                                @lang('form.product')
                             </option>
                             <option value="personal">
-                                شخصي
+                                @lang('form.personal')
                             </option>
                             <option value="other">
-                                غير ذلك
+                                @lang('form.other')
                             </option>
                         </select>
                     </div>
@@ -94,7 +100,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="purpose_photography_video" class="form-label">الغرض من التصوير والفيديو</label>
+                        <label for="purpose_photography_video" class="form-label">
+                            @lang('form.purpose_photography_video')
+                        </label>
                         <input
                             type="text"
                             name="purpose_photography_video"
@@ -106,27 +114,27 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="type_services" class="form-label"
-                        >نوع الخدمة</label
-                        >
+                        <label for="type_services" class="form-label">
+                            @lang('form.service_type')
+                        </label>
                         <select class="form-select" aria-label="Default select example" name="type_services">
                             <option value="photo">
-                                تصوير فوتو
+                                @lang('form.photo')
                             </option>
                             <option value="video">
-                                تصوير فيديو
+                                @lang('form.video')
                             </option>
                             <option value="dron">
-                                تصوير درون
+                                @lang('form.drone')
                             </option>
                             <option value="live">
-                                بث مباشر
+                                @lang('form.live')
                             </option>
                             <option value="video_editor">
-                                مونتاج الفيديو
+                                @lang('form.video_editor')
                             </option>
                             <option value="photography_editor">
-                                التصوير والمونتاج
+                                @lang('form.photography_editor')
                             </option>
                         </select>
                     </div>
@@ -134,9 +142,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="number_shooting_days" class="form-label"
-                        >عدد أيام التصوير</label
-                        >
+                        <label for="number_shooting_days" class="form-label">
+                            @lang('form.number_shooting_days')
+                        </label>
                         <input
                             type="text"
                             name="number_shooting_days"
@@ -148,9 +156,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="camera_count" class="form-label"
-                        >عدد الكاميرات</label
-                        >
+                        <label for="camera_count" class="form-label">
+                            @lang('form.camera_count')
+                        </label>
                         <input
                             type="text"
                             name="camera_count"
@@ -162,9 +170,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="video_duration" class="form-label"
-                        >مدة الفيديو</label
-                        >
+                        <label for="video_duration" class="form-label">
+                            @lang('form.video_duration')
+                        </label>
                         <input
                             type="text"
                             name="video_duration"
@@ -176,7 +184,9 @@
 
                 <div class="col-12 mb-3">
                     <div class="row">
-                        <label class="form-label">تصوير جوّي</label>
+                        <label class="form-label">
+                            @lang('form.aerial_photography')
+                        </label>
                         <div class="btn-radio-group">
                             <div class="btn-radio">
                                 <input
@@ -187,7 +197,9 @@
                                     id="option2"
                                     autocomplete="off"
                                 />
-                                <label class="btn btn-secondary" for="option2">نعم</label>
+                                <label class="btn btn-secondary" for="option2">
+                                    @lang('form.yes')
+                                </label>
                             </div>
                             <div class="btn-radio">
                                 <input
@@ -198,7 +210,9 @@
                                     id="option4"
                                     autocomplete="off"
                                 />
-                                <label class="btn btn-secondary" for="option4">لا</label>
+                                <label class="btn btn-secondary" for="option4">
+                                    @lang('form.no')
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -206,7 +220,9 @@
 
                 <div class="col-12 mb-3">
                     <div class="row">
-                        <label class="form-label">يتضمن الفيديو جرافيك</label>
+                        <label class="form-label">
+                            @lang('form.include_grafic_video')
+                        </label>
                         <div class="btn-radio-group">
                             <div class="btn-radio">
                                 <input
@@ -217,7 +233,7 @@
                                     id="option21"
                                     autocomplete="off"
                                 />
-                                <label class="btn btn-secondary" for="option21">نعم</label>
+                                <label class="btn btn-secondary" for="option21">@lang('form.yes')</label>
                             </div>
                             <div class="btn-radio">
                                 <input
@@ -228,7 +244,7 @@
                                     id="option41"
                                     autocomplete="off"
                                 />
-                                <label class="btn btn-secondary" for="option41">لا</label>
+                                <label class="btn btn-secondary" for="option41"> @lang('form.no')</label>
                             </div>
                         </div>
                     </div>
@@ -236,7 +252,9 @@
 
                 <div class="col-12 mb-3">
                     <div class="row">
-                        <label class="form-label">يتضمن الفيديو تعليق صوتي</label>
+                        <label class="form-label">
+                            @lang('form.include_voice_comment')
+                        </label>
                         <div class="btn-radio-group">
                             <div class="btn-radio">
                                 <input
@@ -247,7 +265,7 @@
                                     id="o22"
                                     autocomplete="off"
                                 />
-                                <label class="btn btn-secondary" for="o22">نعم</label>
+                                <label class="btn btn-secondary" for="o22">   @lang('form.yes')</label>
                             </div>
                             <div class="btn-radio">
                                 <input
@@ -258,7 +276,7 @@
                                     id="o33"
                                     autocomplete="off"
                                 />
-                                <label class="btn btn-secondary" for="o33">لا</label>
+                                <label class="btn btn-secondary" for="o33"> @lang('form.no')</label>
                             </div>
                         </div>
                     </div>
@@ -266,9 +284,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="link_like_video" class="form-label"
-                        >رابط لفيديو أعجبك</label
-                        >
+                        <label for="link_like_video" class="form-label">
+                            @lang('form.link_like_video')
+                        </label>
                         <input
                             type="text"
                             class="form-control"
@@ -280,9 +298,9 @@
 
                 <div class="col-12">
                     <div class="mb-3">
-                        <label for="note" class="form-label"
-                        >ملاحظات اضافية</label
-                        >
+                        <label for="note" class="form-label">
+                            @lang('form.additional_note')
+                        </label>
                         <textarea
                             name="note"
                             class="form-control"
@@ -294,7 +312,7 @@
 
                 <div class="col-12 text-center mt-5">
                     <button type="submit" class="btn btn-secondary">
-                        ارسال النموذج
+                        @lang('form.submit')
                     </button>
                 </div>
             </form>

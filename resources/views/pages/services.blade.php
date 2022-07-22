@@ -7,9 +7,9 @@
         </div>
         <div class="container">
             <div class="page-title">
-                <div class="text-lg">
-                    خدماتنا
-                </div>
+                <h1 class="text-lg">
+                 @lang('pages.services')
+                </h1>
             </div>
         </div>
     </section>

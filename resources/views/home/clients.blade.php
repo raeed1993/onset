@@ -1,7 +1,9 @@
 <section class="customer section-padding" id="customer">
     <div class="container">
         <div class="title-text-dark">
-            <h2>آراء عملائنا</h2>
+            <h2>
+                @lang('home.our_customers_opinions')
+            </h2>
         </div>
         <div class="swiper swiper-customer">
             <div class="swiper-wrapper">

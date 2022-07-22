@@ -1,4 +1,4 @@
 <p class="text-warning">
-    تابع القراءة  >>
+    @lang('home.continue_read')  >>
 
 </p>

@@ -1,7 +1,9 @@
 <section class="partners section-padding" id="partners">
     <div class="container">
         <div class="title-text-dark">
-            <h2>تشرفنا بالتعامل مع</h2>
+            <h2>
+                @lang('home.we_are_honored_to_deal_with')
+            </h2>
         </div>
         <div class="swiper swiper-partners">
             <div class="swiper-wrapper">

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="page-title">
                 <h1>
-                    معرض الأعمال
+                   @lang('pages.portfolio')
                 </h1>
             </div>
         </div>

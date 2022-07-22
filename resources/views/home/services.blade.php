@@ -1,7 +1,9 @@
 <section class="services section-padding" id="services">
     <div class="container">
         <div class="title-text-dark">
-            <h2>خدماتنا</h2>
+            <h2>
+                @lang('home.services')
+            </h2>
         </div>
         <div class="swiper swiper-services">
             <div class="swiper-wrapper">

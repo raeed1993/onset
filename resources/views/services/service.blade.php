@@ -8,7 +8,7 @@
         </div>
         <div class="container">
             <div class="content-service">
-                <h1 class="">
+                <h1 class="secondary">
                     {{$obj->title}}
                 </h1>
 
@@ -67,8 +67,8 @@
                 </div>
             @endif
 
-            <h4 class="text-center text-black content-service text-lg w-50 pl-2 pr-2 mb-2">
-                من أعمالنا في {{   $obj->title}}
+            <h4 class="text-center text-white  ">
+                @lang('pages.from_our_portfolio') {{   $obj->title}}
             </h4>
             <div class="row">
                 @php($projects = $obj->projects_service->orderBy('id','desc')->limit(3)->get() )
@@ -80,6 +80,7 @@
                             <div class="content-business">
                                 <div class=" video-normal-show ">
                                     <iframe
+                                        width="290"
                                         src="{{$child->links[0]}}"
                                         title="{{$child->title}}"
                                         frameborder="0"
@@ -105,7 +106,7 @@
             </div>
             <div class="text-center">
                 <a href="{{route('taxonomy.show',$projects[0]->translate('en')->slug)}}" class="btn btn-primary btn-view">
-                    مشاهدة جيمع الأعمال
+                  @lang('pages.see_all_projects')
                 </a>
             </div>
         </div>

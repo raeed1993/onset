@@ -54,7 +54,7 @@
             @endif
 
             <h3 class="text-center text-white">
-                مشاهدة المزيد من الأعمال
+                @lang('home.see_more')
 
             </h3>
 

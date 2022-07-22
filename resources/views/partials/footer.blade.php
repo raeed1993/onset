@@ -4,7 +4,7 @@
             <div class="col-6 mb-3">
                 <div class="footer-logo">
                     <div class="footer-logo_img">
-                        <img src="{{asset('images/logoFooter.png')}}" alt="logoFooter"/>
+                        <img src="{{asset('images/logoFooter.png')}}"  alt="logoFooter"/>
                     </div>
                     <div class="contact">
                         @include('partials.social')

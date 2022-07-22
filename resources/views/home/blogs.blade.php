@@ -1,7 +1,9 @@
 <section class="article section-padding" id="article">
     <div class="container">
         <div class="title-text-light">
-            <h2>أحدث المقالات</h2>
+            <h2>
+                @lang('home.latest_blogs')
+            </h2>
         </div>
         <div class="row">
             @foreach($data['blogs'] as $blog)
@@ -15,7 +17,7 @@
                             <div class="text-white">
                                 {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
                             </div>
-                           @include('partials.continue-read')
+                            @include('partials.continue-read')
 
                         </div>
                     </a>
@@ -26,7 +28,7 @@
         <div class="text-center">
             <a href="{{route('blogs.page')}}" class="btn btn-secondary btn-view">
                 <b>
-                    مشاهدة المزيد
+                    @lang('home.see_more')
                 </b>
             </a>
         </div>

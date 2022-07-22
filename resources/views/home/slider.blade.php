@@ -24,10 +24,10 @@
 
                                 @if (!is_null($slider->links[0])&&count($slider->links)>0)
                                     <a class="btn btn-primary" href="{{$slider->links[0]}}" target="_blank">
-                                         @if (isset($slider->translate(app()->getLocale())->content))
+                                        @if (isset($slider->translate(app()->getLocale())->content))
                                             {{$slider->translate(app()->getLocale())->content}}
                                         @else
-                                             link
+                                            @lang('home.link')
                                         @endif
                                     </a>
                                 @endif
@@ -54,7 +54,7 @@
 
         </div>
         <div class="contact">
-          @include('partials.social')
+            @include('partials.social')
         </div>
 
         <div class="swiper-pagination"></div>

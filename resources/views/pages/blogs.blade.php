@@ -8,7 +8,7 @@
         <div class="container">
             <div class="page-title">
                 <h1>
-                    المدونة
+                    @lang('pages.blog')
                 </h1>
             </div>
         </div>

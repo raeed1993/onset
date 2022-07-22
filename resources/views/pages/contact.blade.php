@@ -7,7 +7,9 @@
         </div>
         <div class="container">
             <div class="page-title">
-                <h4>تواصل معنا</h4>
+                <h1>
+                    @lang('pages.contact_us')
+                </h1>
             </div>
         </div>
     </section>
@@ -25,7 +27,7 @@
                                 name="name"
                                 class="form-control"
                                 id="exampleFormControlInput1"
-                                placeholder="الاسم"
+                                placeholder=@lang('form.full_name')
                             />
                         </div>
                     </div>
@@ -37,7 +39,7 @@
                                 name="email"
                                 class="form-control"
                                 id="exampleFormControlInput1"
-                                placeholder="البريد الالكتروني"
+                                placeholder=@lang('form.email')
                             />
                         </div>
                     </div>
@@ -48,7 +50,7 @@
                                 name="phone_number"
                                 class="form-control"
                                 id="exampleFormControlInput1"
-                                placeholder="رقم الهاتف"
+                                placeholder=@lang('form.phone_number')
                             />
                         </div>
                     </div>
@@ -75,7 +77,9 @@
 
                     </div>
                     <div class="col-12 text-center mt-5">
-                        <button type="submit" class="btn btn-primary">إرسال</button>
+                        <button type="submit" class="btn btn-primary">
+                            @lang('form.submit')
+                        </button>
                     </div>
                 </div>
             </form>

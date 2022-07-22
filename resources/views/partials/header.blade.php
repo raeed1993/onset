@@ -20,22 +20,34 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link {{$url==route('home.page')?'active':''}}" aria-current="page" href="{{route('home.page')}}">الرئيسية</a>
+                        <a class="nav-link {{$url==route('home.page')?'active':''}}" aria-current="page" href="{{route('home.page')}}">
+                            @lang('pages.home')
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$url==route('services.page')?'active':''}}" href="{{route('services.page')}}">خدماتنا</a>
+                        <a class="nav-link {{$url==route('services.page')?'active':''}}" href="{{route('services.page')}}">
+                            @lang('pages.services')
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$url==route('projects.page')?'active':''}}" href="{{route('projects.page')}}">معرض الأعمال</a>
+                        <a class="nav-link {{$url==route('projects.page')?'active':''}}" href="{{route('projects.page')}}">
+                            @lang('pages.portfolio')
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$url==route('blogs.page')?'active':''}}" href="{{route('blogs.page')}}">المدونة</a>
+                        <a class="nav-link {{$url==route('blogs.page')?'active':''}}" href="{{route('blogs.page')}}">
+                            @lang('pages.blog')
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$url==route('about.page')?'active':''}}" href="{{route('about.page')}}">من نحن</a>
+                        <a class="nav-link {{$url==route('about.page')?'active':''}}" href="{{route('about.page')}}">
+                            @lang('pages.about_us')
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{$url==route('contact.page')?'active':''}}" href="{{route('contact.page')}}">تواصل معنا</a>
+                        <a class="nav-link {{$url==route('contact.page')?'active':''}}" href="{{route('contact.page')}}">
+                            @lang('pages.contact_us')
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a
@@ -79,12 +91,12 @@
             <i class="uil uil-multiply"></i>
         </div>
         <div class="mobile-nav-content">
-            <a href="{{route('home.page')}}" class="nav-link {{$url==route('home.page')?'active':''}}">الرئيسية</a>
-            <a href="{{route('services.page')}}" class="nav-link {{$url==route('services.page')?'active':''}}">خدماتنا</a>
-            <a href="{{route('projects.page')}}" class="nav-link {{$url==route('projects.page')?'active':''}}">معرض الأعمال</a>
-            <a href="{{route('blogs.page')}}" class="nav-link {{$url==route('blogs.page')?'active':''}}">المدونة</a>
-            <a href="{{route('about.page')}}" class="nav-link {{$url==route('about.page')?'active':''}}">من نحن</a>
-            <a href="{{route('contact.page')}}" class="nav-link {{$url==route('contact.page')?'active':''}}">تواصل معنا</a>
+            <a href="{{route('home.page')}}" class="nav-link {{$url==route('home.page')?'active':''}}">@lang('pages.home')</a>
+            <a href="{{route('services.page')}}" class="nav-link {{$url==route('services.page')?'active':''}}">@lang('pages.services')</a>
+            <a href="{{route('projects.page')}}" class="nav-link {{$url==route('projects.page')?'active':''}}"> @lang('pages.portfolio')</a>
+            <a href="{{route('blogs.page')}}" class="nav-link {{$url==route('blogs.page')?'active':''}}"> @lang('pages.blog')</a>
+            <a href="{{route('about.page')}}" class="nav-link {{$url==route('about.page')?'active':''}}">@lang('pages.about_us')</a>
+            <a href="{{route('contact.page')}}" class="nav-link {{$url==route('contact.page')?'active':''}}">@lang('pages.contact_us')</a>
             <a
                 class="nav-link dropdown-toggle"
                 href="#"
