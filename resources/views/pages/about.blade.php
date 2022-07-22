@@ -33,7 +33,7 @@
             <div class="row">
 
                 <div class="col-md-6 col-lg-6 mt-auto mb-auto">
-                    <img class="img-large" src="{{asset('images/why-onset.png')}}"
+                    <img  src="{{asset('images/why-onset.png')}}"
                          alt="{{$about->translate('en')->slug}}">
                 </div>
                 <div class="col-md-6 col-lg-6 mt-auto mb-auto">
