@@ -10385,6 +10385,15 @@ img, svg {
   }
 }
 
+@media (min-width: 992px) {
+  [dir=rtl] .navbar {
+    flex-direction: row-reverse;
+  }
+  [dir=rtl] .navbar-brand {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+}
 .header-contact {
   margin: 0 !important;
   background-color: #000;
@@ -10729,11 +10738,14 @@ img, svg {
   margin-top: 50px;
 }
 .customer .customer-content .customer-information img {
-  width: 60px;
+  width: 68px;
 }
 .customer .customer-content .customer-information .customer-information_content p {
   color: #fff;
   margin-bottom: 0.5rem;
+}
+.customer .customer-content .customer-information .customer-information_content p:last-child {
+  font-size: 1.2rem;
 }
 .customer .swiper-pagination-bullet {
   color: #E9EAEB;
@@ -10876,6 +10888,11 @@ footer .footer-contact ul li a p {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  [dir=ltr] footer .footer-logo .footer-logo_img {
+    margin-left: auto;
+  }
+}
 .services-pages {
   position: relative;
   background-color: #000;

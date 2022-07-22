@@ -14,20 +14,24 @@ var swiper = new Swiper(".swiper-header", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
 });
 
 var swiper = new Swiper(".swiper-services", {
-    slidesPerView: 1,
-    spaceBetween: 50,
+    slidesPerView: 2,
+    spaceBetween: 30,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
     breakpoints: {
-        576: {
-            slidesPerView: 1,
-            spaceBetween: 50,
-        },
         640: {
             slidesPerView: 2,
             spaceBetween: 20,
@@ -49,6 +53,10 @@ var swiper = new Swiper(".swiper-services", {
 var swiper = new Swiper(".swiper-partners", {
     slidesPerView: 1,
     spaceBetween: 30,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -74,6 +82,10 @@ var swiper = new Swiper(".swiper-customer", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     breakpoints: {
         992: {
             slidesPerView: 1,
@@ -91,6 +103,10 @@ var swiper = new Swiper(".business-mobile", {
         el: ".swiper-pagination",
         clickable: true,
     },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     breakpoints: {
         576: {
             slidesPerView: 1,
@@ -103,6 +119,10 @@ var swiper = new Swiper(".swiper-business", {
     slidesPerView: 3,
     grid: {
         rows: 3,
+    },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
     },
     spaceBetween: 30,
     pagination: {
@@ -119,14 +139,17 @@ jQuery(document).ready(function ($) {
 
     function fixedMenu(scroll) {
         const headerScroll = document.querySelector(".navbar");
+        const headerScrollMobile = document.querySelector(".mobile-header");
         const documentBody = document.querySelector("body");
 
         if (scroll > 300) {
             documentBody.classList.add("ft");
+            headerScrollMobile.classList.add("fixed-top");
             headerScroll.classList.add("fixed-top");
         } else {
             documentBody.classList.remove("ft");
             headerScroll.classList.remove("fixed-top");
+            headerScrollMobile.classList.remove("fixed-top");
         }
     }
 });

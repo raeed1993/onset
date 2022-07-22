@@ -10,6 +10,17 @@
         }
     }
 }
+@media (min-width: 992px) {
+    [dir="rtl"] {
+        .navbar {
+            flex-direction: row-reverse;
+        }
+        .navbar-brand {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+    }
+}
 
 .header-contact {
     margin: 0 !important;
@@ -83,7 +94,7 @@
     }
 }
 
-[dir = rtl] {
+[dir="rtl"] {
     #mobile_nav.nav-close {
         margin-right: -290px;
         margin-left: 0;
