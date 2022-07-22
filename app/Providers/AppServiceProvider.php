@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Modules\Taxonomy\Entities\Taxonomy;
 use Modules\Taxonomy\Interfaces\RepositoryInterface;
-use Modules\Taxonomy\Repositories\Client\ClientRepository;
+use Modules\Taxonomy\Repositories\Client\ClientBigRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->app->singleton(RepositoryInterface::class, function ($app) {
-            return new ClientRepository(new Taxonomy);
+            return new ClientBigRepository(new Taxonomy);
         });
 
     }

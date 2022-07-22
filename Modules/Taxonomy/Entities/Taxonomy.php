@@ -57,6 +57,9 @@ class Taxonomy extends Model
     const TYPE_META = [
         'no' => 7,
     ];
+    const TYPE_CLIENT_BIG = [
+        'no' => 8,
+    ];
 
     public function scopeSliders($query)
     {
@@ -71,6 +74,11 @@ class Taxonomy extends Model
     public function scopeClients($query)
     {
         return $query->where('type', '=', self::TYPE_CLIENT['no']);
+    }
+
+    public function scopeClientsBig($query)
+    {
+        return $query->where('type', '=', self::TYPE_CLIENT_BIG['no']);
     }
 
     public function scopeBlogs($query)
@@ -131,6 +139,9 @@ class Taxonomy extends Model
                 break;
             case 7:
                 return $this::TYPE_META;
+                break;
+            case 8:
+                return $this::TYPE_CLIENT_BIG;
                 break;
         }
     }

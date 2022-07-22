@@ -1,20 +1,20 @@
 <?php
 
-namespace Modules\Taxonomy\Repositories\Client;
+namespace Modules\Taxonomy\Repositories\ClientBig;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 use Modules\Taxonomy\Entities\Taxonomy;
-use Modules\Taxonomy\Interfaces\Client\ClientInterface;
+use Modules\Taxonomy\Interfaces\ClientBig\ClientBigInterface;
 use Modules\Taxonomy\Repositories\RepositoriesAbstract;
 
-class ClientRepository extends RepositoriesAbstract implements ClientInterface
+class ClientBigRepository extends RepositoriesAbstract implements ClientBigInterface
 {
     public function findOrFail($id, array $with = [])
     {
         $data = $this->make($with)
             ->where('id', $id)
-            ->clients();
+            ->clientsBig();
 
         $result = $this->applyBeforeExecuteQuery($data, true)->first();
 
@@ -32,7 +32,7 @@ class ClientRepository extends RepositoriesAbstract implements ClientInterface
      */
     public function all(array $with = [])
     {
-        $data = $this->make($with)->clients();
+        $data = $this->make($with)->clientsBig();
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -46,13 +46,13 @@ class ClientRepository extends RepositoriesAbstract implements ClientInterface
         if (isset($data['status']))
             $client->status = $data['status'];
 
-        $client->type = Taxonomy::TYPE_CLIENT['no'];
+        $client->type = Taxonomy::TYPE_CLIENT_BIG['no'];
 
-        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
-            $client->translateOrNew($key)->title = $data['title-' . $key];
-            if (isset($data['content-' . $key]))
-                $client->translateOrNew($key)->content = $data['content-' . $key];
-        }
+//        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
+//            $client->translateOrNew($key)->title = $data['title-' . $key];
+//            if (isset($data['content-' . $key]))
+//                $client->translateOrNew($key)->content = $data['content-' . $key];
+//        }
 
         $client->save();
 
@@ -65,16 +65,15 @@ class ClientRepository extends RepositoriesAbstract implements ClientInterface
         if (isset($data['primary-image']))
             $client->primary_image = $data['primary-image'];
 
-
         if (isset($data['status']))
             $client->status = $data['status'];
 
 
-        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
-            $client->translateOrNew($key)->title = $data['title-' . $key];
-            if (isset($data['content-' . $key]))
-                $client->translateOrNew($key)->content = $data['content-' . $key];
-        }
+//        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
+//            $client->translateOrNew($key)->title = $data['title-' . $key];
+//            if (isset($data['content-' . $key]))
+//                $client->translateOrNew($key)->content = $data['content-' . $key];
+//        }
 
         $client->save();
 

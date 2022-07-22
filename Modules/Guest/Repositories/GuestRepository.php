@@ -17,12 +17,14 @@ class GuestRepository implements GuestInterface
         $projects = Taxonomy::projects()->active()->orderBy('id', 'desc')->limit(6)->get();
         $services = Taxonomy::services()->active()->get();
         $clients = Taxonomy::clients()->active()->orderBy('id', 'desc')->get();
+        $clientsBig = Taxonomy::clientsBig()->active()->orderBy('id', 'desc')->get();
         return [
             'sliders' => $sliders,
             'blogs' => $blogs,
             'projects' => $projects,
             'services' => $services,
-            'clients' => $clients
+            'clients' => $clients,
+            'clientsBig' => $clientsBig
         ];
     }
 

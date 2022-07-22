@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Taxonomy\Http\Controllers\Blog\BlogController;
 use Modules\Taxonomy\Http\Controllers\Client\ClientController;
+use Modules\Taxonomy\Http\Controllers\ClientBig\ClientBigController;
 use Modules\Taxonomy\Http\Controllers\Meta\MetaController;
 use Modules\Taxonomy\Http\Controllers\Portfolio\ProjectController;
 use Modules\Taxonomy\Http\Controllers\Service\ServiceController;
@@ -51,6 +52,13 @@ Route::group(
             Route::post('/clients/update', [ClientController::class, 'update'])->name('admin.client.update');
             Route::post('/clients', [ClientController::class, 'store'])->name('admin.client.store');
             Route::post('/clients/delete', [ClientController::class, 'delete'])->name('admin.client.delete');
+
+            Route::get('/clients-big', [ClientBigController::class, 'index'])->name('admin.client-big.index');
+            Route::get('/clients-big/create', [ClientBigController::class, 'create'])->name('admin.client-big.create');
+            Route::get('/clients-big/edit/{id}', [ClientBigController::class, 'edit'])->name('admin.client-big.edit');
+            Route::post('/clients-big/update', [ClientBigController::class, 'update'])->name('admin.client-big.update');
+            Route::post('/clients-big', [ClientBigController::class, 'store'])->name('admin.client-big.store');
+            Route::post('/clients-big/delete', [ClientBigController::class, 'delete'])->name('admin.client-big.delete');
 
             Route::get('/meta', [MetaController::class, 'index'])->name('admin.meta.index');
             Route::get('/meta/edit/{id}', [MetaController::class, 'edit'])->name('admin.meta.edit');

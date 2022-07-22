@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Taxonomy\Entities\Taxonomy;
 use Modules\Taxonomy\Interfaces\Blog\BlogInterface;
 use Modules\Taxonomy\Interfaces\Client\ClientInterface;
+use Modules\Taxonomy\Interfaces\ClientBig\ClientBigInterface;
 use Modules\Taxonomy\Interfaces\Meta\MetaInterface;
 use Modules\Taxonomy\Interfaces\Portfolio\ProjectInterface;
 use Modules\Taxonomy\Interfaces\Service\ServiceInterface;
@@ -14,6 +15,7 @@ use Modules\Taxonomy\Interfaces\Slider\SliderInterface;
 use Modules\Taxonomy\Interfaces\Website\WebsiteInterface;
 use Modules\Taxonomy\Repositories\Blog\BlogRepository;
 use Modules\Taxonomy\Repositories\Client\ClientRepository;
+use Modules\Taxonomy\Repositories\ClientBig\ClientBigRepository;
 use Modules\Taxonomy\Repositories\Meta\MetaRepository;
 use Modules\Taxonomy\Repositories\Portfolio\ProjectRepository;
 use Modules\Taxonomy\Repositories\Service\ServiceRepository;
@@ -76,6 +78,9 @@ class TaxonomyServiceProvider extends ServiceProvider
 
         $this->app->singleton(ClientInterface::class, function ($app) {
             return new ClientRepository(new Taxonomy);
+        });
+        $this->app->singleton(ClientBigInterface::class, function ($app) {
+            return new ClientBigRepository(new Taxonomy);
         });
         $this->app->singleton(WebsiteInterface::class, function ($app) {
             return new WebsiteRepository(new Taxonomy);

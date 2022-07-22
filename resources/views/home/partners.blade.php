@@ -5,10 +5,10 @@
         </div>
         <div class="swiper swiper-partners">
             <div class="swiper-wrapper">
-                @foreach($data['clients'] as $client)
+                @foreach($data['clientsBig'] as $client)
                     <div class="swiper-slide">
                         <div class="partners-content">
-                            <img src="{{$client->primary_image}}" alt="{{$client->translate('en')->title}}"/>
+                            <img src="{{$client->primary_image}}" alt="partners"/>
                         </div>
                     </div>
                 @endforeach

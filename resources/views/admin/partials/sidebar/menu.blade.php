@@ -99,6 +99,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.client-big.index')}}"
+                       class="nav-link {{$url == route('admin.client-big.index')||$url == route('admin.client-big.create')||$url == route('admin.client-big.edit',['id'=>$param])?'active':''}}">
+                        <i class="nav-icon fas fa-chess-queen"></i>
+                        <p>
+                            Clients  Bigs
+                        </p>
+                    </a>
+                </li>
                 {{--                <li class="nav-item ">--}}
                 {{--                    <a href="{{route('admin.meta.index')}}" class="nav-link {{$url == route('admin.meta.index')||$url == route('admin.meta.edit',0)?'active':''}}">--}}
                 {{--                        <i class="nav-icon fas fa-location-arrow"></i>--}}
@@ -152,7 +161,8 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('users.index')}}" class="nav-link {{$url == route('users.index')||$url == route('users.create')||$url == route('users.edit',['users'=>$param])?'active':''}}" >
+                    <a href="{{route('users.index')}}"
+                       class="nav-link {{$url == route('users.index')||$url == route('users.create')||$url == route('users.edit',['users'=>$param])?'active':''}}">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
                             Users
