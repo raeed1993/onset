@@ -2,8 +2,8 @@
 
 @section('content')
     <section class="page-banner contact-us">
-        <div class="img-banner">
-            <img src="./assets/images/bgServices.jpg" alt="">
+        <div class="img-banner" >
+            <img src="{{$image}}"  alt="contact us">
         </div>
         <div class="container">
             <div class="page-title">

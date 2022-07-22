@@ -28,7 +28,7 @@
 
             <li>
                 <a href="{{$link->links[0]}}">
-                    <i class="uil uil-linkedin-alt"></i>
+                    <i class="uil uil-linkedin"></i>
                 </a>
             </li>
         @endif

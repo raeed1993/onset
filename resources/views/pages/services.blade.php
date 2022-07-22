@@ -2,11 +2,14 @@
 
 @section('content')
     <section class="page-banner contact-us">
+        <div class="img-banner" >
+            <img src="{{$image}}"   alt="services">
+        </div>
         <div class="container">
             <div class="page-title">
-                <p class="text-lg">
+                <div class="text-lg">
                     خدماتنا
-                </p>
+                </div>
             </div>
         </div>
     </section>

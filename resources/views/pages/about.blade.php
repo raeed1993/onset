@@ -2,8 +2,8 @@
 
 @section('content')
     <section class="page-banner contact-us">
-        <div class="img-banner">
-            <img src="{{$about->primary_image}}" alt="{{$about->translate('en')->slug}}">
+        <div class="img-banner" >
+            <img src="{{$about->primary_image}}"  alt="{{$about->translate('en')->slug}}">
         </div>
         <div class="container">
             <div class="page-title">

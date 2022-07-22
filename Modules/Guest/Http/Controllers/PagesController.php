@@ -18,24 +18,29 @@ class PagesController extends Controller
     public function services(GuestInterface $interface)
     {
         $services = $interface->services();
-        return view('pages.services', compact('services'));
+        $image = $interface->findBySlug('services')->primary_image;
+        return view('pages.services', compact('services','image'));
     }
 
     public function projects(GuestInterface $interface)
     {
         $projects = $interface->projects();
-        return view('pages.projects', compact('projects'));
+        $image = $interface->findBySlug('projects')->primary_image;
+        return view('pages.projects', compact('projects','image'));
     }
 
     public function blogs(GuestInterface $interface)
     {
         $blogs = $interface->blogs();
-        return view('pages.blogs', compact('blogs'));
+        $image = $interface->findBySlug('blogs')->primary_image;
+        return view('pages.blogs', compact('blogs','image'));
     }
 
-    public function contact()
+    public function contact(GuestInterface $interface)
     {
-        return view('pages.contact');
+        $image = $interface->findBySlug('contact-us')->primary_image;
+
+        return view('pages.contact',compact('image'));
     }
 
     public function aboutus(GuestInterface $interface)

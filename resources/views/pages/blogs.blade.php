@@ -2,6 +2,9 @@
 
 @section('content')
     <section class="page-banner contact-us">
+        <div class="img-banner" >
+            <img src="{{$image}}"  alt="blogs">
+        </div>
         <div class="container">
             <div class="page-title">
                 <h1>

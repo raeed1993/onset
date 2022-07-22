@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cache;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 use Modules\Taxonomy\Entities\Taxonomy;
+use Modules\Taxonomy\Entities\TaxonomyTranslation;
 use Modules\Taxonomy\Interfaces\Website\WebsiteInterface;
 use Modules\Taxonomy\Repositories\RepositoriesAbstract;
 
@@ -47,12 +48,14 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
 
     public function findBySlug($slug, array $with = [])
     {
-        $data = $this->make($with)
-            ->join('taxonomy_translations', 'taxonomies.id', '=', 'taxonomy_translations.taxonomy_id')
-            ->where('taxonomies.type', '=', self::TYPE_META['no'])
-            ->where('taxonomy_translations.slug', $slug);
+        $result = $this->findOrFail(TaxonomyTranslation::where('slug',$slug)->first()->taxonomy_id);
 
-        $result = $this->applyBeforeExecuteQuery($data, true)->first();
+//        $data = $this->make($with)
+//            ->join('taxonomy_translations', 'taxonomies.id', '=', 'taxonomy_translations.taxonomy_id')
+//            ->where('taxonomies.type', '=', self::TYPE_META['no'])
+//            ->where('taxonomy_translations.slug', $slug);
+//
+//        $result = $this->applyBeforeExecuteQuery($data, true)->first();
 
         if (!empty($result)) {
             return $result;

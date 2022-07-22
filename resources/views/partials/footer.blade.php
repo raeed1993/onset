@@ -1,7 +1,7 @@
 <footer>
-    <div class="container section-padding">
+    <div class="container section-padding ">
         <div class="row align-items-center border-top border-white pt-4">
-            <div class="col-md-6 mb-3">
+            <div class="col-6 mb-3">
                 <div class="footer-logo">
                     <div class="footer-logo_img">
                         <img src="{{asset('images/logoFooter.png')}}" alt="logoFooter"/>
@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-6 mb-3">
                 <div class="footer-contact">
                     <ul>
                         @foreach($links as $link)
