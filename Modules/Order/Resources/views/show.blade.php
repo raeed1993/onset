@@ -138,7 +138,7 @@
 
                             <div class="col-md-8      p-2">
 
-                                {{$order->aerial_photography == 1?trans('form.yse'):trans('form.no')}}
+                                {{$order->aerial_photography == 1?trans('form.yes'):trans('form.no')}}
                             </div>
                         </div>
                         <hr/>
@@ -150,7 +150,7 @@
                             </div>
 
                             <div class="col-md-8      p-2">
-                                {{$order->include_grafic_video == 1?trans('form.yse'):trans('form.no')}}
+                                {{$order->include_grafic_video == 1?trans('form.yes'):trans('form.no')}}
                             </div>
                         </div>
                         <hr/>
@@ -162,7 +162,7 @@
                             </div>
 
                             <div class="col-md-8      p-2">
-                                {{$order->include_voice_comment == 1?trans('form.yse'):trans('form.no')}}
+                                {{$order->include_voice_comment == 1?trans('form.yes'):trans('form.no')}}
                             </div>
                         </div>
                         <hr/>
