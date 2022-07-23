@@ -80,7 +80,7 @@
                             <div class="content-business">
                                 <div class=" video-normal-show ">
                                     <iframe
-                                        width="290"
+                                        width="100%"
                                         src="{{$child->links[0]}}"
                                         title="{{$child->title}}"
                                         frameborder="0"

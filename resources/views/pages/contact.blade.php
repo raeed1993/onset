@@ -62,7 +62,6 @@
                   name="content"
                   id="exampleFormControlTextarea1"
                   rows="10"
-                  placeholder="نص الرسالة"
               ></textarea>
                         </div>
                     </div>

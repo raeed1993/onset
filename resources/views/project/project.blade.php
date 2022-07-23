@@ -38,7 +38,7 @@
                         <div class="col-sm-6 col-md-3 mb-3">
                             <div class="video-normal-show">
                                 <iframe
-                                    width="293"
+                                    width="100%"
                                     height="148"
                                     src="{{$link}}"
                                     title="{{$obj->title}}"
