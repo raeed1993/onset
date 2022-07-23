@@ -10,5 +10,5 @@ return [
     'request_order' => ' طلب عرض',
     'services' => 'خدماتنا',
     'from_our_portfolio' => 'من أعمالنا في ',
-    'see_all_projects' => '  مشاهدة جيمع الأعمال',
+    'see_all_projects' => '  مشاهدة جميع الأعمال',
 ];

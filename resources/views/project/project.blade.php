@@ -1,17 +1,26 @@
 @extends('layouts.app')
-
+@section('meta')
+    @include('partials.meta',['image'=>$obj->primary_image,
+                              'page'=>$obj->title,
+                              'desc'=>$obj->title,
+                              'updated_time'=>$obj->updated_at,
+                              'published_time'=>$obj->created_at])
+@endsection
 @section('content')
-    <section class="page-banner contact-us">
+    <section class="page-banner contact-us pb-5">
         <div class="img-banner">
-            <img src="{{$obj->primary_image}}" alt="  {{$obj->title}}">
+            <img src="{{$obj->primary_image}}" alt="{{$obj->title}}">
         </div>
         <div class="container">
             <div class="page-title">
-                <h4>
+                <h1>
                     {{$obj->title}}
-                </h4>
+                </h1>
+
             </div>
             @include('partials.request-order')
+            <br/>
+
         </div>
     </section>
     <section class="business section-padding" id="business">
