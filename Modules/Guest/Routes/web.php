@@ -25,7 +25,7 @@ Route::group(
         Route::get('/services', [PagesController::class, 'services'])->name('services.page');
         Route::get('/projects', [PagesController::class, 'projects'])->name('projects.page');
         Route::get('/blogs', [PagesController::class, 'blogs'])->name('blogs.page');
-        Route::get('/about', [PagesController::class, 'aboutus'])->name('about.page');
+        Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about.page');
         Route::get('/contact', [PagesController::class, 'contact'])->name('contact.page');
         Route::get('/{slug}', [PagesController::class, 'show'])->name('taxonomy.show');
         Route::get('/order/visual-identity', [\Modules\Order\Http\Controllers\OrderController::class, 'visual_identity'])->name('order.id');
