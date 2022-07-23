@@ -101,7 +101,7 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">
-                           @lang('from.target_segment')
+                           @lang('form.target_segment')
                         </label>
                         <select class="form-select" aria-label="Default select example" name="target_segment">
                             <option value="childs">
