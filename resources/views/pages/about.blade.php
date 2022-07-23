@@ -1,14 +1,16 @@
 @extends('layouts.app')
-
+@section('meta')
+    @include('partials.meta',['image'=>$about->primary_image,'page'=>trans('pages.about_us'),'desc'=>$about->content])
+@endsection
 @section('content')
     <section class="page-banner contact-us">
-        <div class="img-banner" >
-            <img src="{{$about->primary_image}}"  alt="{{$about->translate('en')->slug}}">
+        <div class="img-banner">
+            <img src="{{$about->primary_image}}" alt="{{$about->translate('en')->slug}}">
         </div>
         <div class="container">
             <div class="page-title">
                 <h1 class="text-lg">
-                   @lang('pages.about_us')
+                    @lang('pages.about_us')
                 </h1>
             </div>
         </div>
@@ -33,7 +35,7 @@
             <div class="row">
 
                 <div class="col-md-6 col-lg-6 mt-auto mb-auto">
-                    <img  src="{{asset('images/why-onset.png')}}"
+                    <img src="{{asset('images/why-onset.png')}}"
                          alt="{{$about->translate('en')->slug}}">
                 </div>
                 <div class="col-md-6 col-lg-6 mt-auto mb-auto">
