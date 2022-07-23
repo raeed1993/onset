@@ -11,17 +11,17 @@
         <div class="img-banner">
             <img src="{{$obj->primary_image}}" alt="{{$obj->title}}">
         </div>
-        <div class="container">
-            <div class="page-title">
-                <h1>
-                    {{$obj->title}}
-                </h1>
 
-            </div>
-            @include('partials.request-order')
-            <br/>
 
-        </div>
+            <h1 class="text-center">
+                {{$obj->title}}
+            </h1>
+
+
+        @include('partials.request-order')
+        <br/>
+
+
     </section>
     <section class="business section-padding" id="business">
         <div class="container">
