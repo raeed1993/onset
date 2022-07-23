@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+@section('meta')
+    @include('partials.meta',['image'=>$obj->primary_image,
+                              'page'=>$obj->title,
+                              'desc'=>$obj->title,
+                              'updated_time'=>$obj->updated_at,
+                              'published_time'=>$obj->created_at])
+@endsection
 @section('content')
     <section class="page-banner contact-us">
         <div class="img-banner">
