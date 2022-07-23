@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('meta')
     @include('partials.meta',['image'=>$about->primary_image,'page'=>trans('pages.about_us'),'desc'=>$about->content])
+    <meta property="og:updated_time" content="{{$about->updated_at}}">
+    <meta property="og:image" content="{{$about->primary_image}}">
+    <meta property="og:image:secure_url" content="{{$about->primary_image}}">
+{{--    <meta property="og:image:width" content="706">--}}
+{{--    <meta property="og:image:height" content="689">--}}
+    <meta property="og:image:alt" content="{{trans('pages.about_us')}}">
+    <meta property="og:image:type" content="image/jpeg">
 @endsection
 @section('content')
     <section class="page-banner contact-us">
