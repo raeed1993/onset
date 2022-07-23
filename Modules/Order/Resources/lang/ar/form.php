@@ -1,4 +1,4 @@
-form.php<?php
+<?php
 
 return [
     'request_photoshoot' => 'طلب عرض التصوير',
