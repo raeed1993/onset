@@ -1,9 +1,18 @@
 @extends('layouts.app')
+@section('meta')
+    @include('partials.meta',['image'=>$page->primary_image,
+                              'page'=>trans('pages.blog'),
+                              'desc'=>$page->content,
+                              'updated_time'=>$page->updated_at,
+                              'published_time'=>$page->created_at])
 
+
+
+@endsection
 @section('content')
     <section class="page-banner contact-us">
         <div class="img-banner" >
-            <img src="{{$image}}"  alt="blogs">
+            <img src="{{$page->primary_image}}"  alt="blogs">
         </div>
         <div class="container">
             <div class="page-title">
@@ -24,7 +33,7 @@
                         <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
                         <div class="article-content">
                             <div class="article-content_img">
-                                <img src="{{$blog->primary_image}}" alt=""/>
+                                <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
                             </div>
                             <h4>{{$blog->title}}</h4>
                             <div class="text-white">

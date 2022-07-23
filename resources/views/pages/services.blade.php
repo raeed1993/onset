@@ -1,9 +1,18 @@
 @extends('layouts.app')
+@section('meta')
+    @include('partials.meta',['image'=>$page->primary_image,
+                              'page'=>trans('pages.services'),
+                              'desc'=>$page->content,
+                              'updated_time'=>$page->updated_at,
+                              'published_time'=>$page->created_at])
 
+
+
+@endsection
 @section('content')
     <section class="page-banner contact-us">
         <div class="img-banner" >
-            <img src="{{$image}}"   alt="services">
+            <img src="{{$page->primary_image}}"   alt="services">
         </div>
         <div class="container">
             <div class="page-title">

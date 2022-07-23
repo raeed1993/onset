@@ -12,35 +12,36 @@ class PagesController extends Controller
     public function homePage(GuestInterface $interface)
     {
         $data = $interface->homePage();
-        return view('pages.home', compact('data'));
+        $about = $interface->findBySlug('about-us');
+        return view('pages.home', compact('data','about'));
     }
 
     public function services(GuestInterface $interface)
     {
         $services = $interface->services();
-        $image = $interface->findBySlug('services')->primary_image;
-        return view('pages.services', compact('services','image'));
+        $page = $interface->findBySlug('services');
+        return view('pages.services', compact('services','page'));
     }
 
     public function projects(GuestInterface $interface)
     {
         $projects = $interface->projects();
-        $image = $interface->findBySlug('projects')->primary_image;
-        return view('pages.projects', compact('projects','image'));
+        $page = $interface->findBySlug('projects');
+        return view('pages.projects', compact('projects','page'));
     }
 
     public function blogs(GuestInterface $interface)
     {
         $blogs = $interface->blogs();
-        $image = $interface->findBySlug('blogs')->primary_image;
-        return view('pages.blogs', compact('blogs','image'));
+        $page = $interface->findBySlug('blogs');
+        return view('pages.blogs', compact('blogs','page'));
     }
 
     public function contact(GuestInterface $interface)
     {
-        $image = $interface->findBySlug('contact-us')->primary_image;
+        $page = $interface->findBySlug('contact-us');
 
-        return view('pages.contact',compact('image'));
+        return view('pages.contact',compact('page'));
     }
 
     public function aboutus(GuestInterface $interface)
