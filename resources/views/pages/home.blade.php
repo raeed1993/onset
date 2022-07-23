@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('meta')
-    @include('partials.meta',['image'=>$about->primary_image,'page'=>trans('pages.home'),'desc'=>$about->content,'updated_time'=>$about->updated_at,'published_time'=>$about->created_at])
+    @include('partials.meta',['image'=>asset('images/logo-media.png'),'page'=>trans('pages.home'),'desc'=>$about->content,'updated_time'=>$about->updated_at,'published_time'=>$about->created_at])
 @endsection
 @section('content')
 

@@ -146,7 +146,7 @@
                             <a href="{{route('admin.website.edit')}}"
                                class="nav-link  {{$url == route('admin.website.edit')?'active':''}}">
 
-                                <p class="ml-3">- Pages & Meta</p>
+                                <p class="ml-3">- Pages     & Meta</p>
                             </a>
                         </li>
                         <li class="nav-item">
