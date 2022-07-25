@@ -41,7 +41,8 @@
                     <img src="{{asset('images/why-onset.png')}}"
                          alt="{{$about->translate('en')->slug}}">
                 </div>
-                <div class="col-md-6 col-lg-6 mt-auto mb-auto">
+
+                <div class="col-md-6 col-lg-6 mt-auto mb-auto p-5">
                     <h2 class=" text-white line-height-initial">
                         {{$about->content}}
                     </h2>
