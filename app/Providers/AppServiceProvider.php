@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Modules\Taxonomy\Entities\Taxonomy;
 use Modules\Taxonomy\Interfaces\RepositoryInterface;
-use Modules\Taxonomy\Repositories\Client\ClientBigRepository;
+use Modules\Taxonomy\Repositories\ClientBig\ClientBigRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
