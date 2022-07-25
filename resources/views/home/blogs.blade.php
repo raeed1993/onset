@@ -9,14 +9,14 @@
             @foreach($data['blogs'] as $blog)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
-                        <div class="article-content">
+                        <div class="article-content text-white">
                             <div class="article-content_img">
                                 <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
                             </div>
                             <h4>{{$blog->title}}</h4>
-                            <div class="text-white">
+{{--                            <div class="text-white">--}}
                                 {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
-                            </div>
+{{--                            </div>--}}
                             @include('partials.continue-read')
 
                         </div>
