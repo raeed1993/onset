@@ -29,7 +29,7 @@
 
                 @foreach($blogs as $blog)
 
-                    <div class="col-md-6 col-lg-4 mb-4">
+                    <section class="col-md-6 col-lg-4 mb-4">
                         <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
                         <div class="article-content text-white">
                             <div class="article-content_img">
@@ -42,7 +42,7 @@
                             @include('partials.continue-read')
                         </div>
                         </a>
-                    </div>
+                    </section>
 
                 @endforeach
 
