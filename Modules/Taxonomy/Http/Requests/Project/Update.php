@@ -30,6 +30,8 @@ class Update extends FormRequest
             'links.*' => ['required', 'string'],
             'images' => ['array', 'nullable'],
             'images.*' => ['required', 'string'],
+            'image_link' => ['array', 'nullable'],
+            'image_link.*' => ['nullable', 'string'],
         ];
     }
 }

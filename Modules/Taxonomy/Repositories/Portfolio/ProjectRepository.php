@@ -45,6 +45,7 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
 
     public function store($data)
     {
+
         $project = new Taxonomy();
         if (isset($data['primary-image']))
             $project->primary_image = $data['primary-image'];
@@ -55,7 +56,7 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
             $project->links = $data['links'];
 
         if (isset($data['images']))
-            $project->images = $data['images'];
+            $project->image_link = $this->setObject($data['image_link'], $data['images']);
 
         foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key)
             $project->translateOrNew($key)->title = $data['title-' . $key];
@@ -64,6 +65,18 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
         $project->save();
 
         return $project;
+    }
+
+    private function setObject($image_link, $images)
+    {
+        $images_links = [];
+        for ($i = 0; $i < count($image_link); $i++) {
+            $object = new \stdClass();
+            $object->image = $images[$i];
+            $object->link = $image_link[$i];
+            array_push($images_links, $object);
+        }
+        return $images_links;
     }
 
     public function updateModel(array $data)
@@ -78,8 +91,8 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
         else $project->links = [];
 
         if (isset($data['images']))
-            $project->images = $data['images'];
-        else $project->images = [];
+            $project->image_link = $this->setObject($data['image_link'], $data['images']);
+        else $project->image_link = [];
 
 
         $project->parent_id = $data['service_id'];

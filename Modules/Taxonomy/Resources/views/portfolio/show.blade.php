@@ -88,17 +88,19 @@
                                         <span class="mb-3 imageuploadify-message-show "> Project Old Images</span>
 
                                         <div class="row">
-                                            @if (isset($project->images))
-                                                @foreach($project->images as $index=>$img)
+                                            @if (isset($project->image_link))
+                                                @foreach($project->image_link as $index=>$img)
 
-                                                    <div class="col imageuploadify-container-show"
+                                                    <div class="border col imageuploadify-container-show mr-1 ml-1"
                                                          id="images-list-{{$index}}">
 
                                                         <button type="button" class="btn btn-danger "
                                                                 onclick="remove_old_image({{$index}})">x
                                                         </button>
                                                         <div class="imageuploadify-details--show">
-                                                            <img src="{{$img}}" class="m-1 " width="100">
+                                                            <img src="{{$img->image}}" class="m-1 " width="150" height="100">
+                                                            <input class="form-control" name="image_link[]" value="{{$img->link}}"
+                                                                   placeholder="project link">
                                                         </div>
                                                     </div>
 
@@ -112,11 +114,11 @@
 
 
                             <div class="images-show">
-                                @if (isset($project->images))
-                                    @foreach($project->images as $index=>$img)
+                                @if (isset($project->image_link))
+                                    @foreach($project->image_link as $index=>$img)
 
                                         <input type="hidden" id="input-images-list-{{$index}}" name="images[]"
-                                               value="{{$img}}">
+                                               value="{{$img->image}}">
                                     @endforeach
                                 @endif
 
@@ -321,11 +323,11 @@
                     $('.bd-example-modal-lg').modal('toggle')
                 } else {
                     $('#images-filemanager-show .row').append(
-                        '  <div class="col imageuploadify-container-show"  id="images-list-' + i + '">' +
-
+                        '  <div class="border col imageuploadify-container-show ml-1 mr-1"  id="images-list-' + i + '">' +
                         ' <button type="button" class="btn btn-danger " onclick="remove_old_image(' + i + ')">x</button>' +
                         '<div class="imageuploadify-details--show">' +
-                        '<img src="' + fileUrl + '" class="m-1 " width="100">' +
+                        '<img src="' + fileUrl + '" class="m-1 " width="150" height="100">' +
+                        '  <input class="form-control" name="image_link[]" placeholder="project link">' +
                         '  </div>' +
                         '</div>'
                     )

@@ -13,9 +13,9 @@
         </div>
 
 
-            <h1 class="text-center">
-                {{$obj->title}}
-            </h1>
+        <h1 class="text-center">
+            {{$obj->title}}
+        </h1>
 
 
         @include('partials.request-order')
@@ -25,18 +25,31 @@
     </section>
     <section class="business section-padding" id="business">
         <div class="container">
-            @if (isset($obj->images))
+            @if (isset($obj->image_link))
                 <div class="row">
-                    @foreach($obj->images as $image)
+                    @foreach($obj->image_link as $image)
 
                         <div class="col-sm-6 col-md-3 mb-3">
-                            <div class="content-business">
-                                <div class="image-normal-show ">
-                                    <img src="{{$image}}" alt="{{$obj->title}}">
-                                </div>
+                            @if (isset($image->link))
+                                <a target="_blank" href="{{$image->link}}" class="text-decoration-none">
+                                    <div class="content-business">
+                                        <div class="image-normal-show ">
+                                            <img src="{{$image->image}}" alt="{{$obj->title}}">
+                                        </div>
 
-                            </div>
+                                    </div>
+                                </a>
+                            @else
+                                <div class="content-business">
+                                    <div class="image-normal-show ">
+                                        <img src="{{$image->image}}" alt="{{$obj->title}}">
+                                    </div>
+
+                                </div>
+                            @endif
+
                         </div>
+
                     @endforeach
                 </div>
             @endif

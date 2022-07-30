@@ -154,43 +154,6 @@
 
         $(function () {
 
-            // $.validator.setDefaults({
-            //     submitHandler: function () {
-            //         alert("Form successful submitted!");
-            //     }
-            // });
-            // $('#quickForm').validate({
-            //     rules: {
-            //         title: {
-            //             required: true,
-            //         },
-            //
-            //         status: {
-            //             required: true
-            //         },
-            //     },
-            //     messages: {
-            //         title: {
-            //             required: "Please enter a title ",
-            //         },
-            //         content: {
-            //             required: "Please provide a content",
-            //             minlength: "Your password must be at least 5 characters long"
-            //         },
-            //         status: "Please accept our terms"
-            //     },
-            //     errorElement: 'span',
-            //     errorPlacement: function (error, element) {
-            //         error.addClass('invalid-feedback');
-            //         element.closest('.form-group').append(error);
-            //     },
-            //     highlight: function (element, errorClass, validClass) {
-            //         $(element).addClass('is-invalid');
-            //     },
-            //     unhighlight: function (element, errorClass, validClass) {
-            //         $(element).removeClass('is-invalid');
-            //     }
-            // });
             $('.select2').select2()
             $('#image-filemanager').on('click', function () {
                 primary = true;
@@ -238,10 +201,11 @@
                     $('.bd-example-modal-lg').modal('toggle')
                 } else {
                     $('#images-filemanager-show .row').append(
-                        '<div class="col imageuploadify-container-show" id="images-list-' + i + '">' +
+                        '<div class="border col imageuploadify-container-show ml-1 mr-1" id="images-list-' + i + '">' +
                         '<button type="button" class="btn btn-danger " onclick="remove_old_image(' + i + ')">x</button>' +
                         ' <div class="imageuploadify-details--show">' +
-                        '<img src="' + fileUrl + '" class="m-1 " width="100">' +
+                        '<img src="' + fileUrl + '" class="m-1 " width="150" height="100">' +
+                        '<input class="form-control" name="image_link[]" placeholder="project link">' +
                         '</div>' +
                         '</div>')
                     $('.images-show').append('<input type="hidden" id="input-images-list-' + i + '" name="images[]" value="' + fileUrl + '">')

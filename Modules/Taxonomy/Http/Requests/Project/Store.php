@@ -23,13 +23,15 @@ class Store extends FormRequest
 
             'title-ar' => ['required', 'string'],
             'title-en' => ['required', 'string'],
-            'primary-image' => ['nullable','string'],
+            'primary-image' => ['nullable', 'string'],
             'status' => ['nullable'],
-            'service_id' => ['required','numeric','exists:taxonomies,id'],
+            'service_id' => ['required', 'numeric', 'exists:taxonomies,id'],
             'links' => ['array', 'nullable'],
             'links.*' => ['required', 'string'],
             'images' => ['array', 'nullable'],
             'images.*' => ['required', 'string'],
+            'image_link' => ['array', 'nullable'],
+            'image_link.*' => ['nullable', 'string'],
         ];
     }
 }

@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property array $links
  * @property string $primary_image
  * @property array $images
+ * @property object $image_link
  */
 class Taxonomy extends Model
 {
@@ -21,7 +22,7 @@ class Taxonomy extends Model
 
     public $translationForeignKey = 'taxonomy_id';
     public $translatedAttributes = ['title', 'content', 'slug'];
-    protected $fillable = ['title', 'content', 'slug', 'type', 'parent_id', 'status', 'primary_image'];
+    protected $fillable = ['title', 'content', 'slug', 'type', 'parent_id', 'status', 'primary_image','image_link'];
     protected $append = ['option', 'projects_service'];
 
     protected $casts = [
@@ -60,6 +61,19 @@ class Taxonomy extends Model
     const TYPE_CLIENT_BIG = [
         'no' => 8,
     ];
+
+    public function setImageLinkAttribute($value)
+    {
+        return $this->attributes['image_link'] = serialize($value);
+    }
+
+        public function getImageLinkAttribute()
+    {
+        if (is_null($this->attributes['image_link'])) {
+            return null;
+        }
+        return unserialize($this->attributes['image_link']);
+    }
 
     public function scopeSliders($query)
     {
