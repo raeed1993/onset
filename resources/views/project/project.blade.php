@@ -84,16 +84,16 @@
                 @foreach($links as $link)
 
 
-                    @if (isset($obj->images)&&count($obj->images)>0)
+                    @if (isset($obj->image_link)&&count($obj->image_link)>0)
                         @if ($link->translate('en')->slug == 'behance')
-                            <a href="{{isset($obj->images)&&$obj->images>0?$link->links[0]:''}}">
+                            <a href="{{isset($obj->image_link)&&$obj->image_link>0?$link->links[0]:''}}">
                                 <i class="text-white text-lg uil uil-behance"></i>
                             </a>
 
                         @endif
                     @elseif(isset($obj->links)&&count($obj->links)>0)
                         @if ($link->translate('en')->slug == 'youtube')
-                            <a href="{{isset($obj->images)&&$obj->images>0?$link->links[0]:''}}">
+                            <a href="{{isset($obj->image_link)&&$obj->image_link>0?$link->links[0]:''}}">
                                 <i class="text-white text-lg uil uil-youtube"></i>
                             </a>
                         @endif
