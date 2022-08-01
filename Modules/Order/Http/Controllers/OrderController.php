@@ -13,6 +13,15 @@ class OrderController extends Controller
 
     public function store(Request $request, OrderInterface $interface)
     {
+        $phoneRules = 'required';
+        $emailRules = 'required|email';
+        $request->validate([
+            'full_name' => 'required|max:255',
+            'phone_number' => $phoneRules,
+            'email' => $emailRules,
+            'project_name' => 'required'
+        ]);
+
         try {
             DB::beginTransaction();
             $interface->create($request->all());
