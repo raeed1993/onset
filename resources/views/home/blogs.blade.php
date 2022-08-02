@@ -17,8 +17,9 @@
                             <section>
                                 {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
                             </section>
+                            @include('partials.continue-read')
                         </div>
-                        @include('partials.continue-read')
+
                     </a>
                 </section>
             @endforeach
