@@ -311,7 +311,10 @@
                 </div>
 
                 <div class="col-12 text-center mt-5">
-                    <button type="submit" class="btn btn-secondary">
+                    <button class="btn btn-secondary g-recaptcha"
+                            data-sitekey="reCAPTCHA_site_key"
+                            data-callback='onSubmit'
+                            data-action='submit'>
                         @lang('form.submit')
                     </button>
                 </div>

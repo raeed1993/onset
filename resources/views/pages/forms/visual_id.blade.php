@@ -101,7 +101,7 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">
-                           @lang('form.target_segment')
+                            @lang('form.target_segment')
                         </label>
                         <select class="form-select" aria-label="Default select example" name="target_segment">
                             <option value="childs">
@@ -295,7 +295,10 @@
                 </div>
 
                 <div class="col-12 text-center mt-5">
-                    <button type="submit" class="btn btn-secondary">
+                    <button class="btn btn-secondary g-recaptcha"
+                            data-sitekey="reCAPTCHA_site_key"
+                            data-callback='onSubmit'
+                            data-action='submit'>
                         @lang('form.submit')
                     </button>
                 </div>
