@@ -38,7 +38,7 @@
 
         <div class="swiper business-mobile">
             <div class="swiper-wrapper">
-                @foreach($blogs as $blog)
+                @foreach($data['blogs'] as $blog)
                     <section class="swiper-slide">
                         <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}"
                            class="text-decoration-none">
@@ -59,6 +59,12 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
-
+        <div class="text-center">
+            <a href="{{route('blogs.page')}}" class="btn btn-secondary btn-view">
+                <b>
+                    @lang('home.see_more')
+                </b>
+            </a>
+        </div>
     </div>
 </section>
