@@ -15,12 +15,14 @@
                             </div>
                             <h4>{{$blog->title}}</h4>
                             {{--                            <div class="text-white">--}}
-                            {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
-                            {{--                            </div>--}}
                             <section>
-                                @include('partials.continue-read')
+                                {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
+                            {{--                            </div>--}}
                             </section>
+
+
                         </div>
+                        @include('partials.continue-read')
                     </a>
                 </section>
             @endforeach
