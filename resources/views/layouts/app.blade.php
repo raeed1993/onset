@@ -36,18 +36,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"></script>
-<script>
-    function onSubmit(e) {
-        e.preventDefault();
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3', {action: 'submit'}).then(function(token) {
-               console.log('dasdadadadadasdasd')
-            });
-        });
-    }
-</script>
+
 <script src="{{ asset('js/app.js') }}" defer></script>
 @stack('js')
 </body>
