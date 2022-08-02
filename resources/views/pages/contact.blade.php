@@ -25,7 +25,7 @@
 
     <section class="contact-us-form section-padding">
         <div class="container">
-            <form action="{{route('contact.store')}}" method="POST">
+            <form action="{{route('contact.store')}}" method="POST" id="contact-form">
                 @csrf
 
                 <div class="row">
@@ -100,6 +100,9 @@
                     console.log('dasdadadadadasdasd')
                 });
             });
+        }
+        function onSubmit(token) {
+            document.getElementById("contact-form").submit();
         }
     </script>
 @endpush
