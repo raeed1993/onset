@@ -14,11 +14,12 @@
                                 <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
                             </div>
                             <h4>{{$blog->title}}</h4>
-{{--                            <div class="text-white">--}}
-                                {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
-{{--                            </div>--}}
-                            @include('partials.continue-read')
-
+                            {{--                            <div class="text-white">--}}
+                            {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
+                            {{--                            </div>--}}
+                            <section>
+                                @include('partials.continue-read')
+                            </section>
                         </div>
                     </a>
                 </section>
