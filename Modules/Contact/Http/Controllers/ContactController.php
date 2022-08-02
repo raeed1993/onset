@@ -18,6 +18,15 @@ class ContactController extends Controller
      */
     public function store(Request $request, ContactInterface $interface)
     {
+        $phoneRules = 'required';
+        $emailRules = 'required|email';
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone_number' => $phoneRules,
+            'email' => $emailRules,
+            'content' => 'required'
+        ]);
+
         try {
             DB::beginTransaction();
             $interface->store($request->all());
