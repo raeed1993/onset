@@ -13,7 +13,7 @@
 
     <section class="photography-form section-padding">
         <div class="container">
-            <form class="row" method="post" action="{{route('order.store')}}">
+            <form class="row" method="post" action="{{route('order.store')}}" id="photography-form">
                 @csrf
                 <input type="hidden" name="type" value="photography_show">
                 <div class="col-12">
@@ -26,6 +26,7 @@
                             name="full_name"
                             class="form-control"
                             id="full_name"
+
                         />
                     </div>
                 </div>
@@ -40,6 +41,7 @@
                             name="phone_number"
                             class="form-control"
                             id="phone_number"
+                            value="{{old('phone_number')}}"
                         />
                     </div>
                 </div>
@@ -54,6 +56,7 @@
                             name="email"
                             class="form-control"
                             id="email"
+                            value="{{old('email')}}"
                         />
                     </div>
                 </div>
@@ -68,6 +71,7 @@
                             name="project_name"
                             class="form-control"
                             id="project_name"
+                            value="{{old('project_name')}}"
                         />
                     </div>
                 </div>
@@ -108,6 +112,7 @@
                             name="purpose_photography_video"
                             class="form-control"
                             id="purpose_photography_video"
+                            value="{{old('purpose_photography_video')}}"
                         />
                     </div>
                 </div>
@@ -150,6 +155,7 @@
                             name="number_shooting_days"
                             class="form-control"
                             id="number_shooting_days"
+                            value="{{old('number_shooting_days')}}"
                         />
                     </div>
                 </div>
@@ -164,6 +170,7 @@
                             name="camera_count"
                             class="form-control"
                             id="camera_count"
+                            value="{{old('camera_count')}}"
                         />
                     </div>
                 </div>
@@ -178,6 +185,7 @@
                             name="video_duration"
                             class="form-control"
                             id="video_duration"
+                            value="{{old('video_duration')}}"
                         />
                     </div>
                 </div>
@@ -196,6 +204,7 @@
                                     value="1"
                                     id="option2"
                                     autocomplete="off"
+
                                 />
                                 <label class="btn btn-secondary" for="option2">
                                     @lang('form.yes')
@@ -292,6 +301,7 @@
                             class="form-control"
                             id="link_like_video"
                             name="link_like_video"
+                            value="{{old('link_like_video')}}"
                         />
                     </div>
                 </div>
@@ -306,7 +316,7 @@
                             class="form-control"
                             id="note"
                             rows="3"
-                        ></textarea>
+                        >{{old('note')}}</textarea>
                     </div>
                 </div>
 
@@ -322,3 +332,20 @@
         </div>
     </section>
 @endsection
+@push('js')
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"></script>
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3', {action: 'submit'}).then(function(token) {
+
+                });
+            });
+        }
+        function onSubmit(token) {
+            document.getElementById("photography-form").submit();
+        }
+    </script>
+@endpush

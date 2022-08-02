@@ -13,7 +13,7 @@
 
     <section class="form-visual section-padding">
         <div class="container">
-            <form class="row" method="post" action="{{route('order.store')}}">
+            <form class="row" method="post" action="{{route('order.store')}}" id="visual-id-form">
                 @csrf
                 <input type="hidden" name="type" value="visual_identity">
                 <div class="col-12">
@@ -26,6 +26,7 @@
                             name="full_name"
                             class="form-control"
                             id="full_name"
+                            value="{{old('full_name')}}"
                         />
                     </div>
                 </div>
@@ -40,6 +41,7 @@
                             name="phone_number"
                             class="form-control"
                             id="phone_number"
+                            value="{{old('phone_number')}}"
                         />
                     </div>
                 </div>
@@ -54,6 +56,7 @@
                             name="email"
                             class="form-control"
                             id="email"
+                            value="{{old('email')}}"
                         />
                     </div>
                 </div>
@@ -68,6 +71,7 @@
                             name="project_name"
                             class="form-control"
                             id="project_name"
+                            value="{{old('project_name')}}"
                         />
                     </div>
                 </div>
@@ -133,6 +137,7 @@
                             name="feature_project"
                             class="form-control"
                             id="feature_project"
+                            value="{{old('feature_project')}}"
                         />
                     </div>
                 </div>
@@ -147,6 +152,7 @@
                             name="services_products_project"
                             class="form-control"
                             id="services_products_project"
+                            value="{{old('services_products_project')}}"
                         />
                     </div>
                 </div>
@@ -262,6 +268,7 @@
                             name="logo_prefer"
                             class="form-control"
                             id="logo_prefer"
+                            value="{{old('logo_prefer')}}"
                         />
                     </div>
                 </div>
@@ -276,7 +283,7 @@
                             id="about_project"
                             name="about_project"
                             rows="3"
-                        ></textarea>
+                        >{{old('about_project')}}</textarea>
                     </div>
                 </div>
 
@@ -290,7 +297,7 @@
                             class="form-control"
                             id="note"
                             rows="3"
-                        ></textarea>
+                        > {{old('note')}}</textarea>
                     </div>
                 </div>
 
@@ -306,3 +313,20 @@
         </div>
     </section>
 @endsection
+@push('js')
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"></script>
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3', {action: 'submit'}).then(function(token) {
+
+                });
+            });
+        }
+        function onSubmit(token) {
+            document.getElementById("visual-id-form").submit();
+        }
+    </script>
+@endpush

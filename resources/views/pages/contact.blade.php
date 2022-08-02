@@ -36,6 +36,7 @@
                                 name="name"
                                 class="form-control"
                                 id="exampleFormControlInput1"
+                                value="{{old('name')}}"
                                 placeholder=@lang('form.full_name')
                             />
                         </div>
@@ -46,6 +47,7 @@
                             <input
                                 type="email"
                                 name="email"
+                                value="{{old('email')}}"
                                 class="form-control"
                                 id="exampleFormControlInput1"
                                 placeholder=@lang('form.email')
@@ -58,6 +60,7 @@
                                 type="number"
                                 name="phone_number"
                                 class="form-control"
+                                value="{{old('phone_number')}}"
                                 id="exampleFormControlInput1"
                                 placeholder=@lang('form.phone_number')
                             />
@@ -71,11 +74,11 @@
                   name="content"
                   id="exampleFormControlTextarea1"
                   rows="10"
-              ></textarea>
+              >{{old('content')}}</textarea>
                         </div>
                     </div>
                     <div class="col-12 text-center mt-5">
-                        <button type="submit"
+                        <button
                                 class="btn btn-primary g-recaptcha"
                                 data-sitekey="6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"
                                 data-callback='onSubmit'
@@ -97,7 +100,7 @@
             e.preventDefault();
             grecaptcha.ready(function() {
                 grecaptcha.execute('6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3', {action: 'submit'}).then(function(token) {
-                    console.log('dasdadadadadasdasd')
+
                 });
             });
         }
