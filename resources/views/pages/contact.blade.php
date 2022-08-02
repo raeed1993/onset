@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="col-12 text-center mt-5">
-                        <button 
+                        <button
                                 class="btn btn-primary g-recaptcha"
                                 data-sitekey="6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"
                                 data-callback='onSubmit'
