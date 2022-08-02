@@ -85,7 +85,7 @@
 
                     </div>
                     <div class="col-12 text-center mt-5">
-                        <button 
+                        <button
                                 class="btn btn-primaryg-recaptcha"
                                 data-sitekey="reCAPTCHA_site_key"
                                 data-callback='onSubmit'
@@ -99,11 +99,4 @@
     </section>
 
 @endsection
-@push('js')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"
-    ></script>
-@endpush
+
