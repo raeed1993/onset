@@ -39,7 +39,7 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"></script>
 <script>
-    function onClick(e) {
+    function onSubmit(e) {
         e.preventDefault();
         grecaptcha.ready(function() {
             grecaptcha.execute('6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3', {action: 'submit'}).then(function(token) {
