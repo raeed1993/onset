@@ -14,9 +14,9 @@
                                 <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
                             </div>
                             <h4>{{$blog->title}}</h4>
-
+                            <section>
                                 {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
-
+                            </section>
                         </div>
                         @include('partials.continue-read')
                     </a>
