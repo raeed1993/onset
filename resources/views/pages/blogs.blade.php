@@ -37,11 +37,12 @@
                             </div>
                             <h4>{{$blog->title}}</h4>
 {{--                            <div class="text-white">--}}
+                            <section>
                                 {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
 {{--                            </div>--}}
-                            <section>
-                                @include('partials.continue-read')
                             </section>
+                                @include('partials.continue-read')
+
 
                         </div>
                         </a>
@@ -66,10 +67,11 @@
                                         <img src="{{$blog->primary_image}}" alt="{{$blog->translate('en')->title}}"/>
                                     </div>
                                     <h2>{{$blog->title}}</h2>
-                                    {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
                                     <section>
-                                        @include('partials.continue-read')
+                                    {!!  implode(' ', array_slice(explode(' ', $blog->content), 0, 15))!!}
                                     </section>
+                                        @include('partials.continue-read')
+
                                 </div>
                             </a>
                         </section>
