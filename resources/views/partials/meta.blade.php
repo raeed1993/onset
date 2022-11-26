@@ -1,6 +1,17 @@
 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-    <link rel="alternate" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-          hreflang="{{ $localeCode }}">
+
+    @if ($localeCode =='ar')
+        @php($linkUrl =explode('/ar',LaravelLocalization::getLocalizedURL($localeCode, null, [], true)))
+
+        <link rel="alternate"
+              href="{{$linkUrl[0].$linkUrl[1]}}"
+              hreflang="{{ $localeCode }}">
+    @else
+        <link rel="alternate" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+              hreflang="{{ $localeCode }}">
+
+    @endif
+
 
 @endforeach
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -39,11 +50,10 @@
 <meta name="twitter:title" content="{{ config('app.name', 'ONSET') }} - {{$page}}">
 <meta name="twitter:description" content="{{$desc}}">
 <meta name="twitter:image" content="{{$image}}">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="ONSET">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="ONSET">
 <meta name="twitter:label2" content="Time to read">
 <meta name="twitter:data2" content="Less than a minute">
-
 
 
 <meta name="msapplication-TileImage"

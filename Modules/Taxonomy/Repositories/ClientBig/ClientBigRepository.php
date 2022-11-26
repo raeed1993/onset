@@ -34,7 +34,7 @@ class ClientBigRepository extends RepositoriesAbstract implements ClientBigInter
     {
         $data = $this->make($with)->clientsBig();
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
 
 

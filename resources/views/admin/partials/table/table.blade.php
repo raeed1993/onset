@@ -61,7 +61,8 @@
                                         Are You Sure You Wont Delete {{$item->translate('ar')->title}}?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
                                         <form action="{{route('admin.'.$route_name.'.delete')}}" method="POST">
                                             <input type="hidden" value="{{$item->id}}" name="taxonomy_id">
                                             @csrf
@@ -126,7 +127,8 @@
                                         Are You Sure You Wont Delete ?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
                                         <form action="{{route('admin.'.$route_name.'.delete')}}" method="POST">
                                             <input type="hidden" value="{{$item->id}}" name="taxonomy_id">
                                             @csrf
@@ -146,5 +148,8 @@
         @endif
 
     @endforeach
+
     </tbody>
 </table>
+<hr/>
+{{$list->links('vendor.pagination.pagination',['paginator'=>$list])}}

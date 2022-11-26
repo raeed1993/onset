@@ -9,7 +9,8 @@
             @foreach($data['projects'] as $project)
 
                 <div class="col-sm-6 mb-3">
-                    <a href="{{route('taxonomy.show',$project->translate('en')->slug)}}" class="text-decoration-none">
+                    <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$project->translate('en')->slug)}}"
+                       class="text-decoration-none">
                         <div class="content-business">
                             <div class="content-business_img">
                                 <img src="{{$project->primary_image}}" alt="{{$project->translate('en')->title}}"/>
@@ -37,7 +38,7 @@
             <div class="swiper-wrapper">
                 @foreach($data['projects'] as $project)
                     <div class="swiper-slide">
-                        <a href="{{route('taxonomy.show',$project->translate('en')->slug)}}"
+                        <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$project->translate('en')->slug)}}"
                            class="text-decoration-none">
                             <div class="content-business">
                                 <div class="content-business_img">

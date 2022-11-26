@@ -34,7 +34,7 @@ class ClientRepository extends RepositoriesAbstract implements ClientInterface
     {
         $data = $this->make($with)->clients();
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
 
 

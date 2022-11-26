@@ -120,7 +120,7 @@
                             @endforeach
                             </tbody>
                         </table>
-
+                        {{$list->links('vendor.pagination.pagination',['paginator'=>$list])}}
                     @else
                         <div>There Is No {{$table_name}} Yet.</div>
                     @endif

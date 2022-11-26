@@ -34,7 +34,7 @@ class SliderRepository extends RepositoriesAbstract implements SliderInterface
     {
         $data = $this->make($with)->active()->sliders();
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
 
     public function store($data)

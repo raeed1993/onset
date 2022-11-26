@@ -9,6 +9,12 @@ use Modules\Taxonomy\Repositories\RepositoriesAbstract;
 
 class AdminOrderRepository extends RepositoriesAbstract implements AdminOrderInterface
 {
+    public function all(array $with = [])
+    {
+        $data = $this->make($with);
+
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
+    }
 
     public function store($data)
     {
@@ -19,6 +25,7 @@ class AdminOrderRepository extends RepositoriesAbstract implements AdminOrderInt
     {
         return null;
     }
+
     public function toggleStatus($data)
     {
         $model = Order::find($data['taxonomy_id']);

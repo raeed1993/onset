@@ -12,7 +12,7 @@ class AdminContactRepository extends RepositoriesAbstract implements AdminContac
 {
     public static function adminComposerContactUnreadCount()
     {
-        return Contact::where('read_at', null)->get();
+        return Contact::where('read_at', null)->paginate(20);
     }
 
     public static function adminComposerOrderUnreadCount()

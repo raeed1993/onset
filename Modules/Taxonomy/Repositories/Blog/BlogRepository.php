@@ -34,7 +34,7 @@ class BlogRepository extends RepositoriesAbstract implements BlogInterface
     {
         $data = $this->make($with)->blogs();
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
 
     public function store($data)

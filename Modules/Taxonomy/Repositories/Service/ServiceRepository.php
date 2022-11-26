@@ -37,7 +37,7 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
             ->services();
 
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
 
     public function updateModel(array $data)

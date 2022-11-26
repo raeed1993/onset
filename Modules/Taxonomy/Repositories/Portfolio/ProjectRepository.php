@@ -34,7 +34,7 @@ class ProjectRepository extends RepositoriesAbstract implements ProjectInterface
     {
         $data = $this->make($with)->projects();
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
 
     public function services()

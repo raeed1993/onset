@@ -7,7 +7,7 @@ use Modules\Taxonomy\Entities\Taxonomy;
 use Modules\Taxonomy\Interfaces\Blog\BlogInterface;
 use Modules\Taxonomy\Repositories\RepositoriesAbstract;
 
-class MetaRepository extends RepositoriesAbstract implements BlogInterface
+class MetaRepository extends RepositoriesAbstract
 {
     public function findOrFail($id, array $with = [])
     {
@@ -35,5 +35,15 @@ class MetaRepository extends RepositoriesAbstract implements BlogInterface
             ->where('type', Taxonomy::TYPE_META['no']);
 
         return $this->applyBeforeExecuteQuery($data)->get();
+    }
+
+    public function store($data)
+    {
+        return null;
+    }
+
+    public function updateModel(array $data)
+    {
+        return null;
     }
 }

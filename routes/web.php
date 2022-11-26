@@ -26,9 +26,9 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-        Route::middleware(['auth'])->group(function () {
+        Route::prefix('admin')->middleware(['auth'])->group(function () {
 
-            Route::get('admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+            Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
             Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
         });

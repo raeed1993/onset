@@ -8,7 +8,8 @@
         <div class="row">
             @foreach($data['blogs'] as $blog)
                 <section class="col-md-6 col-lg-4 mb-4">
-                    <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
+                    <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$blog->translate('en')->slug)}}"
+                       class="text-decoration-none">
                         <div class="article-content text-white">
                             <div class="article-content_img">
                                 <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
@@ -26,7 +27,8 @@
 
         </div>
         <div class="text-center">
-            <a href="{{route('blogs.page')}}" class="btn btn-secondary btn-view">
+            <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.blogs.page':'blogs.page')}}"
+               class="btn btn-secondary btn-view">
                 <b>
                     @lang('home.see_more')
                 </b>
@@ -41,7 +43,7 @@
             <div class="swiper-wrapper">
                 @foreach($data['blogs'] as $blog)
                     <section class="swiper-slide">
-                        <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}"
+                        <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$blog->translate('en')->slug)}}"
                            class="text-decoration-none">
                             <div class="content-business">
                                 <div class="content-business_img">
@@ -61,7 +63,7 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="text-center">
-            <a href="{{route('blogs.page')}}" class="btn btn-secondary btn-view">
+            <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.blogs.page':'blogs.page')}}" class="btn btn-secondary btn-view">
                 <b>
                     @lang('home.see_more')
                 </b>
