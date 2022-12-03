@@ -74,14 +74,14 @@
                     @endforeach
                 </div>
             @endif
-
+                @php($projects = $obj->projects_service->orderBy('id','desc')->limit(3)->get() )
 
             @if (count($projects)>0)
                     <h4 class="text-center text-white  ">
                     @lang('pages.from_our_portfolio') {{   $obj->title}}
                 </h4>
                 <div class="row">
-                    @php($projects = $obj->projects_service->orderBy('id','desc')->limit(3)->get() )
+
                     @foreach($projects as $child)
 
 
