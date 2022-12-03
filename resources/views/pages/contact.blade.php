@@ -10,10 +10,29 @@
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 @endsection
+@push('css')
+    <style>
+        .img-banner {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-image: url('{{$page->primary_image}}');
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.8;
+            z-index: -1;
+        }
+    </style>
+@endpush
 @section('content')
     <section class="page-banner contact-us">
         <div class="img-banner" >
-            <img src="{{$page->primary_image}}"  alt="contact us">
+{{--            <img src="{{$page->primary_image}}"  alt="contact us">--}}
         </div>
         <div class="container">
             <div class="page-title">

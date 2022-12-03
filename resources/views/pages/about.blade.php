@@ -5,10 +5,29 @@
 
 
 @endsection
+@push('css')
+    <style>
+        .img-banner {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-image: url('{{$about->primary_image}}');
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.8;
+            z-index: -1;
+        }
+    </style>
+@endpush
 @section('content')
     <section class="page-banner contact-us">
         <div class="img-banner">
-            <img src="{{$about->primary_image}}" alt="{{$about->translate('en')->slug}}">
+{{--            <img src="{{$about->primary_image}}" alt="{{$about->translate('en')->slug}}">--}}
         </div>
         <div class="container">
             <div class="page-title">

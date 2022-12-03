@@ -6,12 +6,31 @@
                               'updated_time'=>$obj->updated_at,
                               'published_time'=>$obj->created_at])
 @endsection
+@push('css')
+    <style>
+        .img-banner {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-image: url('{{isset($obj->images)?$obj->images[0]:''}}');
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.8;
+            z-index: -1;
+        }
+    </style>
+@endpush
 @section('content')
 
     {{--    <section class="page-banner contact-us">--}}
     <section class=" page-banner photography">
         <div class="img-banner">
-            <img src="{{isset($obj->images)?$obj->images[0]:''}}" alt=" {{$obj->title}}">
+{{--            <img src="{{isset($obj->images)?$obj->images[0]:''}}" alt=" {{$obj->title}}">--}}
         </div>
         <div class="container">
             {{--            <div class="content-service">--}}
