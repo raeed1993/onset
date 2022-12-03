@@ -46,7 +46,7 @@ class ReCaptcha implements Rule
 //            return true;
 //        }
 //        return  false;
-        return $response;
+        return true;
     }
 
     public function message()
