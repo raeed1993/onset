@@ -29,5 +29,9 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'recaptcha' => [
+        'site_key' => '6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3',
+        'secret_key' => '6LfxxT0hAAAAAHdQ-CCoDs1B9EeKYwEJggxq6OLx',
+        'min_score' => .5
+    ]
 ];

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Modules\Contact\Entities\ReCaptcha;
 use Modules\Contact\Interfaces\ContactInterface;
 
 class ContactController extends Controller
@@ -24,7 +25,8 @@ class ContactController extends Controller
             'name' => 'required|max:255',
             'phone_number' => $phoneRules,
             'email' => $emailRules,
-            'content' => 'required'
+            'content' => 'required',
+            'recaptcha_token' => ['required', new Recaptcha(request()->get('recaptcha_token'))],
         ]);
 
         try {
