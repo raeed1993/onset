@@ -75,44 +75,45 @@
                 </div>
             @endif
 
-            <h4 class="text-center text-white  ">
-                @lang('pages.from_our_portfolio') {{   $obj->title}}
-            </h4>
-            <div class="row">
-                @php($projects = $obj->projects_service->orderBy('id','desc')->limit(3)->get() )
-                @foreach($projects as $child)
 
-
-                    @if (isset($child->links)&&count($child->links)>0)
-                        <div class="col-sm-6 col-md-3 col-lg-3 ">
-                            <div class="content-business">
-                                <div class=" video-normal-show ">
-                                    <iframe
-                                        width="100%"
-                                        src="{{$child->links[0]}}"
-                                        title="{{$child->title}}"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-
-                    @elseif(isset($child->images)&&count($child->images)>0)
-
-                        <div class="col-sm-6 col-md-3 col-lg-3 ">
-                            <div class="content-business">
-                                <div class="image-normal-show ">
-                                    <img src="{{$child->images[0]}}" alt="{{$child->title}}">
-                                </div>
-
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
             @if (count($projects)>0)
+                    <h4 class="text-center text-white  ">
+                    @lang('pages.from_our_portfolio') {{   $obj->title}}
+                </h4>
+                <div class="row">
+                    @php($projects = $obj->projects_service->orderBy('id','desc')->limit(3)->get() )
+                    @foreach($projects as $child)
+
+
+                        @if (isset($child->links)&&count($child->links)>0)
+                            <div class="col-sm-6 col-md-3 col-lg-3 ">
+                                <div class="content-business">
+                                    <div class=" video-normal-show ">
+                                        <iframe
+                                            width="100%"
+                                            src="{{$child->links[0]}}"
+                                            title="{{$child->title}}"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @elseif(isset($child->images)&&count($child->images)>0)
+
+                            <div class="col-sm-6 col-md-3 col-lg-3 ">
+                                <div class="content-business">
+                                    <div class="image-normal-show ">
+                                        <img src="{{$child->images[0]}}" alt="{{$child->title}}">
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
                 <div class="text-center">
                     <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$projects[0]->translate('en')->slug)}}"
                        class="btn btn-primary btn-view">
