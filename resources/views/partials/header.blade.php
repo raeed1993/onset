@@ -10,7 +10,7 @@
                 </a>
             @else
                 <a class="navbar-brand" href="{{route('en.home.page')}}">
-                    <img src="{{asset('images/logo.png')}}" height="50" width="50"  alt="onset logo"/>
+                    <img src="{{asset('images/logo.png')}}" height="50" width="50" alt="onset logo"/>
                 </a>
             @endif
             <button
@@ -175,18 +175,34 @@
             <i class="uil uil-multiply"></i>
         </div>
         <div class="mobile-nav-content">
-            <a href="{{route('home.page')}}"
-               class="nav-link {{$url==route('home.page')?'active':''}}">@lang('pages.home')</a>
-            <a href="{{route('services.page')}}"
-               class="nav-link {{$url==route('services.page')?'active':''}}">@lang('pages.services')</a>
-            <a href="{{route('projects.page')}}"
-               class="nav-link {{$url==route('projects.page')?'active':''}}"> @lang('pages.portfolio')</a>
-            <a href="{{route('blogs.page')}}"
-               class="nav-link {{$url==route('blogs.page')?'active':''}}"> @lang('pages.blog')</a>
-            <a href="{{route('about.page')}}"
-               class="nav-link {{$url==route('about.page')?'active':''}}">@lang('pages.about_us')</a>
-            <a href="{{route('contact.page')}}"
-               class="nav-link {{$url==route('contact.page')?'active':''}}">@lang('pages.contact_us')</a>
+            @if (app()->getLocale() =='ar')
+                <a href="{{route('home.page')}}"
+                   class="nav-link {{$url==route('home.page')?'active':''}}">@lang('pages.home')</a>
+                <a href="{{route('services.page')}}"
+                   class="nav-link {{$url==route('services.page')?'active':''}}">@lang('pages.services')</a>
+                <a href="{{route('projects.page')}}"
+                   class="nav-link {{$url==route('projects.page')?'active':''}}"> @lang('pages.portfolio')</a>
+                <a href="{{route('blogs.page')}}"
+                   class="nav-link {{$url==route('blogs.page')?'active':''}}"> @lang('pages.blog')</a>
+                <a href="{{route('about.page')}}"
+                   class="nav-link {{$url==route('about.page')?'active':''}}">@lang('pages.about_us')</a>
+                <a href="{{route('contact.page')}}"
+                   class="nav-link {{$url==route('contact.page')?'active':''}}">@lang('pages.contact_us')</a>
+
+            @else
+                <a href="{{route('en.home.page')}}"
+                   class="nav-link {{$url==route('en.home.page')?'active':''}}">@lang('pages.home')</a>
+                <a href="{{route('en.services.page')}}"
+                   class="nav-link {{$url==route('en.services.page')?'active':''}}">@lang('pages.services')</a>
+                <a href="{{route('en.projects.page')}}"
+                   class="nav-link {{$url==route('en.projects.page')?'active':''}}"> @lang('pages.portfolio')</a>
+                <a href="{{route('en.blogs.page')}}"
+                   class="nav-link {{$url==route('en.blogs.page')?'active':''}}"> @lang('pages.blog')</a>
+                <a href="{{route('en.about.page')}}"
+                   class="nav-link {{$url==route('en.about.page')?'active':''}}">@lang('pages.about_us')</a>
+                <a href="{{route('en.contact.page')}}"
+                   class="nav-link {{$url==route('en.contact.page')?'active':''}}">@lang('pages.contact_us')</a>
+            @endif
             <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -199,11 +215,46 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                    <li><a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            {{ $properties['native'] }}
-                        </a></li>
+                    <li>
+
+                        {{--                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"--}}
+                        {{--                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
+                        {{--                                        {{ $properties['native'] }}--}}
+                        {{--                                    </a>--}}
+                        @if (app()->getLocale() =='ar')
+                            @if (\Illuminate\Support\Facades\Route::getCurrentRoute()->parameters()>0)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{route('en.'.\Illuminate\Support\Facades\Route::currentRouteName(),\Illuminate\Support\Facades\Route::getCurrentRoute()->parameters())}}">
+                                    {{ $properties['native'] }}
+                                </a>
+
+
+                            @else
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{ route('en.'.\Illuminate\Support\Facades\Route::currentRouteName())}}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            @endif
+                        @else
+                            @if (\Illuminate\Support\Facades\Route::getCurrentRoute()->parameters()>0)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{route(explode('en.',\Illuminate\Support\Facades\Route::currentRouteName())[1],\Illuminate\Support\Facades\Route::getCurrentRoute()->parameters())}}">
+                                    {{ $properties['native'] }}
+                                </a>
+
+
+                            @else
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{route(explode('en.',\Illuminate\Support\Facades\Route::currentRouteName())[1])}}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            @endif
+                        @endif
+
+
+                    </li>
                 @endforeach
+
                 {{--                <li><a class="dropdown-item" href="#">ar</a></li>--}}
                 {{--                <li><a class="dropdown-item" href="#">en</a></li>--}}
             </ul>
