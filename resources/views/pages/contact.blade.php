@@ -6,8 +6,7 @@
                               'updated_time'=>$page->updated_at,
                               'published_time'=>$page->created_at])
 
-{{--    <script src="https://www.google.com/recaptcha/api.js"></script>--}}
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+
 
 
 @endsection
@@ -30,7 +29,7 @@
             <form action="{{route('contact.store')}}" method="POST" id="contact-form">
                 @csrf
                 <input type="hidden" class="g-recaptcha" name="recaptcha_token" id="recaptcha_token">
-              
+
                 <div class="row">
                     <div class="col-12">
                         <div class="mb-4">
@@ -100,8 +99,8 @@
 
 @endsection
 @push('js')
-{{--    <script src="https://www.google.com/recaptcha/api.js"></script>--}}
-{{--    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>--}}
+    {{--    <script src="https://www.google.com/recaptcha/api.js"></script>--}}
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
     <script>
         grecaptcha.ready(function () {
             document.getElementById('contact-form').addEventListener("submit", function (event) {
@@ -114,14 +113,14 @@
                     });
             });
         });
-        function onClick(e) {
-            e.preventDefault();
-            grecaptcha.ready(function() {
-                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'submit'}).then(function(token) {
+        {{--function onClick(e) {--}}
+        {{--    e.preventDefault();--}}
+        {{--    grecaptcha.ready(function() {--}}
+        {{--        grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'submit'}).then(function(token) {--}}
 
-                });
-            });
-        }
+        {{--        });--}}
+        {{--    });--}}
+        {{--}--}}
         // function onSubmit(token) {
         //     document.getElementById("contact-form").submit();
         // }
