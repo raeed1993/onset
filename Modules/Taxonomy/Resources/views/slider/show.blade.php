@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" novalidate="novalidate" action="{{route('admin.slider.store')}}" method="POST">
+                <form id="quickForm" novalidate="novalidate" action="{{route('admin.slider.update')}}" method="POST">
                     @csrf
 
                     <input value="{{$slider->id}}" type="hidden" name="taxonomy_id">

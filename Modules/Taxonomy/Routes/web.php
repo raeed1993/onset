@@ -22,7 +22,8 @@ Route::group(
 //            Route::post('/taxonomy/toggle-status/', [AppTaxonomyController::class, 'toggleStatus'])->name('toggle-status');
 
             Route::get('/sliders', [SliderController::class, 'index'])->name('admin.slider.index');
-            Route::post('/sliders', [SliderController::class, 'update'])->name('admin.slider.store');
+            Route::post('/sliders', [SliderController::class, 'store'])->name('admin.slider.store');
+            Route::post('/sliders/update', [SliderController::class, 'update'])->name('admin.slider.update');
             Route::get('/sliders/create', [SliderController::class, 'create'])->name('admin.slider.create');
             Route::get('/sliders/edit/{id}', [SliderController::class, 'edit'])->name('admin.slider.edit');
             Route::post('/sliders/delete', [SliderController::class, 'delete'])->name('admin.slider.delete');
