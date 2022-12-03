@@ -18,7 +18,8 @@ body {
 .page-banner {
     //padding: 160px 0;
     height: 350px;
-    padding: 150px;
+    padding-top: 150px;
+    padding-bottom: 150px;
     position: relative;
     &::before {
         content: "";

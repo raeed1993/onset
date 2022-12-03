@@ -590,6 +590,22 @@ footer {
     }
 
 }
+.image-normal-show-mobile {
+    position: relative;
+
+    background-color: $dark;
+    border: 3px solid $primary;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+}
 .video-normal-show {
     position: relative;
 

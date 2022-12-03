@@ -58,31 +58,20 @@ class SliderRepository extends RepositoriesAbstract implements SliderInterface
     public function updateModel(array $data)
     {
 
-        $list = $this->all();
-
-        foreach ($list as $itm)
-            $itm->delete();
-
-
-        if (isset($data['sliders'])) {
-            foreach ($data['sliders'] as $item) {
-
-                $slider = new Taxonomy();
-                if (isset($item['link']) && $item['link'] != null)
-                    $slider->links = $item['link'];
-                $slider->primary_image = $item['primary_image'];
-                $slider->status = 1;
-                $slider->type = Taxonomy::TYPE_SLIDER['no'];
-                foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
-                    if (isset($item['title-' . $key]))
-                        $slider->translateOrNew($key)->title = $item['title-' . $key];
-                    if (isset($item['label-' . $key]))
-                        $slider->translateOrNew($key)->content = $item['label-' . $key];
-                }
-
-                $slider->save();
-            }
+        $slider = $this->findOrFail($data['taxonomy_id']);
+        if (isset($data['link']) && $data['link'] != null)
+            $slider->links = $data['link'];
+        $slider->primary_image = $data['primary_image'];
+        $slider->status = 1;
+        $slider->type = Taxonomy::TYPE_SLIDER['no'];
+        foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
+            if (isset($data['title-' . $key]))
+                $slider->translateOrNew($key)->title = $data['title-' . $key];
+            if (isset($data['label-' . $key]))
+                $slider->translateOrNew($key)->content = $data['label-' . $key];
         }
+
+        $slider->save();
 
         return true;
     }

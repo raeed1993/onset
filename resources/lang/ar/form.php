@@ -3,6 +3,7 @@
 return [
     'request_photoshoot' => 'طلب عرض التصوير',
     'full_name' => ' الاسم الكامل',
+    'message' => 'الرسالة',
     'phone_number' => 'رقم الهاتف',
     'email' => 'البريد الالكتروني',
     'project_name_company' => ' اسم المشروع - الشركة',
@@ -35,7 +36,7 @@ return [
     'submit' => 'ارسال النموذج',
     'visual_identity_request' => 'طلب الهوية البصرية',
     'about_project' => 'نبذة عن المشروع',
-    'looking_at_other_logos_which_logos_are_better' => 'بالنظر إلى شعارات اخرى, أي الشعارات أفضل',
+    'looking_at_other_logos_which_logos_are_better' => 'بالنظر إلى شعارات اخرى, أي الشعارات تفضّل',
     'logo_type' => 'نوع الشعار',
     'most_important_services_products_provided_project' => '   أهم الخدمات أو المنتجات التي يقدمها المشروع',
     'competitive_advantage_the_project' => 'الميزة التنافسية للمشروع',

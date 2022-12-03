@@ -3,6 +3,7 @@
 return [
     'request_photoshoot' => 'Request a photo shoot',
     'full_name' => 'Full Name',
+    'message' => 'Message',
     'phone_number' => 'Phone Number',
     'email' => 'Email',
     'project_name_company' => 'Project Name - Company',

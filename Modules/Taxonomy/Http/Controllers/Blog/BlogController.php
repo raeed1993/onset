@@ -14,8 +14,8 @@ class BlogController extends Controller
     public function index(BlogInterface $interface)
     {
         $list = $interface->all();
-        $table_name = 'Blogs';
-        $route_name = 'blog';
+            $table_name = 'Blogs';
+            $route_name = 'blog';
         return view('taxonomy::list', compact('list', 'table_name', 'route_name'));
     }
 
@@ -71,8 +71,6 @@ class BlogController extends Controller
             DB::beginTransaction();
             $interface->delete($interface->findOrFail($request['taxonomy_id']));
             DB::commit();
-
-
             return redirect()->route('admin.blog.index')->withSuccess('blog Deleted successfully');
 
         } catch (\Exception $exception) {

@@ -6,11 +6,11 @@
         <nav class="navbar navbar-expand-lg">
             @if (app()->getLocale() =='ar')
                 <a class="navbar-brand" href="{{route('home.page')}}">
-                    <img src="{{asset('images/logo.png')}}" alt="onset logo"/>
+                    <img src="{{asset('images/logo.png')}}" height="50" width="50" alt="onset logo"/>
                 </a>
             @else
                 <a class="navbar-brand" href="{{route('en.home.page')}}">
-                    <img src="{{asset('images/logo.png')}}" alt="onset logo"/>
+                    <img src="{{asset('images/logo.png')}}" height="50" width="50"  alt="onset logo"/>
                 </a>
             @endif
             <button

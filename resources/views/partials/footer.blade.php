@@ -32,7 +32,7 @@
                             @elseif($link->translate('en')->slug == 'location')
                                 <li>
                                     <a href="{{$link->links[0]}}">
-                                        {{$link->links[0]}}
+                                        {{$link->translate('en')->content}}
                                         <i class="uil uil-location-point"></i>
                                     </a>
                                 </li>

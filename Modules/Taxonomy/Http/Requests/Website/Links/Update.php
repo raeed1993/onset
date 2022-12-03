@@ -28,6 +28,7 @@ class Update extends FormRequest
             'phone-links' => ['required', 'array'],
             'email-links' => ['required', 'array'],
             'location-links' => ['required', 'array'],
+            'location-labels' => ['required', 'array'],
             'ids' => ['array', 'required'],
             'ids.*' => ['numeric', 'exists:taxonomies,id'],
 

@@ -23,7 +23,9 @@ Route::group(
 
             Route::get('/sliders', [SliderController::class, 'index'])->name('admin.slider.index');
             Route::post('/sliders', [SliderController::class, 'update'])->name('admin.slider.store');
-
+            Route::get('/sliders/create', [SliderController::class, 'create'])->name('admin.slider.create');
+            Route::get('/sliders/edit/{id}', [SliderController::class, 'edit'])->name('admin.slider.edit');
+            Route::post('/sliders/delete', [SliderController::class, 'delete'])->name('admin.slider.delete');
 
             Route::get('/blogs', [BlogController::class, 'index'])->name('admin.blog.index');
             Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blog.create');
@@ -67,7 +69,6 @@ Route::group(
             Route::get('/website/links', [PagesController::class, 'edit_links'])->name('admin.website.links-edit');
             Route::post('/website/pages/update', [PagesController::class, 'update'])->name('admin.website.update');
             Route::post('/website/links/update', [PagesController::class, 'updateSocial'])->name('admin.website.links-update');
-
 
 
             Route::post('/taxonomy/toggle-status', [\Modules\Taxonomy\Http\Controllers\TaxonomyController::class, 'toggle_status'])->name('admin.taxonomy-toggle-status');

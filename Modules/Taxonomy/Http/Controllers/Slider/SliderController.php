@@ -15,7 +15,20 @@ class SliderController extends Controller
         $list = $interface->all();
         $table_name = 'Sliders';
         $route_name = 'slider';
-        return view('taxonomy::slider.create', compact('list', 'table_name', 'route_name'));
+//        return view('taxonomy::slider.create', compact('list', 'table_name', 'route_name'));
+        return view('taxonomy::list', compact('list', 'table_name', 'route_name'));
+    }
+
+    public function create()
+    {
+        return view('taxonomy::slider.create');
+    }
+
+    public function edit(SliderInterface $interface, $id)
+    {
+        $slider = $interface->findOrFail($id);
+        return view('taxonomy::slider.show', compact('slider'));
+
     }
 
     public function update(Update $request, SliderInterface $interface)
@@ -35,4 +48,20 @@ class SliderController extends Controller
 
     }
 
+    public function delete(Id $request, SliderInterface $interface)
+    {
+        try {
+            DB::beginTransaction();
+            $interface->delete($interface->findOrFail($request['taxonomy_id']));
+            DB::commit();
+
+
+            return redirect()->route('admin.slider.index')->withSuccess('slider Deleted successfully');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->back()->withErrors($exception->getMessage());
+        }
+
+    }
 }

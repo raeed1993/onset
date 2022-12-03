@@ -10,11 +10,27 @@
                 </div>
                 <div class="col-md-8">
 
-                    <input class="form-control" value="{{old($link.'-links',$item->links[0])}}" name="{{$link}}-links[]">
+                    <input class="form-control" value="{{old($link.'-links',$item->links[0])}}"
+                           name="{{$link}}-links[]">
                 </div>
 
             </div>
 
+            @if ($item->translate('en')->slug == 'location')
+                <hr/>
+                <div class="row">
+                    <div class="col-md-4">
+                        Label Location
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <input class="form-control" value="{{old($link.'-labels',$item->translate('en')->content)}}"
+                               name="{{$link}}-labels[]">
+                    </div>
+
+                </div>
+            @endif
 
         </div>
 

@@ -48,7 +48,7 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
 
     public function findBySlug($slug, array $with = [])
     {
-        $result = $this->findOrFail(TaxonomyTranslation::where('slug',$slug)->first()->taxonomy_id);
+        $result = $this->findOrFail(TaxonomyTranslation::where('slug', $slug)->first()->taxonomy_id);
 
 //        $data = $this->make($with)
 //            ->join('taxonomy_translations', 'taxonomies.id', '=', 'taxonomy_translations.taxonomy_id')
@@ -116,6 +116,9 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
         foreach ($data['ids'] as $id) {
             $link = $this->findSetting($id);
             $link->links = $data[$link->translate('en')->slug . '-links'];
+            if ($link->translate('en')->slug == 'location') {
+                $link->translateOrNew('en')->content = $data[$link->translate('en')->slug . '-labels'][0];
+            }
 
             $link->save();
         }

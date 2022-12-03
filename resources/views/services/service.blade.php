@@ -8,12 +8,14 @@
 @endsection
 @section('content')
 
-    <section class="page-banner contact-us">
+{{--    <section class="page-banner contact-us">--}}
+    <section class=" page-banner photography">
         <div class="img-banner">
             <img src="{{isset($obj->images)?$obj->images[0]:''}}" alt=" {{$obj->title}}">
         </div>
         <div class="container">
-            <div class="content-service">
+{{--            <div class="content-service">--}}
+            <div class="page-title">
                 <h1 class="secondary">
                     {{$obj->title}}
                 </h1>

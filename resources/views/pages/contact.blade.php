@@ -37,7 +37,7 @@
                                 class="form-control"
                                 id="exampleFormControlInput1"
                                 value="{{old('name')}}"
-                                placeholder=@lang('form.full_name')
+                                placeholder="@lang('form.full_name')"
                             />
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 value="{{old('email')}}"
                                 class="form-control"
                                 id="exampleFormControlInput1"
-                                placeholder=@lang('form.email')
+                                placeholder="@lang('form.email')"
                             />
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 class="form-control"
                                 value="{{old('phone_number')}}"
                                 id="exampleFormControlInput1"
-                                placeholder=@lang('form.phone_number')
+                                placeholder="@lang('form.phone_number')"
                             />
                         </div>
                     </div>
@@ -72,6 +72,7 @@
               <textarea
                   class="form-control"
                   name="content"
+                  placeholder="@lang('form.message')"
                   id="exampleFormControlTextarea1"
                   rows="10"
               >{{old('content')}}</textarea>

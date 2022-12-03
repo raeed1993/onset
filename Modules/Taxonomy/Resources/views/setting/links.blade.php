@@ -6,7 +6,9 @@
 
         @foreach($data as $item)
 
-            @include('taxonomy::setting.partials.link',['link'=>$item->translate('en')->slug])
+                @include('taxonomy::setting.partials.link',['link'=>$item->translate('en')->slug])
+
+
         @endforeach
 
         <button type="submit" class="btn btn-primary"> Save</button>
