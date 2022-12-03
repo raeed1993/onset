@@ -6,6 +6,8 @@
                               'updated_time'=>$page->updated_at,
                               'published_time'=>$page->created_at])
 
+{{--    <script src="https://www.google.com/recaptcha/api.js"></script>--}}
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 
 
 @endsection
@@ -28,6 +30,7 @@
             <form action="{{route('contact.store')}}" method="POST" id="contact-form">
                 @csrf
                 <input type="hidden" class="g-recaptcha" name="recaptcha_token" id="recaptcha_token">
+                <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
                 <div class="row">
                     <div class="col-12">
                         <div class="mb-4">
@@ -81,7 +84,7 @@
                     <div class="col-12 text-center mt-5">
 {{--                        <button--}}
 {{--                                class="btn btn-primary g-recaptcha"--}}
-{{--                                data-sitekey="6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"--}}
+{{--                                data-sitekey="{{ config('services.recaptcha.site_key') }}"--}}
 {{--                                data-callback='onSubmit'--}}
 {{--                                data-action='submit'>--}}
 {{--                            @lang('form.submit')--}}
@@ -97,8 +100,8 @@
 
 @endsection
 @push('js')
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+{{--    <script src="https://www.google.com/recaptcha/api.js"></script>--}}
+{{--    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>--}}
     <script>
         grecaptcha.ready(function () {
             document.getElementById('contact-form').addEventListener("submit", function (event) {
