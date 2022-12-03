@@ -27,7 +27,7 @@
         <div class="container">
             <form action="{{route('contact.store')}}" method="POST" id="contact-form">
                 @csrf
-
+                <input type="hidden" class="g-recaptcha" name="recaptcha_token" id="recaptcha_token">
                 <div class="row">
                     <div class="col-12">
                         <div class="mb-4">
@@ -79,11 +79,14 @@
                         </div>
                     </div>
                     <div class="col-12 text-center mt-5">
-                        <button
-                                class="btn btn-primary g-recaptcha"
-                                data-sitekey="6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"
-                                data-callback='onSubmit'
-                                data-action='submit'>
+{{--                        <button--}}
+{{--                                class="btn btn-primary g-recaptcha"--}}
+{{--                                data-sitekey="6LfxxT0hAAAAANqQO8rsiE9vZMclDrMXMqkTMwy3"--}}
+{{--                                data-callback='onSubmit'--}}
+{{--                                data-action='submit'>--}}
+{{--                            @lang('form.submit')--}}
+{{--                        </button>--}}
+                        <button type="submit" class="btn btn-primary g-recaptcha">
                             @lang('form.submit')
                         </button>
                     </div>
