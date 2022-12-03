@@ -32,7 +32,7 @@ class SliderRepository extends RepositoriesAbstract implements SliderInterface
      */
     public function all(array $with = [])
     {
-        $data = $this->make($with)->active()->sliders();
+        $data = $this->make($with)->sliders();
 
         return $this->applyBeforeExecuteQuery($data)->paginate(20);
     }
