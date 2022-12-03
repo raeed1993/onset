@@ -12342,7 +12342,7 @@ footer .footer-contact ul li a p {
     top: 20px;
     right: 20px;
     border: 2px solid #cecece;
-    z-index: 20;
+    z-index: 1;
 }
 
 .btn-radio-group {
