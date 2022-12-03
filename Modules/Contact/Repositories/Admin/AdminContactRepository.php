@@ -10,6 +10,11 @@ use Modules\Taxonomy\Repositories\RepositoriesAbstract;
 
 class AdminContactRepository extends RepositoriesAbstract implements AdminContactInterface
 {
+    public function all(array $with = [])
+    {
+        return Contact::orderBy('id', 'desc')->paginate(20);
+    }
+
     public static function adminComposerContactUnreadCount()
     {
         return Contact::where('read_at', null)->paginate(20);
