@@ -30,7 +30,7 @@
             <form action="{{route('contact.store')}}" method="POST" id="contact-form">
                 @csrf
                 <input type="hidden" class="g-recaptcha" name="recaptcha_token" id="recaptcha_token">
-                <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
+              
                 <div class="row">
                     <div class="col-12">
                         <div class="mb-4">
