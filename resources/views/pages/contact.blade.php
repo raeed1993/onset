@@ -8,7 +8,7 @@
 
 
 
-
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 @endsection
 @section('content')
     <section class="page-banner contact-us">
@@ -100,7 +100,7 @@
 @endsection
 @push('js')
     {{--    <script src="https://www.google.com/recaptcha/api.js"></script>--}}
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+
     <script>
         grecaptcha.ready(function () {
             document.getElementById('contact-form').addEventListener("submit", function (event) {
