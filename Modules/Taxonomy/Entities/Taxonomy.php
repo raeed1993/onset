@@ -22,7 +22,7 @@ class Taxonomy extends Model
 
     public $translationForeignKey = 'taxonomy_id';
     public $translatedAttributes = ['title', 'content', 'slug'];
-    protected $fillable = ['title', 'content', 'slug', 'type', 'parent_id', 'status', 'primary_image','image_link'];
+    protected $fillable = ['title', 'content', 'slug', 'type', 'parent_id', 'status', 'primary_image', 'image_link'];
     protected $append = ['option', 'projects_service'];
 
     protected $casts = [
@@ -67,12 +67,17 @@ class Taxonomy extends Model
         return $this->attributes['image_link'] = serialize($value);
     }
 
-        public function getImageLinkAttribute()
+    public function getImageLinkAttribute()
     {
         if (is_null($this->attributes['image_link'])) {
             return null;
         }
         return unserialize($this->attributes['image_link']);
+    }
+   public function getPrimaryImageAttribute()
+    {
+
+        return url('').$this->attributes['primary_image'];
     }
 
     public function scopeSliders($query)

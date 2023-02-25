@@ -18,7 +18,6 @@ class Update extends FormRequest
 
     public function rules()
     {
-
         return [
             'services-primary-image' => ['required', 'string'],
             'projects-primary-image' => ['required', 'string'],

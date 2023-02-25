@@ -34,15 +34,16 @@ class ClientRepository extends RepositoriesAbstract implements ClientInterface
     {
         $data = $this->make($with)->clients();
 
-        return $this->applyBeforeExecuteQuery($data)->paginate(20);
+        return $this->applyBeforeExecuteQuery($data)->orderBy('id','desc')->paginate(20);
     }
 
 
     public function store($data)
     {
         $client = new Taxonomy();
-        if (isset($data['primary-image']))
-            $client->primary_image = $data['primary-image'];
+        if (isset($data['primary-image'])) {
+            $client->primary_image = explode(url(''), $data['primary-image'])[1];
+        }
         if (isset($data['status']))
             $client->status = $data['status'];
 
@@ -62,8 +63,9 @@ class ClientRepository extends RepositoriesAbstract implements ClientInterface
     public function updateModel(array $data)
     {
         $client = $this->findOrFail($data['taxonomy_id']);
-        if (isset($data['primary-image']))
-            $client->primary_image = $data['primary-image'];
+        if (isset($data['primary-image'])) {
+            $client->primary_image = explode(url(''), $data['primary-image'])[1];
+        }
 
 
         if (isset($data['status']))

@@ -13,35 +13,35 @@ class PagesController extends Controller
     {
         $data = $interface->homePage();
         $about = $interface->findBySlug('about-us');
-        return view('pages.home', compact('data','about'));
+        return view('pages.home', compact('data', 'about'));
     }
 
     public function services(GuestInterface $interface)
     {
         $services = $interface->services();
         $page = $interface->findBySlug('services');
-        return view('pages.services', compact('services','page'));
+        return view('pages.services', compact('services', 'page'));
     }
 
     public function projects(GuestInterface $interface)
     {
         $projects = $interface->projects();
         $page = $interface->findBySlug('projects');
-        return view('pages.projects', compact('projects','page'));
+        return view('pages.projects', compact('projects', 'page'));
     }
 
     public function blogs(GuestInterface $interface)
     {
         $blogs = $interface->blogs();
         $page = $interface->findBySlug('blogs');
-        return view('pages.blogs', compact('blogs','page'));
+        return view('pages.blogs', compact('blogs', 'page'));
     }
 
     public function contact(GuestInterface $interface)
     {
         $page = $interface->findBySlug('contact-us');
 
-        return view('pages.contact',compact('page'));
+        return view('pages.contact', compact('page'));
     }
 
     public function aboutus(GuestInterface $interface)
@@ -52,25 +52,30 @@ class PagesController extends Controller
 
     public function show(GuestInterface $interface, $slug)
     {
+
+        if ($slug == 'en')
+            return redirect()->route('en.home.page');
         $obj = $interface->findBySlug($slug);
-        switch ($obj->type) {
+        if (isset($obj))
+            switch ($obj->type) {
 
-            case 2:
-                return view('services.service', compact('obj'));
-                break;
-            case 3:
-                return view('pages.contact');
-                break;
-            case 4:
-                $blogs = $interface->latestBlogs();
-                return view('blog.blog', compact('obj', 'blogs'));
-                break;
-            case 6:
-                $links = GuestRepository::layout();
-                return view('project.project', compact('obj', 'links'));
-                break;
+                case 2:
+                    return view('services.service', compact('obj'));
+                    break;
+                case 3:
+                    return view('pages.contact');
+                    break;
+                case 4:
+                    $blogs = $interface->latestBlogs();
+                    return view('blog.blog', compact('obj', 'blogs'));
+                    break;
+                case 6:
+                    $links = GuestRepository::layout();
+                    return view('project.project', compact('obj', 'links'));
+                    break;
 
-        }
+            }
+        else  return redirect()->route('home.page');
 
     }
 }

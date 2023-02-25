@@ -31,11 +31,13 @@ class GuestRepository implements GuestInterface
     public function latestBlogs()
     {
         return Taxonomy::blogs()->active()->orderBy('id', 'desc')->limit(3)->get();
-}
+    }
+
     public function find($id)
     {
         return Taxonomy::find($id);
     }
+
     public function services()
     {
         return Taxonomy::services()->active()->get();
@@ -53,7 +55,6 @@ class GuestRepository implements GuestInterface
 
     public static function layout()
     {
-
         $links = Cache::remember('meta_social', 60 * 60, function () {
             return Taxonomy::settings()->active()->get();
         });
@@ -62,10 +63,10 @@ class GuestRepository implements GuestInterface
 
     public function findBySlug($slug)
     {
-        return $this->find(TaxonomyTranslation::where('slug',$slug)->first()->taxonomy_id);
-//        $obj = Taxonomy::join('taxonomy_translations', 'taxonomies.id', '=', 'taxonomy_translations.taxonomy_id')
-//            ->where('taxonomy_translations.slug', $slug)->first();
-//
-//        return $obj;
+        $obj = TaxonomyTranslation::where('slug', $slug)->first();
+        if (isset($obj))
+            return $this->find($obj->taxonomy_id);
+        return null;
+
     }
 }

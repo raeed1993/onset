@@ -34,7 +34,7 @@ class MetaRepository extends RepositoriesAbstract
         $data = $this->make($with)
             ->where('type', Taxonomy::TYPE_META['no']);
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->orderBy('id','desc')->get();
     }
 
     public function store($data)

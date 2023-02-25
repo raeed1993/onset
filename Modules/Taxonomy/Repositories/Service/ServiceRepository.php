@@ -37,16 +37,20 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
             ->services();
 
 
-        return $this->applyBeforeExecuteQuery($data)->paginate(20);
+        return $this->applyBeforeExecuteQuery($data)->orderBy('id','desc')->paginate(20);
     }
 
     public function updateModel(array $data)
     {
         $service = $this->findOrFail($data['taxonomy_id']);
-        if (isset($data['primary-image']))
-            $service->primary_image = $data['primary-image'];
-        if (isset($data['background-image']))
-            $service->images = $data['background-image'];
+        if (isset($data['primary-image'])) {
+            $service->primary_image = explode(url(''), $data['primary-image'])[1];
+        }
+        if (isset($data['background-image'])) {
+            foreach ($data['background-image'] as $path)
+                $paths_background[] = explode(url(''), $path)[1];
+            $service->images = $paths_background;
+        }
 
         $service->status = $data['status'];
 
@@ -62,7 +66,7 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
         if (isset($data['services'])) {
             foreach ($data['services'] as $item) {
                 $sub_service = new Taxonomy();
-                $sub_service->primary_image = $item['primary-image'];
+                $sub_service->primary_image = explode(url(''), $item['primary-image'])[1];
                 $sub_service->status = 1;
                 $sub_service->parent_id = $service->id;
                 $sub_service->type = Taxonomy::TYPE_SERVICE['no'];
@@ -79,11 +83,18 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
 
     public function store($data)
     {
+
         $service = new Taxonomy();
-        if (isset($data['primary-image']))
-            $service->primary_image = $data['primary-image'];
-        if (isset($data['background-image']))
-            $service->images = $data['background-image'];
+        if (isset($data['primary-image'])) {
+            $service->primary_image = explode(url(''), $data['primary-image'])[1];
+        }
+
+        if (isset($data['background-image'])) {
+            foreach ($data['background-image'] as $path)
+                $paths_background[] = explode(url(''), $path)[1];
+            $service->images = $paths_background;
+        }
+
         $service->status = $data['status'];
         $service->type = Taxonomy::TYPE_SERVICE['no'];
 
@@ -94,7 +105,7 @@ class ServiceRepository extends RepositoriesAbstract implements ServiceInterface
         if (isset($data['services'])) {
             foreach ($data['services'] as $item) {
                 $sub_service = new Taxonomy();
-                $sub_service->primary_image = $item['primary-image'];
+                $sub_service->primary_image = explode(url(''), $item['primary-image'])[1];;
 
                 $sub_service->status = 1;
                 $sub_service->parent_id = $service->id;

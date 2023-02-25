@@ -73,7 +73,7 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
     {
         $data = $this->make($with)->meta();
 
-        return $this->applyBeforeExecuteQuery($data)->get();
+        return $this->applyBeforeExecuteQuery($data)->orderBy('id','desc')->get();
     }
 
     public function links(array $with = [])
@@ -95,11 +95,14 @@ class WebsiteRepository extends RepositoriesAbstract implements WebsiteInterface
 
     public function update_pages($data)
     {
+
         if (Cache::has('meta_pages'))
             Cache::forget('meta_pages');
         foreach ($data['ids'] as $id) {
+
             $page = $this->findOrFail($id);
-            $page->primary_image = $data[$page->translate('en')->slug . '-primary-image'];
+
+            $page->primary_image = explode(url(''),  $data[$page->translate('en')->slug . '-primary-image'])[1];
             foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {
                 $page->translateOrNew($key)->title = $data[$page->translate('en')->slug . '-title-' . $key];
                 $page->translateOrNew($key)->content = $data[$page->translate('en')->slug . '-content-' . $key];

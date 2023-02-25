@@ -34,14 +34,15 @@ class SliderRepository extends RepositoriesAbstract implements SliderInterface
     {
         $data = $this->make($with)->sliders();
 
-        return $this->applyBeforeExecuteQuery($data)->paginate(20);
+        return $this->applyBeforeExecuteQuery($data)->orderBy('id','desc')->paginate(20);
     }
 
     public function store($data)
     {
         $slider = new Taxonomy();
         if (isset($data['primary_image']))
-            $slider->primary_image = $data['primary_image'];
+            $slider->primary_image = explode(url(''), $data['primary_image'])[1];
+
     //    $slider->status = $data['status'];
         $slider->type = Taxonomy::TYPE_SLIDER['no'];
         if (isset($data['link']) && $data['link'] != null)
@@ -58,11 +59,12 @@ class SliderRepository extends RepositoriesAbstract implements SliderInterface
 
     public function updateModel(array $data)
     {
-
         $slider = $this->findOrFail($data['taxonomy_id']);
         if (isset($data['link']) && $data['link'] != null)
             $slider->links = $data['link'];
-        $slider->primary_image = $data['primary_image'];
+        if (isset($data['primary_image'])) {
+            $slider->primary_image = explode(url(''), $data['primary_image'])[1];
+        }
         $slider->status = 1;
         $slider->type = Taxonomy::TYPE_SLIDER['no'];
         foreach ((new LaravelLocalization())->getSupportedLanguagesKeys() as $key) {

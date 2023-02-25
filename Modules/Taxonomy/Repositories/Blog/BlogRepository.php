@@ -34,14 +34,16 @@ class BlogRepository extends RepositoriesAbstract implements BlogInterface
     {
         $data = $this->make($with)->blogs();
 
-        return $this->applyBeforeExecuteQuery($data)->paginate(20);
+        return $this->applyBeforeExecuteQuery($data)->orderBy('id','desc')->paginate(20);
     }
 
     public function store($data)
     {
+
         $blog = new Taxonomy();
-        if (isset($data['primary-image']))
-            $blog->primary_image = $data['primary-image'];
+        if (isset($data['primary-image'])) {
+            $blog->primary_image = explode(url(''), $data['primary-image'])[1];
+        }
         $blog->status = $data['status'];
         $blog->type = Taxonomy::TYPE_BLOG['no'];
 
@@ -57,10 +59,11 @@ class BlogRepository extends RepositoriesAbstract implements BlogInterface
 
     public function updateModel(array $data)
     {
-        $blog = $this->findOrFail($data['taxonomy_id']);
-        if (isset($data['primary-image']))
-            $blog->primary_image = $data['primary-image'];
 
+        $blog = $this->findOrFail($data['taxonomy_id']);
+        if (isset($data['primary-image'])) {
+            $blog->primary_image = explode(url(''), $data['primary-image'])[1];
+        }
 
         $blog->status = $data['status'];
 
