@@ -134,7 +134,7 @@
                     @endforeach
                 </div>
                 <div class="text-center">
-                    <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$projects[0]->translate('en')->slug)}}"
+                    <a href="{{route('taxonomy.show',$projects[0]->translate('en')->slug)}}"
                        class="btn btn-primary btn-view">
                         @lang('pages.see_all_projects')
                     </a>

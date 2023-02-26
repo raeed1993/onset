@@ -11,7 +11,7 @@ return [
 
     'accept-language-header' => true,
 
-    'hide-default-in-url'    => false,
+    'hide-default-in-url'    => true,
 
     'redirection-code'       => 302,
 

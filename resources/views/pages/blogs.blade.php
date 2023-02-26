@@ -49,7 +49,7 @@
                 @foreach($blogs as $blog)
 
                     <section class="col-md-6 col-lg-4 mb-4">
-                        <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
+                        <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}" class="text-decoration-none">
                         <div class="article-content text-white">
                             <div class="article-content_img">
                                 <img src="{{$blog->primary_image}}" alt="{{$blog->title}}"/>
@@ -79,7 +79,7 @@
                 <div class="swiper-wrapper">
                     @foreach($blogs as $blog)
                         <section class="swiper-slide">
-                            <a href="{{route(app()->getLocale()=='en'?app()->getLocale().'.taxonomy.show':'taxonomy.show',$blog->translate('en')->slug)}}"
+                            <a href="{{route('taxonomy.show',$blog->translate('en')->slug)}}"
                                class="text-decoration-none">
                                 <div class="content-business">
                                     <div class="content-business_img">
