@@ -10262,6 +10262,30 @@ body {
   font-family: "Changa", sans-serif;
 }
 
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-size: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  z-index: 99;
+  display: flex;
+  /* justify-items: center; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.whatsapp-button img {
+  height: 40px;
+  width: 40px;
+}
+
 .page-banner {
   height: 350px;
   padding-top: 150px;
@@ -10450,7 +10474,7 @@ img, svg {
   }
 }
 .navbar-brand img {
-  width: 70%;
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -11027,6 +11051,13 @@ footer .footer-contact ul li a p {
   width: 100%;
   height: 300px;
 }
+.image-normal-show img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .image-normal-show-mobile {
   position: relative;
   background-color: #000;
@@ -11034,12 +11065,6 @@ footer .footer-contact ul li a p {
   margin-bottom: 20px;
   width: 100%;
   height: 100%;
-}
-.image-normal-show img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 .image-normal-show-mobile img {
   width: 100%;
@@ -11102,7 +11127,7 @@ footer .footer-contact ul li a p {
   top: 20px;
   right: 20px;
   border: 2px solid #cecece;
-  z-index: 1;
+  z-index: 20;
 }
 
 .btn-radio-group {

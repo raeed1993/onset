@@ -36,8 +36,10 @@ use Modules\Order\Http\Controllers\OrderController;
 //    });
 
 
-Route::middleware('lang')
-    ->group(function () {
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function () {
         Route::get('/', [PagesController::class, 'homePage'])->name('home.page');
         Route::get('/services', [PagesController::class, 'services'])->name('services.page');
         Route::get('/projects', [PagesController::class, 'projects'])->name('projects.page');

@@ -23,7 +23,7 @@ Auth::routes();
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+        'middleware' => ['localizationRedirect', 'localeSessionRedirect', 'localeViewPath']
     ],
     function () {
         Route::prefix('admin')->middleware(['auth'])->group(function () {

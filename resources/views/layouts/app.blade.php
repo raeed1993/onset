@@ -23,6 +23,11 @@
 <body class="{{app()->getLocale()=='ar'?'ar-font':'en-font'}}">
 <div id="app">
 
+    <a href="https://api.whatsapp.com/send?phone=00905312660864" target="_blank" class="whatsapp-button">
+        <img src="/images/whatsapp-svgrepo-com.svg" alt="">
+    </a>
+      
+
     @if (config('app.env')==='production')
         @include('partials.header',['url'=>str_replace('http','https',request()->url())])
     @else
